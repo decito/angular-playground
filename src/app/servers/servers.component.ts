@@ -3,23 +3,35 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-servers',
 
-  // É válido também tornar o valor do selector '[app-servers]'...
-  // ... para então chamá-lo como <div app-servers />, por exemplo.
-
-  // Ou então como classe: '[.app-servers]'
-  // <div class=".app-servers" />
+  /* É válido também tornar o valor do selector igual a '[app-servers]',
+   * tornando-o uma diretiva.
+   * Para usar no formato de diretiva, pode-se usar <div app-servers />
+   * em um outro componente, por exemplo.
+   *
+   * Ou então tornar seu valor com sendo '[.app-servers]'.
+   * Ao fazer isso, o selector ganha valor de classe,
+   * podendo ser chamado assim, por exemplo: <div class=".app-servers" />
+  */
 
   templateUrl: './servers.component.html',
 
-  // É possível também inserir <app-server> no templateUrl e ele irá renderizar o componente diretamente.
-  // Assim como é aceito string interpolation (``).
+  /* É possível também informar diretamente o valor do template
+   * utilizando a propriedade template. Neste caso, um exemplo seria:
+   * template: '<app-server></app-server><app-server></app-server>'.
+   * É possível informar utilizando string interpolation (`) neste caso.
+  */
 
-  styleUrls: ['./servers.component.css'],
+  /**/
 
-  // Pode-se inserir outros documentos no array acima...
-
-  // ... ou então declarar diretamente o css como mostrado abaixo.
-  // styles: [`h3 {color: darkBlue}`]
+  /* Para estilizar, tem duas formas:
+   * a primeira é utilizando o caminho para a folha de estilo
+   * com a propriedade styleUrls.
+   * Ex: ['./servers.component.css'],
+   *
+   * a segunda é informando diretamente o css inline
+   * com a propriedade styles.
+   * Ex: styles: [`h3 {color: darkBlue}`]
+   */
 })
 export class ServersComponent {
   allowNewServer = false
