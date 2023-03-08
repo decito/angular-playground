@@ -25,16 +25,17 @@
   </div>
 
   <div>
-    <p *ngIf="newServerCreated; else noServerMessage">A new server has been created with the name {{serverName}}</p>
+    <p *ngIf="newServerCreated; else noServerMessage">
+      A new server has been created with the name {{serverName}}
+    </p>
 
     <ng-template #noServerMessage>
       <p>No server was created.</p>
     </ng-template>
   </div>
 
-  <div>
-    <app-server></app-server>
-
+  <div *ngFor="let server of servers">
+    {{server}}
     <app-server></app-server>
   </div>
 </main>

@@ -27,8 +27,11 @@ export class ServersComponent {
   serverName = 'Server name here'
   newServerCreated = false;
 
+  servers = ['Server_1', 'Server_2']
+
   createServer() {
     // this.serverCreationStatus = `A new server has been created with the name ${ this.serverName }`
+    this.servers.push(this.serverName)
     this.newServerCreated = true;
   }
 
