@@ -7,7 +7,8 @@
     </div>
 
     <div class="flex flex-col w-full">
-      <input type="text" [(ngModel)]="serverName" class="border-blue-400 border" />
+      <input type="text" [(ngModel)]="serverName"
+        class="border-blue-400 border disabled:opacity-50 disabled:cursor-not-allowed" />
 
       <label class="text-xs text-gray-600">Uses Two-way Binding</label>
     </div>
@@ -24,7 +25,11 @@
   </div>
 
   <div>
-    <p>{{serverCreationStatus}}</p>
+    <p *ngIf="newServerCreated; else noServerMessage">A new server has been created with the name {{serverName}}</p>
+
+    <ng-template #noServerMessage>
+      <p>No server was created.</p>
+    </ng-template>
   </div>
 
   <div>

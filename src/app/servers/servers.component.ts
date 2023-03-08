@@ -23,11 +23,13 @@ import { Component } from '@angular/core';
 })
 export class ServersComponent {
   allowNewServer = false
-  serverCreationStatus = 'No server was created.'
+  // serverCreationStatus = 'No server was created.'
   serverName = 'Server name here'
+  newServerCreated = false;
 
   createServer() {
-    this.serverCreationStatus = `A new server has been created with the name '${ this.serverName }'`
+    // this.serverCreationStatus = `A new server has been created with the name ${ this.serverName }`
+    this.newServerCreated = true;
   }
 
   updateServerName(event: Event) {
