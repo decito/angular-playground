@@ -1,0 +1,35 @@
+<main class="flex flex-col gap-4 items-center">
+  <div class="flex flex-col gap-4 items-center">
+    <div class="flex flex-col w-full">
+      <input type="text" (input)="updateServerName($event)" class="border-blue-400 border" />
+
+      <label class="text-xs text-gray-600">Does not use Two-way Binding</label>
+    </div>
+
+    <div class="flex flex-col w-full">
+      <input type="text" [(ngModel)]="serverName" class="border-blue-400 border" />
+
+      <label class="text-xs text-gray-600">Uses Two-way Binding</label>
+    </div>
+
+    <p>Result: {{serverName}}</p>
+
+
+    <button class="p-3 bg-blue-500 rounded text-white disabled:opacity-60 disabled:cursor-not-allowed w-fit"
+      [disabled]="!allowNewServer" (click)="createServer()">
+      Add new Server
+    </button>
+
+    <!-- <p [innerText]="allowNewServer"></p> -->
+  </div>
+
+  <div>
+    <p>{{serverCreationStatus}}</p>
+  </div>
+
+  <div>
+    <app-server></app-server>
+
+    <app-server></app-server>
+  </div>
+</main>
