@@ -1,1 +1,4 @@
-<p>The server ID {{serverId}} is currently {{getServerStatus()}}</p>
+<p>The server ID {{serverId}} is currently
+  <span [ngStyle]="{color: statusColor}">{{getServerStatus()}}</span>
+  .
+</p>
