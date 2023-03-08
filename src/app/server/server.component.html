@@ -1,4 +1,8 @@
-<p>The server ID {{serverId}} is currently
-  <span [ngStyle]="{color: statusColor}">{{getServerStatus()}}</span>
-  .
+<p>The server ID
+  <span [ngClass]="{
+    online: serverStatus === 'online',
+    offline: serverStatus === 'offline'
+  }">{{serverId}}</span>
+  is currently
+  <span [ngStyle]="{color: statusColor}">{{getServerStatus()}}</span>.
 </p>
