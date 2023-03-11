@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core'
 
 import { Server } from 'src/app/types/server'
 
@@ -13,8 +13,19 @@ import { Server } from 'src/app/types/server'
 export class ServerComponent {
   @Input() server: Server
 
+  /* É possível também informar um nome diferente do declarado após o @Input().
+   * Para isso, basta informé-lo na função do @Input()
+   *
+   * Ex: @Input("newServer") server: Server
+   *
+   * Neste caso, ao declarar a propriedade do <app-server>, deve-se
+   * utilizar como sendo:
+   *
+   * <app-server [newServer]="foo" />
+  */
+
   getServerStatus() {
-    return this.server.status;
+    return this.server.status
   }
 
   ngOnInit() {
