@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
+
+import { Server } from 'src/app/types/server'
 
 @Component({
   selector: 'app-servers',
@@ -36,22 +38,35 @@ import { Component } from '@angular/core';
 export class ServersComponent {
   allowNewServer = false
   // serverCreationStatus = 'No server was created.'
-  serverName = 'Server name here'
-  newServerCreated = false;
+  newServerName = 'Test'
+  newServerCreated = false
+  newServerId = 2
 
-  servers = ['Server_1', 'Server_2']
+  serverList: Server[] = [{ id: 1, name: "Root Server", status: "online" }]
 
   createServer() {
     // this.serverCreationStatus = `A new server has been created with the name ${ this.serverName }`
-    this.servers.push(this.serverName)
-    this.newServerCreated = true;
+
+    const newServer: Server = {
+      id: this.newServerId,
+      name: this.newServerName,
+      status: 'offline'
+    }
+
+    this.serverList.push(newServer)
+
+    this.newServerId += 1
+
+    this.newServerCreated = true
+
+    setTimeout(() => this.newServerCreated = false, 2000)
   }
 
   updateServerName(event: Event) {
-    this.serverName = (<HTMLInputElement>event.target).value
+    this.newServerName = (<HTMLInputElement>event.target).value
   }
 
   constructor() {
-    setTimeout(() => this.allowNewServer = true, 2000)
+    setTimeout(() => this.allowNewServer = true, 500)
   }
 }
