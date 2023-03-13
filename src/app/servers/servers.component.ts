@@ -66,6 +66,12 @@ export class ServersComponent {
     this.newServerName = (<HTMLInputElement>event.target).value
   }
 
+  onServerCreated(event) {
+    // Valor enviado via emitter do componente filho (server-component).
+
+    console.log(event)
+  }
+
   constructor() {
     setTimeout(() => this.allowNewServer = true, 500)
   }

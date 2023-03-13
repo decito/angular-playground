@@ -33,5 +33,6 @@
     </ng-template>
   </div>
 
-  <app-server *ngFor="let server of serverList; let i = index" [server]="server"></app-server>
+  <app-server *ngFor="let server of serverList; let i = index" [server]="server"
+    (serverCreated)="onServerCreated($event)"></app-server>
 </main>

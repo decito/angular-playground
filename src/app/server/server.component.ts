@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, EventEmitter, Output } from '@angular/core'
 
 import { Server } from 'src/app/types/server'
 
@@ -24,11 +24,25 @@ export class ServerComponent {
    * <app-server [newServer]="foo" />
   */
 
+  @Output() serverCreated = new EventEmitter<Server>()
+
+  /* O mesmo caso do @Input() acontece para o @Output().
+   *
+   * Ex: @Output("serverAdded") serverCreated = new EventEmitter<T>()
+   * <app-server [serverAdded]="bar" />
+  */
+
   getServerStatus() {
     return this.server.status
   }
 
+  onCreated() {
+    this.serverCreated.emit({ name: this.server.name, id: this.server.id })
+  }
+
   ngOnInit() {
+    this.onCreated()
+
     if (this.server.status === "online") {
       this.server.color = "green"
       return
