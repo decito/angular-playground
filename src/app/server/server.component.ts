@@ -1,4 +1,18 @@
-import { Component, Input, EventEmitter, Output, SimpleChanges, OnInit, OnChanges } from '@angular/core'
+import {
+  Component,
+  Input,
+  EventEmitter,
+  Output,
+  SimpleChanges,
+  OnInit,
+  OnChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy
+} from '@angular/core'
 
 import { Server } from 'src/app/types/server'
 
@@ -10,7 +24,15 @@ import { Server } from 'src/app/types/server'
     .offline { color: red }
   `]
 })
-export class ServerComponent implements OnInit, OnChanges {
+export class ServerComponent implements
+  OnInit,
+  OnChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy {
   @Input() server: Server
 
   /* É possível também informar um nome diferente do declarado após o @Input().
@@ -54,7 +76,7 @@ export class ServerComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    console.log('ngOnInit called')
+    console.log('ngOnInit fired')
 
     if (this.server.status === "online") {
       this.server.color = "green"
@@ -66,11 +88,35 @@ export class ServerComponent implements OnInit, OnChanges {
   }
 
   constructor() {
-    console.log('constructor called')
+    console.log('constructor fired')
   }
 
   ngOnChanges(c: SimpleChanges) {
-    console.log('ngOnChanges called')
+    console.log('ngOnChanges fired')
     console.log(c)
+  }
+
+  ngDoCheck() {
+    console.log('ngDoCheck fired')
+  }
+
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit fired')
+  }
+
+  ngAfterContentChecked() {
+    console.log('ngAfterContentChecked fired')
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit fired')
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked fired')
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy fired')
   }
 }
