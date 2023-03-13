@@ -34,5 +34,5 @@
   </div>
 
   <app-server *ngFor="let server of serverList; let i = index" [server]="server"
-    (serverCreated)="onServerCreated($event)"></app-server>
+    (serverDeleted)="onServerDeleted($event)" (serverToggled)="onServerToggled($event)"></app-server>
 </main>

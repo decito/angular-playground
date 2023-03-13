@@ -66,10 +66,16 @@ export class ServersComponent {
     this.newServerName = (<HTMLInputElement>event.target).value
   }
 
-  onServerCreated(event) {
+  onServerDeleted(server) {
     // Valor enviado via emitter do componente filho (server-component).
 
-    console.log(event)
+    this.serverList.splice(this.serverList.findIndex(s => s.id === server.id), 1)
+  }
+
+  onServerToggled(server) {
+    server.status === 'online'
+      ? this.serverList[this.serverList.findIndex(s => s.id === server.id)].status === 'offline'
+      : this.serverList[this.serverList.findIndex(s => s.id === server.id)].status === 'online'
   }
 
   constructor() {

@@ -1,10 +1,18 @@
-<p class="text-white">The server ID
-  <span [ngClass]="{
-      online: server.status === 'online',
-      offline: server.status === 'offline'
-    }">
-    {{ server.id }}
-  </span>
-  is currently
-  <span [ngStyle]="{color: server.color}">{{getServerStatus()}}</span>.
-</p>
+<div class="flex gap-12 items-center border rounded border-gray-300 p-4 hover:bg-slate-700 transition-colors">
+  <p class="text-white">The server ID
+    <span [ngClass]="{
+        online: server.status === 'online',
+        offline: server.status === 'offline'
+      }">
+      {{ server.id }}
+    </span>
+    is currently
+    <span [ngStyle]="{color: server.color}">{{getServerStatus()}}</span>
+  </p>
+
+  <div class="flex gap-6">
+    <i (click)="toggleState()" class="fas fa-plug cursor-pointer"></i>
+
+    <i (click)="deleteServer()" class="fas fa-trash text-red-500 cursor-pointer"></i>
+  </div>
+</div>
