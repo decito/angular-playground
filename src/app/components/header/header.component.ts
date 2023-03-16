@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from "@angular/core"
 export class HeaderComponent {
   @Output() curRoute = new EventEmitter<string>()
   title = 'Angular Playground'
-  intRoute: string = 'servers'
+  intRoute: string = 'assignments'
 
   routes: { name: string }[] = [
     { name: 'servers' },
