@@ -10,6 +10,7 @@ import { AssignmentTwoComponent } from './components/assignments/assignment-2/as
 
 import { HtmlCommentDirective } from './shared/html-comment.directive'
 import { AssignmentsComponent } from './components/assignments/assignments.component'
+import { AssignmentThreeComponent } from './components/assignments/assignment-3/assignment-3.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AssignmentsComponent } from './components/assignments/assignments.compo
     HeaderComponent,
     HtmlCommentDirective,
     AssignmentTwoComponent,
-    AssignmentsComponent
+    AssignmentsComponent,
+    AssignmentThreeComponent
   ],
   imports: [
     BrowserModule,

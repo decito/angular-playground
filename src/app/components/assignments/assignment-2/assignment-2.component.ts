@@ -5,5 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './assignment-2.component.html'
 })
 export class AssignmentTwoComponent {
+  number = '2'
+
   @Input() username: string = ''
 }
