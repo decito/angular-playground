@@ -5,5 +5,9 @@ import { Component } from '@angular/core'
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'angular-playground'
+  curDisRoute: string = 'servers'
+
+  displayRoute(r: string) {
+    this.curDisRoute = r
+  }
 }
