@@ -4,4 +4,17 @@ import { Component } from "@angular/core";
   selector: 'app-assignments',
   templateUrl: './assignments.component.html',
 })
-export class AssignmentsComponent { }
+export class AssignmentsComponent {
+  displayAssignment: { number: number, display: boolean }[] = [
+    { number: 2, display: false },
+    { number: 3, display: false },
+    { number: 4, display: false },
+    { number: 5, display: true }
+  ]
+
+  toggleVisibility(n: number) {
+    this.displayAssignment[n].display = !this.displayAssignment[n].display
+
+    console.log(this.displayAssignment)
+  }
+}

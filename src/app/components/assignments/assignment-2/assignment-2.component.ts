@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-assignment-2',
@@ -6,6 +6,12 @@ import { Component, Input } from '@angular/core';
 })
 export class AssignmentTwoComponent {
   assignmentNumber = '2'
+  @Input() visible: boolean
+  @Output() toggle = new EventEmitter<boolean>()
+  onClick() {
+    this.visible = !this.visible
+    this.toggle.emit(this.visible)
+  }
 
   @Input() username: string = ''
 }

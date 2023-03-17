@@ -19,6 +19,8 @@ import { AccountComponent } from './components/accounts/account/account.componen
 import { NewAccountComponent } from './components/accounts/new-account/new-account.component'
 import { AccountsComponent } from './components/accounts/accounts.component'
 import { AssignmentFiveComponent } from './components/assignments/assignment-5/assignment-5.component'
+import { AssignmentFiveActiveUsersComponent } from './components/assignments/assignment-5/components/inactive-users.component'
+import { AssignmentFiveInactiveUsersComponent } from './components/assignments/assignment-5/components/active-users.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +36,7 @@ import { AssignmentFiveComponent } from './components/assignments/assignment-5/a
     AccountComponent,
     NewAccountComponent,
     AccountsComponent,
-    AssignmentFiveComponent
+    AssignmentFiveComponent, AssignmentFiveActiveUsersComponent, AssignmentFiveInactiveUsersComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,11 @@
 <section class="flex flex-col gap-8">
-  <h1 class="text-3xl font-bold">Assignment {{ assignmentNumber }}</h1>
+  <h1 class="text-3xl font-bold cursor-pointer w-fit" (click)="onClick()">
+    Assignment {{ assignmentNumber }}
 
-  <div class="flex gap-20">
+    <i class="fa-solid fa-caret-down text-xl"></i>
+  </h1>
+
+  <div [ngClass]="{ 'hidden': !visible }" class="flex gap-20">
     <ol class="w-2/5 list-disc">
       <li>Add A button which says 'Display Details'</li>
       <li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>

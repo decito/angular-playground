@@ -1,15 +1,19 @@
 <section class="flex flex-col gap-8">
-  <h1 class="text-3xl font-bold">Assignment {{ assignmentNumber }}</h1>
+  <h1 class="text-3xl font-bold cursor-pointer w-fit" (click)="onClick()">
+    Assignment {{ assignmentNumber }}
 
-  <div class="flex gap-20">
-    <ol class="w-2/5 list-disc">
-      <li>Add a Input field which updates a property ('username') via Two-Way-Binding</li>
-      <li>Output the username property via String Interpolation (in a paragraph below the input)</li>
-      <li>Add a button which may only be clicked if the username is NOT an empty string</li>
-      <li>Upon clicking the button, the username should be reset to an empty string</li>
-    </ol>
+    <i class="fa-solid fa-caret-down text-xl"></i>
+  </h1>
 
-    <div>
+  <div [ngClass]="{ 'hidden': !visible }">
+    <div class="flex gap-20">
+      <ol class="w-2/5 list-disc">
+        <li>Add a Input field which updates a property ('username') via Two-Way-Binding</li>
+        <li>Output the username property via String Interpolation (in a paragraph below the input)</li>
+        <li>Add a button which may only be clicked if the username is NOT an empty string</li>
+        <li>Upon clicking the button, the username should be reset to an empty string</li>
+      </ol>
+
       <input type="text" class="text-black" [(ngModel)]="username">
 
       <button class="p-3 bg-blue-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit" type="reset"

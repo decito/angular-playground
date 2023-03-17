@@ -1,0 +1,13 @@
+<section class="flex flex-col gap-4">
+  <h2 class="text-2xl font-semibold">Inactive Users</h2>
+
+  <ul class="flex flex-col gap-2">
+    <li class="flex justify-between border border-gray-500 rounded p-2 items-center"
+      *ngFor="let user of users; let i = index">
+      <span>{{ user }}</span>
+
+      <a href="#" class="p-2 bg-green-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit"
+        (click)="onSetToActive(i)">Set to Active</a>
+    </li>
+  </ul>
+</section>

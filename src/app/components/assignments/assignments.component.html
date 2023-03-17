@@ -1,15 +1,15 @@
 <section class="flex flex-col gap-4">
-  <app-assignment-2></app-assignment-2>
+  <app-assignment-2 [visible]="displayAssignment[0].display" (toggle)="toggleVisibility(0)"></app-assignment-2>
 
   <hr>
 
-  <app-assignment-3></app-assignment-3>
+  <app-assignment-3 [visible]="displayAssignment[1].display" (toggle)="toggleVisibility(1)"></app-assignment-3>
 
   <hr>
 
-  <app-assignment-4></app-assignment-4>
+  <app-assignment-4 [visible]="displayAssignment[2].display" (toggle)="toggleVisibility(2)"></app-assignment-4>
 
   <hr>
 
-  <app-assignment-5></app-assignment-5>
+  <app-assignment-5 [visible]="displayAssignment[3].display" (toggle)="toggleVisibility(3)"></app-assignment-5>
 </section>
