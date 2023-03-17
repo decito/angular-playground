@@ -1,0 +1,20 @@
+<section class="py-4">
+  <form class="flex flex-col gap-1">
+    <label>Account Name</label>
+
+    <div class="flex gap-4">
+      <input type="text" #accountName class="w-2/5 p-2 bg-slate-500">
+
+      <select #status class="w-1/6 bg-slate-500 cursor-pointer">
+        <option *ngFor="let type of accountTypes" [ngValue]="type">
+          {{ type }}
+        </option>
+      </select>
+
+      <button class="p-2 bg-blue-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit"
+        (click)="createAccount(accountName.value, status.value)">
+        Add Account
+      </button>
+    </div>
+  </form>
+</section>

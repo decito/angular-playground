@@ -1,29 +1,27 @@
-import { Component, EventEmitter, Output } from "@angular/core"
+import { Component, EventEmitter, Input, Output } from "@angular/core"
+
+import { routes } from "src/app/shared/routes"
+
+import type { Route } from "src/app/shared/routes"
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-  @Output() curRoute = new EventEmitter<string>()
+  @Output() curRoute = new EventEmitter<Route["name"]>()
   title = 'Angular Playground'
-  intRoute: string = 'assignments'
+  @Input() intRoute: Route["name"]
 
-  routes: { name: string }[] = [
-    { name: 'servers' },
-    { name: 'assignments' },
-    { name: 'test' },
-  ]
+  routes = routes
 
-  changeRoute(route: string) {
+  changeRoute(route: Route["name"]) {
     this.intRoute = route
 
     this.curRoute.emit(route)
-    console.log("🚀 ~ file: header.component.ts:22 ~ HeaderComponent ~ changeRoute ~ route:", route)
-
   }
 
-  isCurRoute(r: string) {
+  isCurRoute(r: Route["name"]) {
     return this.intRoute === r
   }
 }

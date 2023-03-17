@@ -15,6 +15,9 @@ import { AssignmentFourComponent } from './components/assignments/assignment-4/a
 import { AssignmentFourEvenComponent } from './components/assignments/assignment-4/components/even.component'
 import { AssignmentFourOddComponent } from './components/assignments/assignment-4/components/odd.component'
 import { AssignmentFourGameControlComponent } from './components/assignments/assignment-4/components/game-control.component'
+import { AccountComponent } from './components/accounts/account/account.component'
+import { NewAccountComponent } from './components/accounts/new-account/new-account.component'
+import { AccountsComponent } from './components/accounts/accounts.component'
 
 @NgModule({
   declarations: [
@@ -26,13 +29,15 @@ import { AssignmentFourGameControlComponent } from './components/assignments/ass
     AssignmentTwoComponent,
     AssignmentsComponent,
     AssignmentThreeComponent,
-    AssignmentFourComponent, AssignmentFourEvenComponent, AssignmentFourOddComponent, AssignmentFourGameControlComponent
+    AssignmentFourComponent, AssignmentFourEvenComponent, AssignmentFourOddComponent, AssignmentFourGameControlComponent,
+    AccountComponent,
+    NewAccountComponent,
+    AccountsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
