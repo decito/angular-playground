@@ -19,16 +19,18 @@
       <li>Style the element (e.g. paragraph) holding your output text differently in both components</li>
     </ol>
 
-    <app-assignment-4-game-control (intervalEmmiter)="onIntervalEmmited($event)"></app-assignment-4-game-control>
+    <div class="flex gap-10 w-3/5">
+      <app-assignment-4-game-control (intervalEmmiter)="onIntervalEmmited($event)"></app-assignment-4-game-control>
 
-    <section class="flex gap-10">
-      <div>
-        <app-assignment-4-odd *ngFor="let odd of oddNumbers" [odd]="odd"></app-assignment-4-odd>
-      </div>
+      <section class="flex gap-10">
+        <div>
+          <app-assignment-4-odd *ngFor="let odd of oddNumbers" [odd]="odd"></app-assignment-4-odd>
+        </div>
 
-      <div>
-        <app-assignment-4-even *ngFor="let even of evenNumbers" [even]="even"></app-assignment-4-even>
-      </div>
-    </section>
+        <div>
+          <app-assignment-4-even *ngFor="let even of evenNumbers" [even]="even"></app-assignment-4-even>
+        </div>
+      </section>
+    </div>
   </div>
 </section>

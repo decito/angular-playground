@@ -16,14 +16,18 @@
         (ngClass)</li>
     </ol>
 
-    <div>
-      <button class="p-3 bg-blue-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit"
-        (click)="clickHandler()">Display Details</button>
+    <div class="w-3/5 flex gap-20">
+      <div class="min-w-[12rem] flex flex-col gap-4">
+        <button class="p-3 bg-blue-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit h-fit"
+          (click)="clickHandler()">Display Details</button>
 
-      <p *ngIf="show">Secret Password = tuna</p>
+        <p *ngIf="show">Secret Password = tuna</p>
+      </div>
 
-      <p *ngFor="let click of clicks" [ngStyle]="{ backgroundColor: click >= 5 ? 'white' : 'transparent' }"
-        [ngClass]="{ 'black-text': click >= 5 }">{{ click }}</p>
+      <div class="grid grid-cols-12 grid-rows-12 gap-2">
+        <p *ngFor="let click of clicks" [ngStyle]="{ backgroundColor: click >= 5 ? 'white' : 'transparent' }"
+          [ngClass]="{ 'black-text': click >= 5 }">{{ click }}</p>
+      </div>
     </div>
   </div>
 </section>

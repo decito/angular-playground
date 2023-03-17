@@ -14,12 +14,14 @@
         <li>Upon clicking the button, the username should be reset to an empty string</li>
       </ol>
 
-      <input type="text" class="text-black" [(ngModel)]="username">
+      <div class="w-3/5 overflow-hidden">
+        <input type="text" class="text-black" [(ngModel)]="username">
 
-      <button class="p-3 bg-blue-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit" type="reset"
-        (click)="username = ''" [disabled]="!username">Reset Name</button>
+        <button class="p-1 ml-4 bg-blue-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit" type="reset"
+          (click)="username = ''" [disabled]="!username">Reset Name</button>
 
-      <p>Name is <span class="underline">{{ username }}</span></p>
+        <p>Name is <span class="underline">{{ username }}</span></p>
+      </div>
     </div>
   </div>
 </section>
