@@ -18,6 +18,7 @@ import { AssignmentFourGameControlComponent } from './components/assignments/ass
 import { AccountComponent } from './components/accounts/account/account.component'
 import { NewAccountComponent } from './components/accounts/new-account/new-account.component'
 import { AccountsComponent } from './components/accounts/accounts.component'
+import { AssignmentFiveComponent } from './components/assignments/assignment-5/assignment-5.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AccountsComponent } from './components/accounts/accounts.component'
     AssignmentFourComponent, AssignmentFourEvenComponent, AssignmentFourOddComponent, AssignmentFourGameControlComponent,
     AccountComponent,
     NewAccountComponent,
-    AccountsComponent
+    AccountsComponent,
+    AssignmentFiveComponent
   ],
   imports: [
     BrowserModule,

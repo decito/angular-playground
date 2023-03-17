@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styles: [`.black-text { color: black }`]
 })
 export class AssignmentThreeComponent {
-  number = '3'
+  assignmentNumber = '3'
 
   show = false
   clicks: number[] = []

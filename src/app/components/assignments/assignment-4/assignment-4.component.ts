@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
   selector: 'app-assignment-4',
   templateUrl: './assignment-4.component.html'
 })
 export class AssignmentFourComponent {
-  number = '4'
+  assignmentNumber = '4'
 
   evenNumbers: number[] = []
   oddNumbers: number[] = []

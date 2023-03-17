@@ -7,4 +7,4 @@ export const routes: Route[] = [
   { name: 'test' },
 ]
 
-export const currentRoute: Route["name"] = 'accounts'
+export const currentRoute: Route["name"] = 'assignments'
