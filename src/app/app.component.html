@@ -1,15 +1,7 @@
 <main>
-  <app-header (curRoute)="displayRoute($event)" [intRoute]="curDisRoute"></app-header>
+  <app-header></app-header>
 
-  <section class="max-w-screen-xl mx-auto py-12 px-4" [ngSwitch]="curDisRoute">
-    <app-servers *ngSwitchDefault></app-servers>
-
-    <app-assignments *ngSwitchCase="'assignments'"></app-assignments>
-
-    <app-accounts *ngSwitchCase="'accounts'"></app-accounts>
-
-    <p *ngSwitchCase="'test'" class="text-center">
-      Yet to be implemented.
-    </p>
+  <section class="max-w-screen-xl mx-auto py-12 px-4">
+    <router-outlet></router-outlet>
   </section>
 </main>

@@ -1,11 +1,11 @@
 <section class="border-b border-b-gray-300 bg-slate-900">
   <nav class="flex max-w-[1440px] gap-10 mx-auto items-center py-4 px-5">
-    <h2 class="text-2xl font-semibold"><a href="#">{{ title }}</a></h2>
+    <h2 class="text-2xl font-semibold"><a routerLink="/">{{ title }}</a></h2>
 
     <ul class="flex gap-3">
       <li *ngFor="let route of routes">
-        <a (click)="changeRoute(route.name)" href="#" class="hover:font-bold transition-all capitalize"
-          [ngClass]="{'font-bold underline': isCurRoute(route.name)}">{{ route.name }}</a>
+        <a [routerLink]="'/' + route.path" class="hover:font-bold transition-all capitalize"
+          routerLinkActive="font-bold underline">{{ route.path }}</a>
       </li>
     </ul>
   </nav>
