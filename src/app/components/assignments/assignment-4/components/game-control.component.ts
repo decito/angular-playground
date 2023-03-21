@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core"
 
-type TimerHandle = number | ReturnType<typeof setInterval>;
+type TimerHandle = number | ReturnType<typeof setInterval>
 
 @Component({
   selector: 'app-assignment-4-game-control',
@@ -10,7 +10,7 @@ export class AssignmentFourGameControlComponent {
   counterHandler: TimerHandle
   counter: number = 0
 
-  @Output() intervalEmmiter = new EventEmitter<number>();
+  @Output() intervalEmmiter = new EventEmitter<number>()
 
   startGame() {
     this.counterHandler = setInterval(() => {

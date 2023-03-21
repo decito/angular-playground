@@ -1,6 +1,6 @@
-import { Component } from "@angular/core";
+import { Component } from "@angular/core"
 
-import { assignmentList } from "src/app/shared/assinments";
+import { assignmentList } from "src/app/shared/assinments"
 
 @Component({
   selector: 'app-assignments',

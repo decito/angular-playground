@@ -6,7 +6,7 @@ export class LoggingService {
   activeToInactive: number = 0
 
   logStatusChange(status: string) {
-    console.info('A server status changed, new status: ' + status);
+    console.info('A server status changed, new status: ' + status)
   }
 
   countActiveToInactive() {
