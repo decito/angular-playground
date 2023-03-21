@@ -16,6 +16,5 @@ export class AccountComponent {
 
   changeStatus(newStatus: Account) {
     this.accountsService.updateStatus(this.id, newStatus)
-    this.accountsService.statusUpdated.emit(newStatus)
   }
 }
