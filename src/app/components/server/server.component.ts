@@ -76,7 +76,7 @@ export class ServerComponent implements
   }
 
   ngOnInit() {
-    console.log('ngOnInit fired')
+    console.info('ngOnInit fired')
 
     if (this.server.status === "online") {
       this.server.color = "green"
@@ -88,35 +88,35 @@ export class ServerComponent implements
   }
 
   constructor() {
-    console.log('constructor fired')
+    console.info('constructor fired')
   }
 
   ngOnChanges(c: SimpleChanges) {
-    console.log('ngOnChanges fired')
-    console.log(c)
+    console.info('ngOnChanges fired')
+    console.info(c)
   }
 
   ngDoCheck() {
-    console.log('ngDoCheck fired')
+    console.info('ngDoCheck fired')
   }
 
   ngAfterContentInit() {
-    console.log('ngAfterContentInit fired')
+    console.info('ngAfterContentInit fired')
   }
 
   ngAfterContentChecked() {
-    console.log('ngAfterContentChecked fired')
+    console.info('ngAfterContentChecked fired')
   }
 
   ngAfterViewInit() {
-    console.log('ngAfterViewInit fired')
+    console.info('ngAfterViewInit fired')
   }
 
   ngAfterViewChecked() {
-    console.log('ngAfterViewChecked fired')
+    console.info('ngAfterViewChecked fired')
   }
 
   ngOnDestroy() {
-    console.log('ngOnDestroy fired')
+    console.info('ngOnDestroy fired')
   }
 }
