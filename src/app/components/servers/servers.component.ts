@@ -79,6 +79,6 @@ export class ServersComponent {
   }
 
   constructor() {
-    setTimeout(() => this.allowNewServer = true, 500)
+    setTimeout(() => this.allowNewServer = true, 2000)
   }
 }

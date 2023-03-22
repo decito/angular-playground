@@ -3,14 +3,13 @@
 
   <div class="flex flex-col gap-4 items-center">
     <div class="flex flex-col w-full">
-      <input type="text" (input)="updateServerName($event)" class="text-black border-gray-400 rounded border" />
+      <input type="text" (input)="updateServerName($event)" class="p-2 bg-slate-500" />
 
       <label class="text-xs text-gray-400">Does not use Two-way Binding</label>
     </div>
 
     <div class="flex flex-col w-full">
-      <input type="text" [(ngModel)]="newServerName"
-        class="border-gray-400 text-black rounded border disabled:opacity-50 disabled:cursor-not-allowed" />
+      <input type="text" [(ngModel)]="newServerName" class="p-2 bg-slate-500" />
 
       <label class="text-xs text-gray-400">Uses Two-way Binding</label>
     </div>
@@ -18,7 +17,7 @@
     <p>Result: {{newServerName}}</p>
 
     <button class="p-3 bg-blue-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit"
-      [disabled]="!allowNewServer" (click)="createServer()">
+      [disabled]="!allowNewServer || newServerCreated" (click)="createServer()">
       Add new Server
     </button>
 
