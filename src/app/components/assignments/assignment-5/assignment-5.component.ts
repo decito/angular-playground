@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core"
-import { UsersService } from "src/app/services/users.service"
 
 @Component({
   selector: 'app-assignment-5',
