@@ -1,5 +1,4 @@
 import { Component } from "@angular/core"
-import { appRoutes } from "src/app/app.module"
 
 @Component({
   selector: 'app-header',
@@ -7,6 +6,4 @@ import { appRoutes } from "src/app/app.module"
 })
 export class HeaderComponent {
   title = 'Angular Playground'
-
-  routes = appRoutes.slice(0, -1)
 }

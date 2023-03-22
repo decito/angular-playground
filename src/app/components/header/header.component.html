@@ -3,9 +3,19 @@
     <h2 class="text-2xl font-semibold"><a routerLink="/">{{ title }}</a></h2>
 
     <ul class="flex gap-3">
-      <li *ngFor="let route of routes">
-        <a [routerLink]="'/' + route.path" class="hover:font-bold transition-all"
-          routerLinkActive="font-bold underline">{{ route.title }}</a>
+      <li>
+        <a routerLink="/accounts" class="hover:font-bold transition-all"
+          routerLinkActive="font-bold underline">Accounts</a>
+      </li>
+
+      <li>
+        <a routerLink="/assignments" class="hover:font-bold transition-all"
+          routerLinkActive="font-bold underline">Assignments</a>
+      </li>
+
+      <li>
+        <a routerLink="/servers" class="hover:font-bold transition-all"
+          routerLinkActive="font-bold underline">Servers</a>
       </li>
     </ul>
   </nav>
