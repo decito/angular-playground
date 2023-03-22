@@ -4,8 +4,8 @@
 
     <ul class="flex gap-3">
       <li *ngFor="let route of routes">
-        <a [routerLink]="'/' + route.path" class="hover:font-bold transition-all capitalize"
-          routerLinkActive="font-bold underline">{{ route.path }}</a>
+        <a [routerLink]="'/' + route.path" class="hover:font-bold transition-all"
+          routerLinkActive="font-bold underline">{{ route.title }}</a>
       </li>
     </ul>
   </nav>

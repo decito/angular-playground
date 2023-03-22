@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core"
+import { Component } from "@angular/core"
 import { appRoutes } from "src/app/app.module"
 
 @Component({
@@ -8,5 +8,5 @@ import { appRoutes } from "src/app/app.module"
 export class HeaderComponent {
   title = 'Angular Playground'
 
-  routes = appRoutes
+  routes = appRoutes.slice(0, -1)
 }

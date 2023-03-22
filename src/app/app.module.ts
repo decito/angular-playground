@@ -25,10 +25,10 @@ import { ServerComponent } from './components/server/server.component'
 import { ServersComponent } from './components/servers/servers.component'
 
 export const appRoutes: Routes = [
-  { path: 'accounts', component: AccountsComponent },
-  { path: 'assignments', component: AssignmentsComponent },
-  { path: 'servers', component: ServersComponent },
-  { path: '', component: ServersComponent },
+  { path: 'accounts', component: AccountsComponent, title: 'Accounts' },
+  { path: 'assignments', component: AssignmentsComponent, title: 'Assignments' },
+  { path: 'servers', component: ServersComponent, title: 'Servers' },
+  { path: '', component: ServersComponent, title: 'Servers' },
 ]
 
 @NgModule({
