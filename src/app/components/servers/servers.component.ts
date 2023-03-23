@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
+import { ServersServices } from 'src/app/services/servers.service'
 
 import { Server } from 'src/app/types/server'
 
@@ -35,50 +36,35 @@ import { Server } from 'src/app/types/server'
    * Ex: styles: [`h3 {color: darkBlue}`]
    */
 })
-export class ServersComponent {
+export class ServersComponent implements OnInit {
   allowNewServer = false
   // serverCreationStatus = 'No server was created.'
   newServerName = 'Test'
   newServerCreated = false
-  newServerId = 2
 
-  serverList: Server[] = [{ id: 1, name: "Root Server", status: "online" }]
+  serverList: Server[]
+
+  constructor(private serversService: ServersServices) {
+    setTimeout(() => this.allowNewServer = true, 2000)
+  }
+
+  ngOnInit() {
+    this.serverList = this.serversService.getServers() as Server[]
+  }
 
   createServer() {
-    // this.serverCreationStatus = `A new server has been created with the name ${ this.serverName }`
+    const name = this.newServerName
+    const status = 'offline'
 
-    const newServer: Server = {
-      id: this.newServerId,
-      name: this.newServerName,
-      status: 'offline'
-    }
-
-    this.serverList.push(newServer)
-
-    this.newServerId += 1
+    this.serversService.createServer(name, status)
 
     this.newServerCreated = true
 
     setTimeout(() => this.newServerCreated = false, 2000)
   }
 
+
   updateServerName(event: Event) {
     this.newServerName = (<HTMLInputElement>event.target).value
-  }
-
-  onServerDeleted(server) {
-    // Valor enviado via emitter do componente filho (server-component).
-
-    this.serverList.splice(this.serverList.findIndex(s => s.id === server.id), 1)
-  }
-
-  onServerToggled(server) {
-    server.status === 'online'
-      ? this.serverList[this.serverList.findIndex(s => s.id === server.id)].status === 'offline'
-      : this.serverList[this.serverList.findIndex(s => s.id === server.id)].status === 'online'
-  }
-
-  constructor() {
-    setTimeout(() => this.allowNewServer = true, 2000)
   }
 }

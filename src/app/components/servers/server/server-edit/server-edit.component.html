@@ -1,0 +1,28 @@
+<div class="flex flex-col gap-8">
+  <h2 class="text-2xl font-semibold">Managing Server {{ server.name }}</h2>
+
+  <div class="flex flex-col gap-4">
+    <label>Edit server name (currently {{ server.name }})</label>
+    <input class="p-2 bg-slate-500 w-2/5" [(ngModel)]="newServerName" />
+
+    <button class="p-2 bg-blue-500 rounded w-fit" (click)="updateServerName()">
+      Apply
+    </button>
+  </div>
+
+  <p class="text-white">The server ID
+    <span [ngStyle]="{ color: getColor() }">
+      {{ server.id }}
+    </span>
+
+    is currently
+
+    <span [ngStyle]="{ color: getColor() }">{{ server.status }}</span>
+  </p>
+
+  <div class="flex gap-6">
+    <i (click)="toggleStatus(server.id)" class="fas fa-plug cursor-pointer"></i>
+
+    <i (click)="deleteServer(server.id)" class="fas fa-trash text-red-500 cursor-pointer"></i>
+  </div>
+</div>
