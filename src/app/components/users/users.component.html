@@ -1,0 +1,41 @@
+<section class="flex gap-12">
+  <aside class="flex flex-col gap-12 w-60">
+    <div class="flex flex-col gap-2">
+      <button *ngFor="let u of users"
+        class="border rounded p-2 border-gray-300 hover:bg-slate-600 transition-colors w-full"
+        [routerLink]="['/users', u.id, u.name]">
+        Load user: {{u.name}}
+      </button>
+    </div>
+
+    <hr>
+
+    <div class="flex flex-col gap-2">
+      <h2 class="text-2xl font-semibold underline mb-4">Page options</h2>
+
+      <button (click)="onClick()"
+        class="border rounded p-2 border-gray-300 hover:bg-slate-600 transition-colors w-full">Go to servers
+        page</button>
+
+      <button (click)="reloadPage()"
+        class="border rounded p-2 border-gray-300 hover:bg-slate-600 transition-colors w-full">Reload page</button>
+
+      <div class="flex flex-col">
+        <button (click)="brokenReloadPage()"
+          class="border rounded p-2 border-gray-300 hover:bg-slate-600 transition-colors w-full">
+          This button will break the app
+        </button>
+
+        <label class="text-xs text-gray-400">Check console</label>
+      </div>
+    </div>
+  </aside>
+
+  <div>
+    <h2 class="text-2xl font-semibold mb-4">
+      <i class="fas fa-arrow-left"></i>
+
+      Load a user
+    </h2>
+  </div>
+</section>
