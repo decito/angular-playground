@@ -21,7 +21,10 @@ import { AssignmentThreeComponent } from './components/assignments/assignment-3/
 import { AssignmentTwoComponent } from './components/assignments/assignment-2/assignment-2.component'
 import { HeaderComponent } from './components/header/header.component'
 import { NewAccountComponent } from './components/accounts/new-account/new-account.component'
-import { ServerComponent } from './components/server/server.component'
+import { UserComponent } from './components/users/user/user.component'
+import { UsersComponent } from './components/users/users.component'
+import { ServerComponent } from './components/servers/server/server.component'
+import { ServerEditComponent } from './components/servers/server/server-edit/server-edit.component'
 import { ServersComponent } from './components/servers/servers.component'
 
 export const appRoutes: Routes = [
@@ -34,7 +37,10 @@ export const appRoutes: Routes = [
       { path: '5', component: AssignmentFiveComponent },
     ]
   },
+  { path: 'users', component: UsersComponent },
+  { path: 'users/:id/:name', component: UserComponent },
   { path: 'servers', component: ServersComponent },
+  { path: 'servers/:id/edit', component: ServerEditComponent },
   { path: '', component: ServersComponent }
 ]
 
@@ -56,7 +62,10 @@ export const appRoutes: Routes = [
     HeaderComponent,
     HtmlCommentDirective,
     NewAccountComponent,
+    UserComponent,
+    UsersComponent,
     ServerComponent,
+    ServerEditComponent,
     ServersComponent,
   ],
   imports: [
