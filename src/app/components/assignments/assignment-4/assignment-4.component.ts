@@ -1,17 +1,13 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Component } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-assignment-4',
   templateUrl: './assignment-4.component.html'
 })
 export class AssignmentFourComponent {
-  assignmentNumber = '4'
-  @Input() visible: boolean
-  @Output() toggle = new EventEmitter<boolean>()
-  onClick() {
-    this.visible = !this.visible
-    this.toggle.emit(this.visible)
-  }
+  constructor(private route: ActivatedRoute) { }
+  assignmentNumber = this.route.snapshot.url
 
   evenNumbers: number[] = []
   oddNumbers: number[] = []

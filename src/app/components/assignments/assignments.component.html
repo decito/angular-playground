@@ -1,21 +1,12 @@
-<section class="flex flex-col gap-4">
-  <!-- <ng-container *ngFor="let a of aV">
-    <ng-container *ngComponentOutlet="a.selector; ngComponentOutletInjector: a.display"></ng-container>
+<section class="flex gap-8">
+  <div>
+    <ul>
+      <li *ngFor="let a of aV" class="border border-gray-300 flex">
+        <a [routerLink]="a.number.toString()" class="py-2 px-8 hover:bg-slate-600 transition-colors">
+          Assignment {{ a.number }}</a>
+      </li>
+    </ul>
+  </div>
 
-    <hr>
-  </ng-container> -->
-
-  <app-assignment-2 [visible]="aV[0].display" (toggle)="toggleVisibility(0)"></app-assignment-2>
-
-  <hr>
-
-  <app-assignment-3 [visible]="aV[1].display" (toggle)="toggleVisibility(1)"></app-assignment-3>
-
-  <hr>
-
-  <app-assignment-4 [visible]="aV[2].display" (toggle)="toggleVisibility(2)"></app-assignment-4>
-
-  <hr>
-
-  <app-assignment-5 [visible]="aV[3].display" (toggle)="toggleVisibility(3)"></app-assignment-5>
+  <router-outlet></router-outlet>
 </section>

@@ -1,11 +1,9 @@
-<section class="flex flex-col gap-8">
-  <h1 class="text-3xl font-bold cursor-pointer w-fit" (click)="onClick()">
+<section class="flex flex-col gap-8 max-w-4xl">
+  <h1 class="text-3xl font-bold w-fit">
     Assignment {{ assignmentNumber }}
-
-    <i class="fa-solid fa-caret-down text-xl"></i>
   </h1>
 
-  <div [ngClass]="{ 'hidden': !visible }" class="flex gap-20">
+  <div class="flex gap-20">
     <ol class="w-2/5 list-disc">
       <li>Create three new components: GameControl, Odd and Even</li>
       <li>The GameControl Component should have buttons to start and stop the game</li>

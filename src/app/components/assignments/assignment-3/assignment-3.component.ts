@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Component } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-assignment-3',
@@ -6,13 +7,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core'
   styles: [`.black-text { color: black }`]
 })
 export class AssignmentThreeComponent {
-  assignmentNumber = '3'
-  @Input() visible: boolean
-  @Output() toggle = new EventEmitter<boolean>()
-  onClick() {
-    this.visible = !this.visible
-    this.toggle.emit(this.visible)
-  }
+  constructor(private route: ActivatedRoute) { }
+  assignmentNumber = this.route.snapshot.url
 
   show = false
   clicks: number[] = []
