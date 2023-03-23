@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from "@angular/core"
-import { Subscription } from "rxjs"
+import { Subscription } from "rxjs/internal/Subscription"
 
 import { AccountsService } from 'src/app/services/accounts.service'
 
