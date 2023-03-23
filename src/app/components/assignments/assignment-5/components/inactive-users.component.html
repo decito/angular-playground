@@ -6,8 +6,8 @@
       *ngFor="let user of users; let i = index">
       <span>{{ user }}</span>
 
-      <a href="#" class="p-2 bg-green-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit"
-        (click)="setActive(i)">Set to Active</a>
+      <button type="button" class="p-2 bg-green-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit"
+        (click)="setActive(i)">Set to Active</button>
     </li>
   </ul>
 </section>
