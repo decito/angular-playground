@@ -10,22 +10,28 @@ export class ServersServices {
     { id: 2, name: "Template Server", status: "offline" },
   ]
 
+  private lastIndex = this.serverList.length
+
   constructor(private router: Router) { }
 
-  getServers(n?: number) {
-    if (!n && n !== 0)
-      return this.serverList
-
+  private findServer(n: number): Server {
     return this.serverList[this.serverList.findIndex(s => s.id === n)]
   }
 
+  getServers(serverID?: number) {
+    if (!serverID && serverID !== 0)
+      return this.serverList
+
+    return this.findServer(serverID)
+  }
+
   getStatusColor(serverID: number) {
-    return this.serverList[this.serverList.findIndex(s => s.id === serverID)].status === "online" ? "green" : "red"
+    return this.findServer(serverID).status === "online" ? "green" : "red"
   }
 
   createServer(n: string, o: string) {
     const newServer: Server = {
-      id: this.serverList.length + 1,
+      id: this.lastIndex + 1,
       name: n,
       status: o === 'online' ? 'online' : 'offline'
     }
@@ -34,13 +40,13 @@ export class ServersServices {
   }
 
   toggleStatus(serverID: number) {
-    this.serverList[this.serverList.findIndex(s => s.id === serverID)].status === 'online'
-      ? this.serverList[this.serverList.findIndex(s => s.id === serverID)].status = 'offline'
-      : this.serverList[this.serverList.findIndex(s => s.id === serverID)].status = 'online'
+    this.findServer(serverID).status === 'online'
+      ? this.findServer(serverID).status = 'offline'
+      : this.findServer(serverID).status = 'online'
   }
 
   updateName(serverID: number, name: string) {
-    this.serverList[this.serverList.findIndex(s => s.id === serverID)].name = name
+    this.findServer(serverID).name = name
   }
 
   deleteServer(serverID: number) {
