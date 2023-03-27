@@ -1,11 +1,11 @@
-<div class="flex flex-col gap-8">
+<div class="f-col gap-8">
   <h2 class="text-2xl font-semibold">Managing Server {{ server.name }}</h2>
 
-  <div class="flex flex-col gap-4">
+  <div class="f-col gap-4">
     <label>Edit server name (currently {{ server.name }})</label>
     <input class="p-2 bg-slate-500 w-2/5" [(ngModel)]="newServerName" />
 
-    <button class="p-2 bg-blue-500 rounded w-fit" (click)="updateServerName()">
+    <button class="bg-primary p-2 rounded w-fit" (click)="updateServerName()">
       Apply
     </button>
   </div>

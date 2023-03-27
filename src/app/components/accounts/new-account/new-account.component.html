@@ -1,5 +1,5 @@
 <section class="py-4">
-  <form class="flex flex-col gap-1">
+  <form class="f-col gap-1">
     <label>Account Name</label>
 
     <div class="flex gap-4">
@@ -11,8 +11,7 @@
         </option>
       </select>
 
-      <button class="p-2 bg-blue-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit"
-        (click)="createAccount(accountName.value, status.value)">
+      <button class="bg-primary" (click)="createAccount(accountName.value, status.value)">
         Add Account
       </button>
     </div>

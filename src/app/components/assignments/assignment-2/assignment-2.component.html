@@ -1,4 +1,4 @@
-<section class="flex flex-col gap-8 max-w-4xl">
+<section class="f-col gap-8 max-w-4xl">
   <h1 class="text-3xl font-bold w-fit">
     Assignment {{ assignmentNumber }}
   </h1>
@@ -15,8 +15,8 @@
       <div class="w-3/5 overflow-hidden">
         <input type="text" class="text-black" [(ngModel)]="username">
 
-        <button class="p-1 ml-4 bg-blue-500 rounded disabled:opacity-60 disabled:cursor-not-allowed w-fit" type="reset"
-          (click)="username = ''" [disabled]="!username">Reset Name</button>
+        <button class="bg-primary sm ml-4" type="reset" (click)="username = ''" [disabled]="!username">Reset
+          Name</button>
 
         <p>Name is <span class="underline">{{ username }}</span></p>
       </div>
