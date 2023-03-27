@@ -25,12 +25,12 @@ export class UserComponent implements OnInit, OnDestroy {
       this.user.name = p['name']
     })
 
-    this.usersService.userLoaded.next(true)
+    this.usersService.loadUser()
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe()
 
-    this.usersService.userLoaded.next(false)
+    this.usersService.unloadUser()
   }
 }

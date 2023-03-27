@@ -27,6 +27,18 @@ export class UsersService {
     this.loggingService.countActiveToInactive()
   }
 
+  getuserLoaded() {
+    return this.userLoaded.getValue()
+  }
+
+  loadUser() {
+    this.userLoaded.next(true)
+  }
+
+  unloadUser() {
+    this.userLoaded.next(false)
+  }
+
   setInactive(id: number) {
     this.inactiveUsers.push(this.activeUsers[id])
     this.activeUsers.splice(id, 1)

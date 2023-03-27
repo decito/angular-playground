@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnDestroy, OnInit } from "@angular/core"
 import { ActivatedRoute, Router } from "@angular/router"
 import { delay } from "rxjs/internal/operators/delay"
 import { Subscription } from "rxjs/internal/Subscription"
@@ -9,11 +9,11 @@ import { UsersService } from "src/app/services/users.service"
   selector: 'app-users',
   templateUrl: './users.component.html'
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent implements OnInit, OnDestroy {
   users = this.usersService.users
 
   subscription: Subscription
-  userLoaded = this.usersService.userLoaded.getValue()
+  userLoaded = this.usersService.getuserLoaded()
 
   constructor(private router: Router, private route: ActivatedRoute, private usersService: UsersService) { }
 
@@ -36,5 +36,9 @@ export class UsersComponent implements OnInit {
 
   brokenReloadPage() {
     this.router.navigate(['users'], { relativeTo: this.route })
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
   }
 }
