@@ -8,8 +8,4 @@ import { assignmentList } from "src/app/shared/assinments"
 })
 export class AssignmentsComponent {
   aV = assignmentList
-
-  toggleVisibility(n: number) {
-    this.aV[n].display = !this.aV[n].display
-  }
 }

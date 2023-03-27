@@ -28,11 +28,14 @@
     </div>
   </aside>
 
-  <div>
+  <div *ngIf="!userLoaded">
     <h2 class="mb-4">
       <i class="fas fa-arrow-left"></i>
 
       Load a user
     </h2>
   </div>
+
+  <!-- <router-outlet (activate)="onLoaded($event)"></router-outlet> -->
+  <router-outlet></router-outlet>
 </section>

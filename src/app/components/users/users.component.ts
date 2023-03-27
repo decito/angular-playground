@@ -1,18 +1,29 @@
-import { Component } from "@angular/core"
+import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute, Router } from "@angular/router"
+import { delay } from "rxjs/internal/operators/delay"
+import { Subscription } from "rxjs/internal/Subscription"
+
+import { UsersService } from "src/app/services/users.service"
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html'
 })
-export class UsersComponent {
-  users = [
-    { id: 1, name: 'Foo' },
-    { id: 2, name: 'Bar' },
-    { id: 3, name: 'Viz' }
-  ]
+export class UsersComponent implements OnInit {
+  users = this.usersService.users
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  subscription: Subscription
+  userLoaded = this.usersService.userLoaded.getValue()
+
+  constructor(private router: Router, private route: ActivatedRoute, private usersService: UsersService) { }
+
+  ngOnInit() {
+    this.subscription = this.usersService.userLoaded.pipe(delay(0)).subscribe(u => this.userLoaded = u)
+  }
+
+  // onLoaded(e) {
+  //   e.foo = this.userLoaded
+  // }
 
   onClick() {
     this.router.navigate(['/servers'])

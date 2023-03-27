@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router'
 
 import { ServersServices } from 'src/app/services/servers.service'
 
-import { Server } from 'src/app/types/server'
+import type { Server } from 'src/app/types/server'
 
 @Component({
   selector: 'app-server-edit',

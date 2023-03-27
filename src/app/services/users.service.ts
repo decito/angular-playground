@@ -1,4 +1,5 @@
 import { EventEmitter, Injectable } from "@angular/core"
+import { BehaviorSubject } from "rxjs/internal/BehaviorSubject"
 
 import { LoggingService } from "./logging.service"
 
@@ -6,8 +7,16 @@ import { LoggingService } from "./logging.service"
 export class UsersService {
   statusUpdated = new EventEmitter<number>()
 
+  userLoaded = new BehaviorSubject(false)
+
   activeUsers = ['Max', 'Anna']
   inactiveUsers = ['Chris', 'Manu']
+
+  users = [
+    { id: 1, name: 'Foo' },
+    { id: 2, name: 'Bar' },
+    { id: 3, name: 'Viz' }
+  ]
 
   constructor(private loggingService: LoggingService) { }
 

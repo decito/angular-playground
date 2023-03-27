@@ -37,8 +37,11 @@ export const appRoutes: Routes = [
       { path: '5', component: AssignmentFiveComponent },
     ]
   },
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:id/:name', component: UserComponent },
+  {
+    path: 'users', component: UsersComponent, children: [
+      { path: ':id/:name', component: UserComponent }
+    ]
+  },
   { path: 'servers', component: ServersComponent },
   { path: 'servers/:id/edit', component: ServerEditComponent },
   { path: '', component: ServersComponent }
