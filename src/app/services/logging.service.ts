@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core"
 
 @Injectable({ providedIn: 'root' })
 export class LoggingService {
-  inactiveToActive: number = 0
-  activeToInactive: number = 0
+  inactiveToActive = 0
+  activeToInactive = 0
 
   logStatusChange(status: string) {
     console.info('A server status changed, new status: ' + status)

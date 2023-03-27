@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute, Params } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
 
 import { ServersServices } from 'src/app/services/servers.service'
 
@@ -24,6 +24,9 @@ export class ServerEditComponent implements OnInit {
     this.server = this.serversService.getServers(serverID) as Server
 
     this.newServerName = this.server.name
+
+    console.log(this.route.snapshot.queryParams)
+    console.log(this.route.snapshot.fragment)
   }
 
   getColor() {

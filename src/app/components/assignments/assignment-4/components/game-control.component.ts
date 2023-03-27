@@ -8,7 +8,7 @@ type TimerHandle = number | ReturnType<typeof setInterval>
 })
 export class AssignmentFourGameControlComponent {
   counterHandler: TimerHandle
-  counter: number = 0
+  counter = 0
 
   @Output() intervalEmmiter = new EventEmitter<number>()
 
