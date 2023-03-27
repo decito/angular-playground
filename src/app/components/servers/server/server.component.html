@@ -12,6 +12,7 @@
   <div class="flex gap-6">
     <i (click)="toggleStatus()" class="fas fa-plug cursor-pointer"></i>
 
-    <i [routerLink]="['/servers/'+ server.id +'/edit']" class="fas fa-gear cursor-pointer"></i>
+    <i [routerLink]="['/servers/'+ server.id +'/edit']" [queryParams]="{ 'allowEdit': true }" fragment="editing"
+      class="fas fa-gear cursor-pointer"></i>
   </div>
 </div>

@@ -20,7 +20,7 @@ export class UsersComponent {
 
   reloadPage() {
     // Angular verifica que eu já estou na rota 'routes', por isso ele não recarrega a rota.
-    this.router.navigate(['users'])
+    this.router.navigate(['users'], { queryParams: { 'reloaded': true } })
   }
 
   brokenReloadPage() {
