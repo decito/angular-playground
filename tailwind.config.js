@@ -5,10 +5,10 @@ module.exports = {
     './pages/**/*.{html,js}',
     './index.html',
     './public/index.html',
-    './src/**/*.{html,js}',
+    './src/**/*.{html,js}'
   ],
   theme: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 }

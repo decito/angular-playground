@@ -1,7 +1,7 @@
-import { EventEmitter, Injectable } from "@angular/core"
-import { BehaviorSubject } from "rxjs/internal/BehaviorSubject"
+import { EventEmitter, Injectable } from '@angular/core'
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject'
 
-import { LoggingService } from "./logging.service"
+import { LoggingService } from './logging.service'
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {

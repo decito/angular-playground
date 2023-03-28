@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core"
+import { Injectable } from '@angular/core'
 
 @Injectable({ providedIn: 'root' })
 export class LoggingService {
@@ -11,11 +11,15 @@ export class LoggingService {
 
   countActiveToInactive() {
     this.activeToInactive++
-    console.info(`User status changed to Inactive. Times changed: ${ this.activeToInactive }`)
+    console.info(
+      `User status changed to Inactive. Times changed: ${ this.activeToInactive }`
+    )
   }
 
   countInactiveToActive() {
     this.inactiveToActive++
-    console.info(`User status changed to Active. Times changed: ${ this.inactiveToActive }`)
+    console.info(
+      `User status changed to Active. Times changed: ${ this.inactiveToActive }`
+    )
   }
 }
