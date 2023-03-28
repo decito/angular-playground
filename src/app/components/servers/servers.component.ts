@@ -15,15 +15,15 @@ import type { Server } from 'src/app/types/server'
    * Ou então tornar seu valor com sendo '[.app-servers]'.
    * Ao fazer isso, o selector ganha valor de classe,
    * podendo ser chamado assim, por exemplo: <div class=".app-servers" />
-  */
+   */
 
-  templateUrl: './servers.component.html',
+  templateUrl: './servers.component.html'
 
   /* É possível também informar diretamente o valor do template
    * utilizando a propriedade template. Neste caso, um exemplo seria:
    * template: '<app-server></app-server><app-server></app-server>'.
    * É possível informar utilizando string interpolation (`) neste caso.
-  */
+   */
 
   /**/
 
@@ -46,7 +46,7 @@ export class ServersComponent implements OnInit {
   serverList: Server[]
 
   constructor(private serversService: ServersServices) {
-    setTimeout(() => this.allowNewServer = true, 2000)
+    setTimeout(() => (this.allowNewServer = true), 2000)
   }
 
   ngOnInit() {
@@ -61,9 +61,8 @@ export class ServersComponent implements OnInit {
 
     this.newServerCreated = true
 
-    setTimeout(() => this.newServerCreated = false, 2000)
+    setTimeout(() => (this.newServerCreated = false), 2000)
   }
-
 
   updateServerName(event: Event) {
     this.newServerName = (<HTMLInputElement>event.target).value

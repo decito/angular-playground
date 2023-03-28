@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit } from "@angular/core"
-import { ActivatedRoute, Params } from "@angular/router"
-import { Subscription } from "rxjs/internal/Subscription"
-import { UsersService } from "src/app/services/users.service"
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import { ActivatedRoute, Params } from '@angular/router'
+import { Subscription } from 'rxjs/internal/Subscription'
+
+import { UsersService } from 'src/app/services/users.service'
 
 @Component({
   selector: 'app-user',
@@ -12,7 +13,10 @@ export class UserComponent implements OnInit, OnDestroy {
 
   subscription: Subscription
 
-  constructor(private route: ActivatedRoute, private usersService: UsersService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private usersService: UsersService
+  ) { }
 
   ngOnInit() {
     this.user = {

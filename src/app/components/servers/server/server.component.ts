@@ -20,7 +20,7 @@ export class ServerComponent {
    * utilizar como sendo:
    *
    * <app-server [newServer]="foo" />
-  */
+   */
 
   constructor(private serversService: ServersServices) { }
 
@@ -28,7 +28,7 @@ export class ServerComponent {
    *
    * Ex: @Output("serverAdded") serverCreated = new EventEmitter<T>()
    * <app-server [serverAdded]="bar" />
-  */
+   */
 
   getColor() {
     return this.serversService.getStatusColor(this.server.id)
