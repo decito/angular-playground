@@ -30,17 +30,19 @@ import { ServersComponent } from './components/servers/servers.component'
 export const appRoutes: Routes = [
   { path: 'accounts', component: AccountsComponent },
   {
-    path: 'assignments', component: AssignmentsComponent, children: [
+    path: 'assignments',
+    component: AssignmentsComponent,
+    children: [
       { path: '2', component: AssignmentTwoComponent },
       { path: '3', component: AssignmentThreeComponent },
       { path: '4', component: AssignmentFourComponent },
-      { path: '5', component: AssignmentFiveComponent },
+      { path: '5', component: AssignmentFiveComponent }
     ]
   },
   {
-    path: 'users', component: UsersComponent, children: [
-      { path: ':id/:name', component: UserComponent }
-    ]
+    path: 'users',
+    component: UsersComponent,
+    children: [{ path: ':id/:name', component: UserComponent }]
   },
   { path: 'servers', component: ServersComponent },
   { path: 'servers/:id/edit', component: ServerEditComponent },
@@ -69,7 +71,7 @@ export const appRoutes: Routes = [
     UsersComponent,
     ServerComponent,
     ServerEditComponent,
-    ServersComponent,
+    ServersComponent
   ],
   imports: [
     BrowserModule,
