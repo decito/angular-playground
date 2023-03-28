@@ -1,3 +1,11 @@
+a.router-link {
+  @apply transition-all hover:font-bold;
+}
+
+a.router-link-active {
+  @apply font-bold underline;
+}
+
 button.sm {
   @apply p-1;
 }
@@ -28,34 +36,6 @@ h2 {
 
 input {
   @apply bg-slate-500 p-2;
-}
-
-a.router-link {
-  @apply transition-all hover:font-bold;
-}
-
-a.router-link-active {
-  @apply font-bold underline;
-}
-
-.bg-primary {
-  @apply bg-blue-500;
-}
-
-.bg-success {
-  @apply bg-green-500;
-}
-
-.bg-warning {
-  @apply bg-yellow-500;
-}
-
-.bg-secondary {
-  @apply bg-gray-500;
-}
-
-.bg-danger {
-  @apply bg-red-500;
 }
 
 .f-col {
