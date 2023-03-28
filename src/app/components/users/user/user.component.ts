@@ -9,14 +9,14 @@ import { UsersService } from 'src/app/services/users.service'
   templateUrl: './user.component.html'
 })
 export class UserComponent implements OnInit, OnDestroy {
-  user: { id: number, name: string }
+  user: { id: number; name: string }
 
   subscription: Subscription
 
   constructor(
     private route: ActivatedRoute,
     private usersService: UsersService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.user = {

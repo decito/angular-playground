@@ -9,9 +9,9 @@ import { Account } from 'src/app/types/accounts'
   templateUrl: './accounts.component.html'
 })
 export class AccountsComponent implements OnInit {
-  accounts: { name: string, status: Account }[] = []
+  accounts: { name: string; status: Account }[] = []
 
-  constructor(private accountsService: AccountsService) { }
+  constructor(private accountsService: AccountsService) {}
 
   ngOnInit() {
     this.accounts = this.accountsService.accounts

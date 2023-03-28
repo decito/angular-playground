@@ -19,12 +19,12 @@ export class UsersComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private usersService: UsersService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.subscription = this.usersService.userLoaded
       .pipe(delay(0))
-      .subscribe((u) => (this.userLoaded = u))
+      .subscribe(u => (this.userLoaded = u))
   }
 
   // onLoaded(e) {

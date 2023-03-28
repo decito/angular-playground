@@ -4,10 +4,16 @@ import { ActivatedRoute } from '@angular/router'
 @Component({
   selector: 'app-assignment-3',
   templateUrl: './assignment-3.component.html',
-  styles: [`.black-text { color: black }`]
+  styles: [
+    `
+      .black-text {
+        color: black;
+      }
+    `
+  ]
 })
 export class AssignmentThreeComponent {
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {}
   assignmentNumber = this.route.snapshot.url
 
   show = false

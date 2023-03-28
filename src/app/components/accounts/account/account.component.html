@@ -1,4 +1,4 @@
-<article class="border border-gray-500 p-4 rounded f-col gap-4">
+<article class="f-col gap-4 rounded border border-gray-500 p-4">
   <header>
     <h2>{{ account.name }}</h2>
 
@@ -8,24 +8,15 @@
   </header>
 
   <div class="flex gap-4">
-    <button
-      class="bg-success sm"
-      (click)="changeStatus('active')"
-    >
+    <button class="bg-success sm" (click)="changeStatus('active')">
       Set to 'active'
     </button>
 
-    <button
-      class="bg-warning sm"
-      (click)="changeStatus('inactive')"
-    >
+    <button class="bg-warning sm" (click)="changeStatus('inactive')">
       Set to 'inactive'
     </button>
 
-    <button
-      class="bg-secondary sm"
-      (click)="changeStatus('unknown')"
-    >
+    <button class="bg-secondary sm" (click)="changeStatus('unknown')">
       Set to 'unknown'
     </button>
   </div>

@@ -16,7 +16,7 @@ export class ServerEditComponent implements OnInit {
   constructor(
     private serversService: ServersServices,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit() {
     const serverID = parseInt(this.route.snapshot.params['id'])

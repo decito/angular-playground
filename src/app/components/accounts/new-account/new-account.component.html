@@ -3,20 +3,10 @@
     <label>Account Name</label>
 
     <div class="flex gap-4">
-      <input
-        type="text"
-        #accountName
-        class="w-2/5"
-      />
+      <input type="text" #accountName class="w-2/5" />
 
-      <select
-        #status
-        class="w-1/6 bg-slate-500 cursor-pointer"
-      >
-        <option
-          *ngFor="let type of accountTypes"
-          [ngValue]="type"
-        >
+      <select #status class="w-1/6 cursor-pointer bg-slate-500">
+        <option *ngFor="let type of accountTypes" [ngValue]="type">
           {{ type }}
         </option>
       </select>

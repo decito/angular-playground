@@ -73,11 +73,7 @@ export const appRoutes: Routes = [
     ServerEditComponent,
     ServersComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes)
-  ],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

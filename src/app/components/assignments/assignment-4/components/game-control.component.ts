@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core'
 
-type TimerHandle = number | ReturnType<typeof setInterval>;
+type TimerHandle = number | ReturnType<typeof setInterval>
 
 @Component({
   selector: 'app-assignment-4-game-control',

@@ -6,15 +6,13 @@ import { ActivatedRoute } from '@angular/router'
   templateUrl: './assignment-4.component.html'
 })
 export class AssignmentFourComponent {
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {}
   assignmentNumber = this.route.snapshot.url
 
   evenNumbers: number[] = []
   oddNumbers: number[] = []
 
   onIntervalEmmited(n: number) {
-    (n % 2 === 0)
-      ? this.evenNumbers.push(n)
-      : this.oddNumbers.push(n)
+    n % 2 === 0 ? this.evenNumbers.push(n) : this.oddNumbers.push(n)
   }
 }

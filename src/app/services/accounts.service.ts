@@ -6,7 +6,7 @@ import type { Account } from 'src/app/types/accounts'
 
 @Injectable({ providedIn: 'root' })
 export class AccountsService {
-  accounts: { name: string, status: Account }[] = [
+  accounts: { name: string; status: Account }[] = [
     {
       name: 'Master Account',
       status: 'active'
@@ -23,7 +23,7 @@ export class AccountsService {
 
   statusUpdated = new EventEmitter<string>()
 
-  constructor(private loggingService: LoggingService) { }
+  constructor(private loggingService: LoggingService) {}
 
   addAccount(name: string, status: Account) {
     this.accounts.push({ name, status })

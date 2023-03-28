@@ -18,7 +18,7 @@ export class UsersService {
     { id: 3, name: 'Viz' }
   ]
 
-  constructor(private loggingService: LoggingService) { }
+  constructor(private loggingService: LoggingService) {}
 
   setActive(id: number) {
     this.activeUsers.push(this.inactiveUsers[id])

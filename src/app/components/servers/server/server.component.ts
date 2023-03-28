@@ -22,7 +22,7 @@ export class ServerComponent {
    * <app-server [newServer]="foo" />
    */
 
-  constructor(private serversService: ServersServices) { }
+  constructor(private serversService: ServersServices) {}
 
   /* O mesmo caso do @Input() acontece para o @Output().
    *

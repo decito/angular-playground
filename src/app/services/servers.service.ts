@@ -12,10 +12,10 @@ export class ServersServices {
 
   private lastIndex = this.serverList.length
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   private findServer(n: number): Server {
-    return this.serverList[this.serverList.findIndex((s) => s.id === n)]
+    return this.serverList[this.serverList.findIndex(s => s.id === n)]
   }
 
   getServers(serverID?: number) {
@@ -50,7 +50,7 @@ export class ServersServices {
 
   deleteServer(serverID: number) {
     this.serverList.splice(
-      this.serverList.findIndex((s) => s.id === serverID),
+      this.serverList.findIndex(s => s.id === serverID),
       1
     )
 

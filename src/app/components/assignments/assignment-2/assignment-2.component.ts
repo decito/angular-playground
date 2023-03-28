@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router'
   templateUrl: './assignment-2.component.html'
 })
 export class AssignmentTwoComponent {
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {}
   assignmentNumber = this.route.snapshot.url
 
   username: string
