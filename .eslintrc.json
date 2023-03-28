@@ -27,14 +27,16 @@
             "style": "kebab-case"
           }
         ],
-        "semi": ["error", "never"],
-        "comma-dangle": ["error", "never"]
+        "semi": ["warn", "never"],
+        "comma-dangle": ["warn", "never"]
       }
     },
     {
       "files": ["*.html"],
       "extends": ["plugin:@angular-eslint/template/recommended"],
-      "rules": {}
+      "rules": {
+        "max-len": ["error", { "code": 100 }]
+      }
     }
   ]
 }

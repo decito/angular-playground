@@ -2,6 +2,10 @@
   <app-new-account></app-new-account>
 
   <div class="grid grid-cols-3 gap-8 py-8">
-    <app-account *ngFor="let acc of accounts; let i = index" [account]="acc" [id]="i"></app-account>
+    <app-account
+      *ngFor="let acc of accounts; let i = index"
+      [account]="acc"
+      [id]="i"
+    ></app-account>
   </div>
 </section>

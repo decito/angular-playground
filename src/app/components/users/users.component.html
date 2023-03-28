@@ -2,21 +2,22 @@
   <aside class="f-col gap-12 w-60">
     <div class="f-col gap-2">
       <button *ngFor="let u of users" class="transparent w-full" [routerLink]="['/users', u.id, u.name]">
-        Load user: {{u.name}}
+        Load user: {{ u.name }}
       </button>
     </div>
 
-    <hr>
+    <hr />
 
     <div class="f-col gap-2">
       <h2 class="underline mb-4">Page options</h2>
 
-      <button (click)="onClick()" class="transparent w-full">Go to
-        servers
-        page</button>
+      <button (click)="onClick()" class="transparent w-full">
+        Go to servers page
+      </button>
 
-      <button (click)="reloadPage()" class="transparent w-full">Reload
-        page</button>
+      <button (click)="reloadPage()" class="transparent w-full">
+        Reload page
+      </button>
 
       <div class="f-col">
         <button (click)="brokenReloadPage()" class="transparent w-full">

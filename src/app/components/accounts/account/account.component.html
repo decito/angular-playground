@@ -2,14 +2,31 @@
   <header>
     <h2>{{ account.name }}</h2>
 
-    <hr>
+    <hr />
 
-    <p class="py-2">This account is {{ account.status }} </p>
+    <p class="py-2">This account is {{ account.status }}</p>
   </header>
 
   <div class="flex gap-4">
-    <button class="bg-success sm" (click)="changeStatus('active')">Set to 'active'</button>
-    <button class="bg-warning sm" (click)="changeStatus('inactive')">Set to 'inactive'</button>
-    <button class="bg-secondary sm" (click)="changeStatus('unknown')">Set to 'unknown'</button>
+    <button
+      class="bg-success sm"
+      (click)="changeStatus('active')"
+    >
+      Set to 'active'
+    </button>
+
+    <button
+      class="bg-warning sm"
+      (click)="changeStatus('inactive')"
+    >
+      Set to 'inactive'
+    </button>
+
+    <button
+      class="bg-secondary sm"
+      (click)="changeStatus('unknown')"
+    >
+      Set to 'unknown'
+    </button>
   </div>
 </article>

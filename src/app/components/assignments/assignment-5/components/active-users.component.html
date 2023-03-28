@@ -2,11 +2,19 @@
   <h2>Active Users</h2>
 
   <ul class="f-col gap-2">
-    <li class="flex justify-between border border-gray-500 rounded p-2 items-center"
-      *ngFor="let user of users; let i = index">
+    <li
+      class="flex justify-between border border-gray-500 rounded p-2 items-center"
+      *ngFor="let user of users; let i = index"
+    >
       <span>{{ user }}</span>
 
-      <button type="button" class="p-2 bg-danger" (click)="setInactive(i)">Set to Inactive</button>
+      <button
+        type="button"
+        class="p-2 bg-danger"
+        (click)="setInactive(i)"
+      >
+        Set to Inactive
+      </button>
     </li>
   </ul>
 </section>

@@ -3,15 +3,28 @@
     <label>Account Name</label>
 
     <div class="flex gap-4">
-      <input type="text" #accountName class="w-2/5 p-2 bg-slate-500">
+      <input
+        type="text"
+        #accountName
+        class="w-2/5"
+      />
 
-      <select #status class="w-1/6 bg-slate-500 cursor-pointer">
-        <option *ngFor="let type of accountTypes" [ngValue]="type">
+      <select
+        #status
+        class="w-1/6 bg-slate-500 cursor-pointer"
+      >
+        <option
+          *ngFor="let type of accountTypes"
+          [ngValue]="type"
+        >
           {{ type }}
         </option>
       </select>
 
-      <button class="bg-primary" (click)="createAccount(accountName.value, status.value)">
+      <button
+        class="bg-primary"
+        (click)="createAccount(accountName.value, status.value)"
+      >
         Add Account
       </button>
     </div>

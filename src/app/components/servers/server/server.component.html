@@ -1,18 +1,27 @@
-<div class="flex justify-between items-center border rounded border-gray-300 p-4 w-96">
+<div
+  class="flex justify-between items-center border rounded border-gray-300 p-4 w-96"
+>
   <p class="text-white">
-    <span [ngStyle]="{color: getColor()}">
+    <span [ngStyle]="{ color: getColor() }">
       {{ server.name }}
     </span>
 
     is currently
 
-    <span [ngStyle]="{color: getColor()}">{{ server.status }}</span>
+    <span [ngStyle]="{ color: getColor() }">{{ server.status }}</span>
   </p>
 
   <div class="flex gap-6">
-    <i (click)="toggleStatus()" class="fas fa-plug cursor-pointer"></i>
+    <i
+      (click)="toggleStatus()"
+      class="fas fa-plug cursor-pointer"
+    ></i>
 
-    <i [routerLink]="['/servers/'+ server.id +'/edit']" [queryParams]="{ 'allowEdit': true }" fragment="editing"
-      class="fas fa-gear cursor-pointer"></i>
+    <i
+      [routerLink]="['/servers/' + server.id + '/edit']"
+      [queryParams]="{ allowEdit: true }"
+      fragment="editing"
+      class="fas fa-gear cursor-pointer"
+    ></i>
   </div>
 </div>
