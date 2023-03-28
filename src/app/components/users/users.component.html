@@ -1,7 +1,11 @@
 <section class="flex gap-12">
-  <aside class="f-col gap-12 w-60">
+  <aside class="f-col w-60 gap-12">
     <div class="f-col gap-2">
-      <button *ngFor="let u of users" class="transparent w-full" [routerLink]="['/users', u.id, u.name]">
+      <button
+        *ngFor="let u of users"
+        class="transparent w-full"
+        [routerLink]="['/users', u.id, u.name]"
+      >
         Load user: {{ u.name }}
       </button>
     </div>
@@ -9,7 +13,7 @@
     <hr />
 
     <div class="f-col gap-2">
-      <h2 class="underline mb-4">Page options</h2>
+      <h2 class="mb-4 underline">Page options</h2>
 
       <button (click)="onClick()" class="transparent w-full">
         Go to servers page

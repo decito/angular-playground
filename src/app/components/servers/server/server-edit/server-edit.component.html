@@ -3,15 +3,9 @@
 
   <div class="f-col gap-4">
     <label>Edit server name (currently {{ server.name }})</label>
-    <input
-      class="w-2/5"
-      [(ngModel)]="newServerName"
-    />
+    <input class="w-2/5" [(ngModel)]="newServerName" />
 
-    <button
-      class="bg-primary p-2 rounded"
-      (click)="updateServerName()"
-    >
+    <button class="bg-primary rounded p-2" (click)="updateServerName()">
       Apply
     </button>
   </div>
@@ -28,14 +22,11 @@
   </p>
 
   <div class="flex gap-6">
-    <i
-      (click)="toggleStatus(server.id)"
-      class="fas fa-plug cursor-pointer"
-    ></i>
+    <i (click)="toggleStatus(server.id)" class="fas fa-plug cursor-pointer"></i>
 
     <i
       (click)="deleteServer(server.id)"
-      class="fas fa-trash text-red-500 cursor-pointer"
+      class="fas fa-trash cursor-pointer text-red-500"
     ></i>
   </div>
 </div>

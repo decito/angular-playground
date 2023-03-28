@@ -9,10 +9,10 @@ import type { Account } from 'src/app/types/accounts'
   templateUrl: './account.component.html'
 })
 export class AccountComponent {
-  @Input() account: { name: string, status: Account }
+  @Input() account: { name: string; status: Account }
   @Input() id: number
 
-  constructor(private accountsService: AccountsService) { }
+  constructor(private accountsService: AccountsService) {}
 
   changeStatus(newStatus: Account) {
     this.accountsService.updateStatus(this.id, newStatus)

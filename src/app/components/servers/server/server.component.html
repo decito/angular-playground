@@ -1,5 +1,5 @@
 <div
-  class="flex justify-between items-center border rounded border-gray-300 p-4 w-96"
+  class="flex w-96 items-center justify-between rounded border border-gray-300 p-4"
 >
   <p class="text-white">
     <span [ngStyle]="{ color: getColor() }">
@@ -12,10 +12,7 @@
   </p>
 
   <div class="flex gap-6">
-    <i
-      (click)="toggleStatus()"
-      class="fas fa-plug cursor-pointer"
-    ></i>
+    <i (click)="toggleStatus()" class="fas fa-plug cursor-pointer"></i>
 
     <i
       [routerLink]="['/servers/' + server.id + '/edit']"

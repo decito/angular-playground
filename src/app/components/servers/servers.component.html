@@ -1,21 +1,15 @@
-<main class="f-col gap-4 items-center">
-  <h2 class="font-semibold text-2xl">My Servers</h2>
+<main class="f-col items-center gap-4">
+  <h2 class="text-2xl font-semibold">My Servers</h2>
 
-  <div class="f-col gap-4 items-center">
+  <div class="f-col items-center gap-4">
     <div class="f-col w-full">
-      <input
-        type="text"
-        (input)="updateServerName($event)"
-      />
+      <input type="text" (input)="updateServerName($event)" />
 
       <label class="text-xs text-gray-400">Does not use Two-way Binding</label>
     </div>
 
     <div class="f-col w-full">
-      <input
-        type="text"
-        [(ngModel)]="newServerName"
-      />
+      <input type="text" [(ngModel)]="newServerName" />
 
       <label class="text-xs text-gray-400">Uses Two-way Binding</label>
     </div>
@@ -43,8 +37,5 @@
     </ng-template>
   </div>
 
-  <app-server
-    *ngFor="let server of serverList"
-    [server]="server"
-  ></app-server>
+  <app-server *ngFor="let server of serverList" [server]="server"></app-server>
 </main>

@@ -3,14 +3,14 @@
 
   <ul class="f-col gap-2">
     <li
-      class="flex justify-between border border-gray-500 rounded p-2 items-center"
+      class="flex items-center justify-between rounded border border-gray-500 p-2"
       *ngFor="let user of users; let i = index"
     >
       <span>{{ user }}</span>
 
       <button
         type="button"
-        class="p-2 bg-danger"
+        class="bg-danger p-2"
         (click)="setInactive(i)"
       >
         Set to Inactive

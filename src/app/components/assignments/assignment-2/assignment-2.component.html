@@ -1,24 +1,29 @@
-<section class="f-col gap-8 max-w-4xl">
+<section class="f-col max-w-4xl gap-8">
   <h1 class="w-fit">Assignment {{ assignmentNumber }}</h1>
 
   <div>
     <div class="flex gap-20">
       <ol class="w-2/5 list-disc">
-        <li>Add a Input field which updates a property ('username') via
-          Two-Way-Binding</li>
-        <li>Output the username property via String Interpolation (in a
-          paragraph below the input)</li>
-        <li>Add a button which may only be clicked if the username is NOT an
-          empty string</li>
-        <li>Upon clicking the button, the username should be reset to an empty
-          string</li>
+        <li>
+          Add a Input field which updates a property ('username') via
+          Two-Way-Binding
+        </li>
+        <li>
+          Output the username property via String Interpolation (in a paragraph
+          below the input)
+        </li>
+        <li>
+          Add a button which may only be clicked if the username is NOT an empty
+          string
+        </li>
+        <li>
+          Upon clicking the button, the username should be reset to an empty
+          string
+        </li>
       </ol>
 
       <div class="w-3/5 overflow-hidden">
-        <input
-          type="text"
-          [(ngModel)]="username"
-        />
+        <input type="text" [(ngModel)]="username" />
 
         <button
           class="bg-primary sm ml-4"
@@ -29,7 +34,9 @@
           Reset Name
         </button>
 
-        <p>Name is <span class="underline">{{ username }}</span></p>
+        <p>
+          Name is <span class="underline">{{ username }}</span>
+        </p>
       </div>
     </div>
   </div>

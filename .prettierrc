@@ -1,7 +1,6 @@
 {
   "arrowParens": "avoid",
   "editorconfig": true,
-  "parser": "typescript",
   "quoteProps": "as-needed",
   "semi": false,
   "singleQuote": true,
