@@ -14,8 +14,8 @@ export class UserComponent implements OnInit, OnDestroy {
   subscription: Subscription
 
   constructor(
-    private route: ActivatedRoute,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
