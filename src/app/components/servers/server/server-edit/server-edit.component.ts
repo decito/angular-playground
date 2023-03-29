@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute } from '@angular/router'
+import { Component, OnDestroy, OnInit } from '@angular/core'
+import { ActivatedRoute, Params } from '@angular/router'
+import { delay } from 'rxjs/internal/operators/delay'
+import { Subscription } from 'rxjs/internal/Subscription'
 
 import { ServersServices } from 'src/app/services/servers.service'
 
@@ -9,9 +11,12 @@ import type { Server } from 'src/app/types/server'
   selector: 'app-server-edit',
   templateUrl: './server-edit.component.html'
 })
-export class ServerEditComponent implements OnInit {
+export class ServerEditComponent implements OnInit, OnDestroy {
   server: Server
+
   newServerName: string
+
+  subscription: Subscription
 
   constructor(
     private serversService: ServersServices,
@@ -19,14 +24,20 @@ export class ServerEditComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const serverID = parseInt(this.route.snapshot.params['id'])
+    this.server = this.serversService.getServers(
+      parseInt(this.route.snapshot.params['id'], 10)
+    ) as Server
 
-    this.server = this.serversService.getServers(serverID) as Server
+    this.subscription = this.route.params
+      .pipe(delay(0))
+      .subscribe(
+        (p: Params) =>
+          (this.server = this.serversService.getServers(
+            parseInt(p['id'], 10)
+          ) as Server)
+      )
 
     this.newServerName = this.server.name
-
-    console.log(this.route.snapshot.queryParams)
-    console.log(this.route.snapshot.fragment)
   }
 
   getColor() {
@@ -43,5 +54,9 @@ export class ServerEditComponent implements OnInit {
 
   deleteServer(id: number) {
     this.serversService.deleteServer(id)
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
   }
 }
