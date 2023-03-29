@@ -21,13 +21,15 @@ import { AssignmentThreeComponent } from './components/assignments/assignment-3/
 import { AssignmentTwoComponent } from './components/assignments/assignment-2/assignment-2.component'
 import { HeaderComponent } from './components/header/header.component'
 import { NewAccountComponent } from './components/accounts/new-account/new-account.component'
-import { UserComponent } from './components/users/user/user.component'
-import { UsersComponent } from './components/users/users.component'
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
 import { ServerComponent } from './components/servers/server/server.component'
 import { ServerEditComponent } from './components/servers/server/server-edit/server-edit.component'
 import { ServersComponent } from './components/servers/servers.component'
+import { UserComponent } from './components/users/user/user.component'
+import { UsersComponent } from './components/users/users.component'
 
 export const appRoutes: Routes = [
+  { path: '', redirectTo: '/servers', pathMatch: 'full' },
   { path: 'accounts', component: AccountsComponent },
   {
     path: 'assignments',
@@ -44,9 +46,13 @@ export const appRoutes: Routes = [
     component: UsersComponent,
     children: [{ path: ':id/:name', component: UserComponent }]
   },
-  { path: 'servers', component: ServersComponent },
-  { path: 'servers/:id/edit', component: ServerEditComponent },
-  { path: '', component: ServersComponent }
+  {
+    path: 'servers',
+    component: ServersComponent,
+    children: [{ path: ':id/edit', component: ServerEditComponent }]
+  },
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 ]
 
 @NgModule({
@@ -67,6 +73,7 @@ export const appRoutes: Routes = [
     HeaderComponent,
     HtmlCommentDirective,
     NewAccountComponent,
+    PageNotFoundComponent,
     UserComponent,
     UsersComponent,
     ServerComponent,
