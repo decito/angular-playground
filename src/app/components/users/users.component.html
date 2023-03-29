@@ -23,6 +23,10 @@
         Reload page
       </button>
 
+      <button routerLink="/unknown" class="transparent w-full">
+        Go to Unknown page
+      </button>
+
       <div class="f-col">
         <button (click)="brokenReloadPage()" class="transparent w-full">
           This button will break the app
@@ -41,6 +45,5 @@
     </h2>
   </div>
 
-  <!-- <router-outlet (activate)="onLoaded($event)"></router-outlet> -->
   <router-outlet></router-outlet>
 </section>
