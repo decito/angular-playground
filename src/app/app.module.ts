@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component'
 
+import { AuthService } from './auth.service'
+import { AuthGuard } from './auth-guard.service'
+
 import { AppRoutingModule } from './app-routing.module'
 
 import { HtmlCommentDirective } from './shared/html-comment.directive'
@@ -57,6 +60,7 @@ import { UsersComponent } from './components/users/users.component'
     UsersComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
