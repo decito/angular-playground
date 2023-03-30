@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule } from '@angular/forms'
-import { Routes, RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component'
+
+import { AppRoutingModule } from './app-routing.module'
 
 import { HtmlCommentDirective } from './shared/html-comment.directive'
 
@@ -28,33 +29,6 @@ import { ServerEditComponent } from './components/servers/server/server-edit/ser
 import { ServersComponent } from './components/servers/servers.component'
 import { UserComponent } from './components/users/user/user.component'
 import { UsersComponent } from './components/users/users.component'
-
-export const appRoutes: Routes = [
-  { path: '', redirectTo: '/servers', pathMatch: 'full' },
-  { path: 'accounts', component: AccountsComponent },
-  {
-    path: 'assignments',
-    component: AssignmentsComponent,
-    children: [
-      { path: '2', component: AssignmentTwoComponent },
-      { path: '3', component: AssignmentThreeComponent },
-      { path: '4', component: AssignmentFourComponent },
-      { path: '5', component: AssignmentFiveComponent }
-    ]
-  },
-  {
-    path: 'users',
-    component: UsersComponent,
-    children: [{ path: ':id/:name', component: UserComponent }]
-  },
-  {
-    path: 'servers',
-    component: ServersComponent,
-    children: [{ path: ':id/edit', component: ServerEditComponent }]
-  },
-  { path: '404', component: PageNotFoundComponent },
-  { path: '**', redirectTo: '/404' }
-]
 
 @NgModule({
   declarations: [
@@ -82,7 +56,7 @@ export const appRoutes: Routes = [
     UserComponent,
     UsersComponent
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
