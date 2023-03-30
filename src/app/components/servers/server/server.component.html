@@ -1,6 +1,4 @@
-<div
-  class="flex w-80 items-center justify-between rounded border border-gray-300 p-4"
->
+<div class="card-server">
   <p class="text-white">
     <span [ngStyle]="{ color: getColor() }">
       {{ server.name }}
@@ -11,7 +9,7 @@
     <span [ngStyle]="{ color: getColor() }">{{ server.status }}</span>
   </p>
 
-  <div class="flex gap-6">
+  <div class="flex gap-5">
     <i
       (click)="toggleStatus()"
       class="fas fa-plug cursor-pointer transition-colors hover:text-warning"
