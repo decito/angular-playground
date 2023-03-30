@@ -29,8 +29,10 @@ export class ServersServices {
   }
 
   createServer(n: string, o: string) {
+    this.lastIndex += 1
+
     const newServer: Server = {
-      id: this.lastIndex + 1,
+      id: this.lastIndex,
       name: n,
       status: o === 'online' ? 'online' : 'offline'
     }
