@@ -33,13 +33,14 @@
         <p>Enter Server Name</p>
       </ng-template>
 
-      <button
-        class="lg bg-primary"
-        [disabled]="!allowNewServer || newServerCreated"
+      <app-button
+        text="Add new server"
+        type="primary"
+        size="lg"
+        [outline]="true"
         (click)="createServer()"
-      >
-        Add new Server
-      </button>
+        [disabled]="!allowNewServer || newServerCreated || !newServerName"
+      ></app-button>
 
       <div class="text-center">
         <div *ngIf="newServerCreated; else noServerMessage">

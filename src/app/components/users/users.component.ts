@@ -36,6 +36,9 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   brokenReloadPage() {
+    // Isso vai quebrar o app, pois ele tentará redirecionar para /users/users
+    // Com a introdução do wildcard, esse comportamento agora direciona para 404.
+
     this.router.navigate(['users'], { relativeTo: this.route })
   }
 

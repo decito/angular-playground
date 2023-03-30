@@ -1,13 +1,14 @@
 <section class="flex gap-12">
   <aside class="f-col w-60 gap-12">
     <div class="f-col gap-2">
-      <button
+      <app-button
         *ngFor="let u of users"
-        class="transparent w-full"
+        text="Load user: {{ u.name }}"
+        type="secondary"
+        size="full"
+        [outline]="true"
         [routerLink]="['/users', u.id, u.name]"
-      >
-        Load user: {{ u.name }}
-      </button>
+      ></app-button>
     </div>
 
     <hr />
@@ -15,25 +16,29 @@
     <div class="f-col gap-2">
       <h2 class="mb-4 underline">Page options</h2>
 
-      <button (click)="onClick()" class="transparent w-full">
-        Go to servers page
-      </button>
+      <app-button
+        text="Go to servers page"
+        type="secondary"
+        size="full"
+        [outline]="true"
+        (click)="onClick()"
+      ></app-button>
 
-      <button (click)="reloadPage()" class="transparent w-full">
-        Reload page
-      </button>
+      <app-button
+        text="Reload page"
+        type="secondary"
+        size="full"
+        [outline]="true"
+        (click)="reloadPage()"
+      ></app-button>
 
-      <button routerLink="/unknown" class="transparent w-full">
-        Go to Unknown page
-      </button>
-
-      <div class="f-col">
-        <button (click)="brokenReloadPage()" class="transparent w-full">
-          This button will break the app
-        </button>
-
-        <label class="text-xs text-gray-400">Check console</label>
-      </div>
+      <app-button
+        text="Go to Unknown page"
+        type="secondary"
+        size="full"
+        [outline]="true"
+        routerLink="/unknown"
+      ></app-button>
     </div>
   </aside>
 

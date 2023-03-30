@@ -8,13 +8,13 @@
     >
       <span>{{ user }}</span>
 
-      <button
-        type="button"
-        class="bg-success p-2"
+      <app-button
+        text="Set to Active"
+        type="success"
+        class="p-2"
+        [outline]="true"
         (click)="setActive(i)"
-      >
-        Set to Active
-      </button>
+      ></app-button>
     </li>
   </ul>
 </section>

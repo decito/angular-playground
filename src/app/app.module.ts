@@ -19,6 +19,7 @@ import { AssignmentFourOddComponent } from './components/assignments/assignment-
 import { AssignmentsComponent } from './components/assignments/assignments.component'
 import { AssignmentThreeComponent } from './components/assignments/assignment-3/assignment-3.component'
 import { AssignmentTwoComponent } from './components/assignments/assignment-2/assignment-2.component'
+import { ButtonComponent } from './components/button/button.component'
 import { HeaderComponent } from './components/header/header.component'
 import { NewAccountComponent } from './components/accounts/new-account/new-account.component'
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
@@ -70,15 +71,16 @@ export const appRoutes: Routes = [
     AssignmentsComponent,
     AssignmentThreeComponent,
     AssignmentTwoComponent,
+    ButtonComponent,
     HeaderComponent,
     HtmlCommentDirective,
     NewAccountComponent,
     PageNotFoundComponent,
-    UserComponent,
-    UsersComponent,
     ServerComponent,
     ServerEditComponent,
-    ServersComponent
+    ServersComponent,
+    UserComponent,
+    UsersComponent
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   bootstrap: [AppComponent]

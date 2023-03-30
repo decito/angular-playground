@@ -1,4 +1,4 @@
-<article class="f-col gap-4 rounded border border-gray-500 p-4">
+<article class="f-col gap-4 rounded border border-gray-300 p-4">
   <header>
     <h2>{{ account.name }}</h2>
 
@@ -8,16 +8,28 @@
   </header>
 
   <div class="flex gap-4">
-    <button class="sm bg-success" (click)="changeStatus('active')">
-      Set to 'active'
-    </button>
+    <app-button
+      text="Set to 'active'"
+      type="success"
+      [outline]="true"
+      size="sm"
+      (click)="changeStatus('active')"
+    ></app-button>
 
-    <button class="sm bg-warning" (click)="changeStatus('inactive')">
-      Set to 'inactive'
-    </button>
+    <app-button
+      text="Set to 'inactive'"
+      type="warning"
+      [outline]="true"
+      size="sm"
+      (click)="changeStatus('inactive')"
+    ></app-button>
 
-    <button class="sm bg-secondary" (click)="changeStatus('unknown')">
-      Set to 'unknown'
-    </button>
+    <app-button
+      text="Set to 'unknown'"
+      type="secondary"
+      [outline]="true"
+      size="sm"
+      (click)="changeStatus('unknown')"
+    ></app-button>
   </div>
 </article>

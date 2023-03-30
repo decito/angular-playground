@@ -1,5 +1,17 @@
 <section class="flex gap-4">
-  <button class="lg bg-success" (click)="startGame()">Start</button>
+  <app-button
+    text="Start"
+    type="success"
+    size="lg"
+    [outline]="true"
+    (click)="startGame()"
+  ></app-button>
 
-  <button class="lg bg-danger" (click)="stopGame()">Stop</button>
+  <app-button
+    text="Stop"
+    type="danger"
+    size="lg"
+    [outline]="true"
+    (click)="stopGame()"
+  ></app-button>
 </section>

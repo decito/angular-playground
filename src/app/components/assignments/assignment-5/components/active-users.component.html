@@ -8,13 +8,13 @@
     >
       <span>{{ user }}</span>
 
-      <button
-        type="button"
-        class="bg-danger p-2"
+      <app-button
+        text="Set to Inactive"
+        type="danger"
+        class="p-2"
+        [outline]="true"
         (click)="setInactive(i)"
-      >
-        Set to Inactive
-      </button>
+      ></app-button>
     </li>
   </ul>
 </section>

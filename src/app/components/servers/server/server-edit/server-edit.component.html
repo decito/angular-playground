@@ -1,4 +1,4 @@
-<div class="f-col gap-8">
+<div class="f-col w-96 gap-8">
   <h2>Managing Server {{ server.name }}</h2>
 
   <div class="f-col gap-4">
@@ -6,7 +6,13 @@
 
     <input [(ngModel)]="newServerName" />
 
-    <button class="lg bg-primary" (click)="updateServerName()">Apply</button>
+    <app-button
+      text="Apply"
+      type="primary"
+      size="lg"
+      [outline]="true"
+      (click)="updateServerName()"
+    ></app-button>
   </div>
 
   <p class="text-white">
@@ -20,13 +26,22 @@
     <span [ngStyle]="{ color: getColor() }">{{ server.status }}</span>
   </p>
 
-  <div class="f-col gap-4">
-    <button (click)="toggleStatus(server.id)" class="lg bg-warning">
-      Toggle State
-    </button>
+  <div class="flex justify-between gap-4">
+    <app-button
+      text="Toggle State"
+      type="warning"
+      size="lg"
+      [outline]="true"
+      (click)="toggleStatus(server.id)"
+    >
+    </app-button>
 
-    <button (click)="deleteServer(server.id)" class="lg bg-danger">
-      Delete Server
-    </button>
+    <app-button
+      text="Delete Server"
+      type="danger"
+      size="lg"
+      [outline]="true"
+      (click)="deleteServer(server.id)"
+    ></app-button>
   </div>
 </div>

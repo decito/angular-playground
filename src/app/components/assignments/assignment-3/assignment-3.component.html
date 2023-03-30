@@ -24,9 +24,14 @@
 
     <div class="flex w-3/5 gap-20">
       <div class="f-col min-w-[12rem] gap-4">
-        <button class="lg h-fit bg-primary" (click)="clickHandler()">
-          Display Details
-        </button>
+        <app-button
+          text="Display Details"
+          type="primary"
+          size="lg"
+          class="h-fit"
+          [outline]="true"
+          (click)="clickHandler()"
+        ></app-button>
 
         <p *ngIf="show">Secret Password = tuna</p>
       </div>
