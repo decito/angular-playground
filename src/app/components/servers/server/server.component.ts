@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core'
 
-import { ServersServices } from '~/services/servers.service'
+import { ServersService } from '~/services/servers.service'
 
 import type { Server } from '~/types/server'
 
@@ -11,7 +11,7 @@ import type { Server } from '~/types/server'
 export class ServerComponent {
   @Input() server: Server
 
-  constructor(private serversService: ServersServices) {}
+  constructor(private serversService: ServersService) {}
 
   getColor() {
     return this.serversService.getStatusColor(this.server.id)

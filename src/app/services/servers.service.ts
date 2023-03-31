@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 import type { Server } from '~/types/server'
 
 @Injectable({ providedIn: 'root' })
-export class ServersServices {
+export class ServersService {
   private serverList: Server[] = [
     { id: 1, name: 'Root Server', status: 'online' },
     { id: 2, name: 'Template Server', status: 'offline' }

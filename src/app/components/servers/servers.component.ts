@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { ServersServices } from '~/services/servers.service'
+import { ServersService } from '~/services/servers.service'
 
 import type { Server } from '~/types/server'
 
@@ -15,7 +15,7 @@ export class ServersComponent implements OnInit {
 
   serverList: Server[]
 
-  constructor(private serversService: ServersServices) {
+  constructor(private serversService: ServersService) {
     setTimeout(() => (this.allowNewServer = true), 2000)
   }
 

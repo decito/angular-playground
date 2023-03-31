@@ -4,7 +4,7 @@ import { delay } from 'rxjs/internal/operators/delay'
 import { Subscription } from 'rxjs/internal/Subscription'
 import { Observable } from 'rxjs/internal/Observable'
 
-import { ServersServices } from '~/services/servers.service'
+import { ServersService } from '~/services/servers.service'
 
 import { CanDeactivateComponent } from '~/routes/guards/can-deactivate-guard.service'
 
@@ -24,7 +24,7 @@ export class ServerEditComponent
   subscription: Subscription
 
   constructor(
-    private serversService: ServersServices,
+    private serversService: ServersService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
