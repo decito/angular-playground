@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  button {
-    @apply w-fit rounded font-semibold disabled:cursor-not-allowed disabled:opacity-60;
-  }
-
   h1 {
     @apply text-3xl font-bold;
   }
@@ -31,18 +27,6 @@
 
   a.router-link-active {
     @apply font-bold underline;
-  }
-
-  button.sm {
-    @apply p-1;
-  }
-
-  button:not(.sm):not(.lg) {
-    @apply p-2;
-  }
-
-  button.lg {
-    @apply p-3;
   }
 
   .f-col {
