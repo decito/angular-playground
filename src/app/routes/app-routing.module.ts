@@ -10,6 +10,7 @@ import { AssignmentThreeComponent } from '~/components/assignments/assignment-3/
 import { AssignmentFourComponent } from '~/components/assignments/assignment-4/assignment-4.component'
 import { AssignmentFiveComponent } from '~/components/assignments/assignment-5/assignment-5.component'
 import { AssignmentsComponent } from '~/components/assignments/assignments.component'
+import { ErrorPageComponent } from '~/components/error-page/error-page.component'
 import { PageNotFoundComponent } from '~/components/page-not-found/page-not-found.component'
 import { ServerEditComponent } from '~/components/servers/server/server-edit/server-edit.component'
 import { ServersComponent } from '~/components/servers/servers.component'
@@ -46,8 +47,13 @@ export const appRoutes: Routes = [
       }
     ]
   },
-  { path: '404', component: PageNotFoundComponent },
-  { path: '**', redirectTo: '/404' }
+  // { path: '404', component: PageNotFoundComponent },
+  {
+    path: 'not-found',
+    component: ErrorPageComponent,
+    data: { message: 'Oops... Page not found' }
+  },
+  { path: '**', redirectTo: '/not-found' }
 ]
 
 @NgModule({

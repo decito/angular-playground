@@ -21,6 +21,7 @@ import { AssignmentsComponent } from '~/components/assignments/assignments.compo
 import { AssignmentThreeComponent } from '~/components/assignments/assignment-3/assignment-3.component'
 import { AssignmentTwoComponent } from '~/components/assignments/assignment-2/assignment-2.component'
 import { ButtonComponent } from '~/components/button/button.component'
+import { ErrorPageComponent } from './components/error-page/error-page.component'
 import { HeaderComponent } from '~/components/header/header.component'
 import { NewAccountComponent } from '~/components/accounts/new-account/new-account.component'
 import { PageNotFoundComponent } from '~/components/page-not-found/page-not-found.component'
@@ -54,7 +55,8 @@ import { UsersComponent } from '~/components/users/users.component'
     ServerEditComponent,
     ServersComponent,
     UserComponent,
-    UsersComponent
+    UsersComponent,
+    ErrorPageComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   bootstrap: [AppComponent]
