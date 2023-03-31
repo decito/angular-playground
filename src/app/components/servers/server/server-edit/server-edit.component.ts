@@ -1,9 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core'
-import { ActivatedRoute, Params } from '@angular/router'
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core'
+import { ActivatedRoute, Params, Router } from '@angular/router'
 import { delay } from 'rxjs/internal/operators/delay'
 import { Subscription } from 'rxjs/internal/Subscription'
+import { Observable } from 'rxjs/internal/Observable'
 
 import { ServersServices } from 'src/app/services/servers.service'
+
+import { CanDeactivateComponent } from 'src/app/guards/can-deactivate-guard.service'
 
 import type { Server } from 'src/app/types/server'
 
@@ -11,16 +14,19 @@ import type { Server } from 'src/app/types/server'
   selector: 'app-server-edit',
   templateUrl: './server-edit.component.html'
 })
-export class ServerEditComponent implements OnInit, OnDestroy {
+export class ServerEditComponent
+  implements OnInit, OnDestroy, CanDeactivateComponent, DoCheck
+{
   server: Server
-
   newServerName: string
+  changesSaved = false
 
   subscription: Subscription
 
   constructor(
     private serversService: ServersServices,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -50,6 +56,22 @@ export class ServerEditComponent implements OnInit, OnDestroy {
 
   updateServerName() {
     this.serversService.updateName(this.server.id, this.newServerName)
+
+    this.changesSaved = true
+
+    this.router.navigate(['/servers'], { relativeTo: this.route })
+  }
+
+  canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
+    return this.newServerName !== this.server.name && !this.changesSaved
+      ? confirm('Você quer descartar as mudanças?')
+      : true
+  }
+
+  ngDoCheck() {
+    if (this.newServerName === this.server.name) return
+
+    this.newServerName = this.server.name
   }
 
   deleteServer(id: number) {
