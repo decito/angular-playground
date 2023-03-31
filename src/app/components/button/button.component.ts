@@ -15,33 +15,41 @@ export class ButtonComponent implements OnChanges {
     | 'danger'
     | 'disabled' = 'primary'
 
-  @Input() size?: 'sm' | 'lg' | 'full'
+  @Input() size?: 'sm' | 'lg' | 'full' | 'default' = 'default'
   @Input() outline? = false
   @Input() disabled? = false
 
   classes: string
 
+  outlineToString = () => {
+    return this.outline ? 'outlined' : 'solid'
+  }
+
+  disabledToString = () => {
+    return this.disabled ? 'disabled' : 'enabled'
+  }
+
   ngOnChanges() {
-    switch (this.outline) {
-      case true:
-        this.disabled
-          ? (this.classes = `border-disabled text-disabled`)
-          : (this.classes = `border-${this.type} text-${this.type} hover:bg-${this.type} hover:text-white`)
-        break
-
-      default:
-        this.disabled
-          ? (this.classes = `border-disabled bg-disabled`)
-          : (this.classes = `border-${this.type} bg-${this.type} hover:brightness-110`)
+    const classStyles = {
+      outlined: {
+        disabled: `border-disabled text-disabled`,
+        enabled: `border-${this.type} text-${this.type} hover:bg-${this.type} hover:text-white`
+      },
+      solid: {
+        disabled: `border-disabled bg-disabled`,
+        enabled: `border-${this.type} bg-${this.type} hover:brightness-110`
+      }
     }
 
-    switch (this.size) {
-      case 'full':
-        this.classes += ' w-full'
-        break
+    this.classes = classStyles[this.outlineToString()][this.disabledToString()]
 
-      default:
-        this.classes += ` ${this.size}`
+    const sizeStyle: Record<typeof this.size, string> = {
+      sm: 'p-1',
+      lg: 'p-3',
+      full: 'p-2 w-full',
+      default: 'p-2'
     }
+
+    this.classes += ` ${sizeStyle[this.size]}`
   }
 }
