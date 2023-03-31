@@ -60,7 +60,6 @@ import { UsersComponent } from './components/users/users.component'
     UsersComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
-  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
