@@ -20,6 +20,9 @@ module.exports = {
     }
   },
   safelist: [
+    'p-1',
+    'p-2',
+    'p-3',
     'bg-primary',
     'border-primary',
     'text-primary',
