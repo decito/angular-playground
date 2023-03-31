@@ -41,8 +41,6 @@ export class ButtonComponent implements OnChanges {
       }
     }
 
-    this.classes = classStyles[this.outlineToString()][this.disabledToString()]
-
     const sizeStyle: Record<typeof this.size, string> = {
       sm: 'p-1',
       lg: 'p-3',
@@ -50,6 +48,7 @@ export class ButtonComponent implements OnChanges {
       default: 'p-2'
     }
 
+    this.classes = classStyles[this.outlineToString()][this.disabledToString()]
     this.classes += ` ${sizeStyle[this.size]}`
   }
 }
