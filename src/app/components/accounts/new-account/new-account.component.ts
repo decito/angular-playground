@@ -1,9 +1,9 @@
 import { Component, OnDestroy } from '@angular/core'
 import { Subscription } from 'rxjs/internal/Subscription'
 
-import { AccountsService } from 'src/app/services/accounts.service'
+import { AccountsService } from '~/services/accounts.service'
 
-import { Account } from 'src/app/types/accounts'
+import { Account } from '~/types/accounts'
 
 @Component({
   selector: 'app-new-account',

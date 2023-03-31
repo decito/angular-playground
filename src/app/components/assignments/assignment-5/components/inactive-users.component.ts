@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { UsersService } from 'src/app/services/users.service'
+import { UsersService } from '~/services/users.service'
 
 @Component({
   selector: 'app-assignment-5-active-users',
@@ -9,7 +9,7 @@ import { UsersService } from 'src/app/services/users.service'
 export class AssignmentFiveActiveUsersComponent implements OnInit {
   users: string[]
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService) {}
 
   setActive(id: number) {
     this.usersService.setActive(id)

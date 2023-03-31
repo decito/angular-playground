@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 
-import { ServersServices } from 'src/app/services/servers.service'
+import { ServersServices } from '~/services/servers.service'
 
-import type { Server } from 'src/app/types/server'
+import type { Server } from '~/types/server'
 
 @Component({
   selector: 'app-servers',

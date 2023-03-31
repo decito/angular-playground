@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ActivatedRoute, Params } from '@angular/router'
 import { Subscription } from 'rxjs/internal/Subscription'
 
-import { UsersService } from 'src/app/services/users.service'
+import { UsersService } from '~/services/users.service'
 
 @Component({
   selector: 'app-user',

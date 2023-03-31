@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
 
-import type { Server } from 'src/app/types/server'
+import type { Server } from '~/types/server'
 
 @Injectable({ providedIn: 'root' })
 export class ServersServices {

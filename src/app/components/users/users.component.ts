@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { delay } from 'rxjs/internal/operators/delay'
 import { Subscription } from 'rxjs/internal/Subscription'
 
-import { UsersService } from 'src/app/services/users.service'
+import { UsersService } from '~/services/users.service'
 
 @Component({
   selector: 'app-users',
