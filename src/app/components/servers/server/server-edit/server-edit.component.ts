@@ -1,21 +1,21 @@
-import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core'
+import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ActivatedRoute, Params, Router } from '@angular/router'
 import { delay } from 'rxjs/internal/operators/delay'
 import { Subscription } from 'rxjs/internal/Subscription'
 import { Observable } from 'rxjs/internal/Observable'
 
-import { ServersServices } from 'src/app/services/servers.service'
+import { ServersServices } from '~/services/servers.service'
 
-import { CanDeactivateComponent } from 'src/app/guards/can-deactivate-guard.service'
+import { CanDeactivateComponent } from '~/routes/guards/can-deactivate-guard.service'
 
-import type { Server } from 'src/app/types/server'
+import type { Server } from '~/types/server'
 
 @Component({
   selector: 'app-server-edit',
   templateUrl: './server-edit.component.html'
 })
 export class ServerEditComponent
-  implements OnInit, OnDestroy, CanDeactivateComponent, DoCheck
+  implements OnInit, OnDestroy, CanDeactivateComponent
 {
   server: Server
   newServerName: string
@@ -36,14 +36,13 @@ export class ServerEditComponent
 
     this.subscription = this.route.params
       .pipe(delay(0))
-      .subscribe(
-        (p: Params) =>
-          (this.server = this.serversService.getServers(
-            parseInt(p['id'], 10)
-          ) as Server)
-      )
+      .subscribe((p: Params) => {
+        this.server = this.serversService.getServers(
+          parseInt(p['id'], 10)
+        ) as Server
 
-    this.newServerName = this.server.name
+        this.newServerName = this.server.name
+      })
   }
 
   getColor() {
@@ -66,12 +65,6 @@ export class ServerEditComponent
     return this.newServerName !== this.server.name && !this.changesSaved
       ? confirm('Você quer descartar as mudanças?')
       : true
-  }
-
-  ngDoCheck() {
-    if (this.newServerName === this.server.name) return
-
-    this.newServerName = this.server.name
   }
 
   deleteServer(id: number) {
