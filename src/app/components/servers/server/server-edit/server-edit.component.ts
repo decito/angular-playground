@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import { ActivatedRoute, Params, Router } from '@angular/router'
-import { delay } from 'rxjs/internal/operators/delay'
+import { ActivatedRoute, Data, Router } from '@angular/router'
 import { Subscription } from 'rxjs/internal/Subscription'
 import { Observable } from 'rxjs/internal/Observable'
 
@@ -30,19 +29,11 @@ export class ServerEditComponent
   ) {}
 
   ngOnInit() {
-    this.server = this.serversService.getServers(
-      parseInt(this.route.snapshot.params['id'], 10)
-    ) as Server
+    this.subscription = this.route.data.subscribe((d: Data) => {
+      this.server = d['server']
 
-    this.subscription = this.route.params
-      .pipe(delay(0))
-      .subscribe((p: Params) => {
-        this.server = this.serversService.getServers(
-          parseInt(p['id'], 10)
-        ) as Server
-
-        this.newServerName = this.server.name
-      })
+      this.newServerName = d['server'].name
+    })
   }
 
   getColor() {

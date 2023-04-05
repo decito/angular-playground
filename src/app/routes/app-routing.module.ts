@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router'
 import { AuthGuard } from '~/routes/guards/auth-guard.service'
 import { CanDeativateGuard } from '~/routes/guards/can-deactivate-guard.service'
 
+import { ServerResolver } from '~/routes/resolvers/server-resolver.service'
+
 import { AccountsComponent } from '~/components/accounts/accounts.component'
 import { AssignmentTwoComponent } from '~/components/assignments/assignment-2/assignment-2.component'
 import { AssignmentThreeComponent } from '~/components/assignments/assignment-3/assignment-3.component'
@@ -11,7 +13,7 @@ import { AssignmentFourComponent } from '~/components/assignments/assignment-4/a
 import { AssignmentFiveComponent } from '~/components/assignments/assignment-5/assignment-5.component'
 import { AssignmentsComponent } from '~/components/assignments/assignments.component'
 import { ErrorPageComponent } from '~/components/error-page/error-page.component'
-import { PageNotFoundComponent } from '~/components/page-not-found/page-not-found.component'
+// import { PageNotFoundComponent } from '~/components/page-not-found/page-not-found.component'
 import { ServerEditComponent } from '~/components/servers/server/server-edit/server-edit.component'
 import { ServersComponent } from '~/components/servers/servers.component'
 import { UserComponent } from '~/components/users/user/user.component'
@@ -43,7 +45,8 @@ export const appRoutes: Routes = [
       {
         path: ':id/edit',
         component: ServerEditComponent,
-        canDeactivate: [CanDeativateGuard]
+        canDeactivate: [CanDeativateGuard],
+        resolve: { server: ServerResolver }
       }
     ]
   },
