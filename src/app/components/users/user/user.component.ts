@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { ActivatedRoute, Params } from '@angular/router'
-import { Subscription } from 'rxjs/internal/Subscription'
 
 import { UsersService } from '~/services/users.service'
 
@@ -10,8 +9,6 @@ import { UsersService } from '~/services/users.service'
 })
 export class UserComponent implements OnInit, OnDestroy {
   user: { id: number; name: string }
-
-  subscription: Subscription
 
   constructor(
     private usersService: UsersService,
@@ -24,7 +21,7 @@ export class UserComponent implements OnInit, OnDestroy {
       name: this.route.snapshot.params['name']
     }
 
-    this.subscription = this.route.params.subscribe((p: Params) => {
+    this.route.params.subscribe((p: Params) => {
       this.user.id = p['id']
       this.user.name = p['name']
     })
@@ -33,8 +30,6 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe()
-
     this.usersService.unloadUser()
   }
 }

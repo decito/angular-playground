@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Data, Router } from '@angular/router'
-import { Subscription } from 'rxjs/internal/Subscription'
 import { Observable } from 'rxjs/internal/Observable'
 
 import { ServersService } from '~/services/servers.service'
@@ -13,14 +12,10 @@ import type { Server } from '~/types/server'
   selector: 'app-server-edit',
   templateUrl: './server-edit.component.html'
 })
-export class ServerEditComponent
-  implements OnInit, OnDestroy, CanDeactivateComponent
-{
+export class ServerEditComponent implements OnInit, CanDeactivateComponent {
   server: Server
   newServerName: string
   changesSaved = false
-
-  subscription: Subscription
 
   constructor(
     private serversService: ServersService,
@@ -29,7 +24,7 @@ export class ServerEditComponent
   ) {}
 
   ngOnInit() {
-    this.subscription = this.route.data.subscribe((d: Data) => {
+    this.route.data.subscribe((d: Data) => {
       this.server = d['server']
 
       this.newServerName = d['server'].name
@@ -60,9 +55,5 @@ export class ServerEditComponent
 
   deleteServer(id: number) {
     this.serversService.deleteServer(id)
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe()
   }
 }
