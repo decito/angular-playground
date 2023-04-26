@@ -1,3 +1,5 @@
+@import './partials.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,7 +13,8 @@
     @apply text-2xl font-semibold;
   }
 
-  input {
+  input,
+  select {
     @apply bg-slate-500 p-2;
   }
 
