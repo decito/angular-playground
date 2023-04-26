@@ -7,6 +7,8 @@ import { Component, Input, OnChanges } from '@angular/core'
 export class ButtonComponent implements OnChanges {
   @Input() text: string
 
+  @Input() submit?: boolean
+
   @Input() type:
     | 'primary'
     | 'secondary'
@@ -20,6 +22,7 @@ export class ButtonComponent implements OnChanges {
   @Input() disabled? = false
 
   classes: string
+  buttonType: 'button' | 'submit'
 
   outlineToString = () => {
     return this.outline ? 'outlined' : 'solid'
@@ -50,5 +53,7 @@ export class ButtonComponent implements OnChanges {
 
     this.classes = classStyles[this.outlineToString()][this.disabledToString()]
     this.classes += ` ${sizeStyle[this.size]}`
+
+    this.submit ? (this.buttonType = 'submit') : (this.buttonType = 'button')
   }
 }
