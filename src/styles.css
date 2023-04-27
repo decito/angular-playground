@@ -13,6 +13,10 @@
     @apply text-2xl font-semibold;
   }
 
+  h3 {
+    @apply font-semibold;
+  }
+
   input,
   select {
     @apply bg-slate-500 p-2;
@@ -44,6 +48,10 @@
     @apply relative mb-2 flex cursor-pointer items-center gap-4 align-middle;
   }
 
+  .radio-container .label-title {
+    @apply pl-10;
+  }
+
   .radio-container input {
     @apply absolute opacity-0;
   }
@@ -66,9 +74,5 @@
 
   .radio-container .checkmark:after {
     @apply absolute top-2/4 left-2/4 hidden h-2 w-2 translate-x-[-50%] translate-y-[-50%] transform rounded-full bg-white transition-all content-[''];
-  }
-
-  .radio-container .label-span {
-    @apply pl-10;
   }
 }

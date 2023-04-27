@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component'
 
@@ -31,6 +31,7 @@ import { ServersComponent } from '~/components/servers/servers.component'
 import { UserComponent } from '~/components/users/user/user.component'
 import { UsersComponent } from '~/components/users/users.component'
 import { AssignmentSixComponent } from '~/components/assignments/assignment-6/assignment-6.component'
+import { AssignmentSevenComponent } from '~/components/assignments/assignment-7/assignment-7.component'
 
 @NgModule({
   declarations: [
@@ -58,9 +59,10 @@ import { AssignmentSixComponent } from '~/components/assignments/assignment-6/as
     ServersComponent,
     UserComponent,
     UsersComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    AssignmentSevenComponent
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

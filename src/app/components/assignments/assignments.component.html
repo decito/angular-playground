@@ -1,12 +1,15 @@
 <section class="flex gap-16">
   <div class="min-w-fit">
     <ul>
-      <li *ngFor="let a of aV" class="flex border border-gray-300">
+      <li
+        *ngFor="let a of assignmentNumbers"
+        class="flex border border-gray-300"
+      >
         <a
-          [routerLink]="a.number.toString()"
+          [routerLink]="a.toString()"
           class="py-2 px-8 transition-colors hover:bg-slate-600"
         >
-          Assignment {{ a.number }}
+          Assignment {{ a }}
         </a>
       </li>
     </ul>
