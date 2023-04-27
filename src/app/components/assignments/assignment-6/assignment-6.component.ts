@@ -22,8 +22,8 @@ export class AssignmentSixComponent implements AfterContentChecked {
   ) {}
   assignmentNumber = this.route.snapshot.url
 
-  foo() {
-    console.log(this.form.value)
+  onSubmit() {
+    console.info(this.form.value)
   }
 
   ngAfterContentChecked(): void {

@@ -31,7 +31,7 @@
     </section>
 
     <div class="flex w-3/5 gap-10">
-      <form class="f-col w-full gap-10" (ngSubmit)="foo()" #f="ngForm">
+      <form class="f-col w-full gap-10" (ngSubmit)="onSubmit()" #f="ngForm">
         <section class="relative">
           <input
             type="email"
@@ -66,13 +66,6 @@
               {{ s }}
             </option>
           </select>
-
-          <span
-            *ngIf="!selector.valid && selector.touched"
-            class="absolute -bottom-6 left-0"
-          >
-            Please, enter an option.
-          </span>
         </section>
 
         <section class="relative">
