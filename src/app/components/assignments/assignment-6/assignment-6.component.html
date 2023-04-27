@@ -1,0 +1,107 @@
+<section class="f-col gap-8">
+  <h1 class="w-fit">Assignment {{ assignmentNumber }}</h1>
+
+  <div class="flex gap-20">
+    <section class="w-2/5">
+      <p>Add a Form with the following Inputs (and Validators):</p>
+
+      <ol class="ml-6 mt-1 list-decimal">
+        <li>
+          Mail address (should not be empty and should be an email address)
+        </li>
+        <li>
+          A Dropdown which allows the user to select from three different
+          Subscriptions ("Basic", "Advanced", "Pro") Set "Advanced" as Default
+        </li>
+        <li>A Password field (should not be empty)</li>
+        <li>A Submit Button</li>
+      </ol>
+
+      <ol class="mt-4 list-disc">
+        <li>
+          Display a warning message if the Form is invalid AND was touched.
+          Display a warning message below each input if it's invalid.
+        </li>
+        <li>
+          Upon submitting the form, you should simply print the Value of the
+          Form to the Console.
+        </li>
+        <li>Optionally, display it in your template.</li>
+      </ol>
+    </section>
+
+    <div class="flex w-3/5 gap-10">
+      <form class="f-col w-full gap-10" (ngSubmit)="foo()" #f="ngForm">
+        <section class="relative">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            ngModel
+            class="w-full border border-gray-600"
+            required
+            email
+            #email="ngModel"
+          />
+
+          <span
+            *ngIf="!email.valid && email.touched"
+            class="absolute -bottom-6 left-0"
+          >
+            Please, enter a valid email.
+          </span>
+        </section>
+
+        <section class="relative">
+          <select
+            name="subscriptionType"
+            id="subscriptionType"
+            title="subscriptionType"
+            ngModel
+            class="w-full border border-gray-600"
+            #selector="ngModel"
+          >
+            <option *ngFor="let s of subscriptionTypes" [value]="s">
+              {{ s }}
+            </option>
+          </select>
+
+          <span
+            *ngIf="!selector.valid && selector.touched"
+            class="absolute -bottom-6 left-0"
+          >
+            Please, enter an option.
+          </span>
+        </section>
+
+        <section class="relative">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            ngModel
+            class="w-full border border-gray-600"
+            required
+            #password="ngModel"
+          />
+
+          <span
+            *ngIf="!password.valid && password.touched"
+            class="absolute -bottom-6 left-0"
+          >
+            Please, enter a valid password.
+          </span>
+        </section>
+
+        <app-button
+          text="Submit"
+          [outline]="true"
+          size="full"
+          [submit]="true"
+        ></app-button>
+      </form>
+    </div>
+  </div>
+</section>

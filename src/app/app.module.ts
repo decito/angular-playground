@@ -30,6 +30,7 @@ import { ServerEditComponent } from '~/components/servers/server/server-edit/ser
 import { ServersComponent } from '~/components/servers/servers.component'
 import { UserComponent } from '~/components/users/user/user.component'
 import { UsersComponent } from '~/components/users/users.component'
+import { AssignmentSixComponent } from '~/components/assignments/assignment-6/assignment-6.component'
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { UsersComponent } from '~/components/users/users.component'
     AssignmentsComponent,
     AssignmentThreeComponent,
     AssignmentTwoComponent,
+    AssignmentSixComponent,
     ButtonComponent,
     HeaderComponent,
     HtmlCommentDirective,

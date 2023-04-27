@@ -6,3 +6,8 @@ app-assignment-5,
 app-assignment-6 {
   @apply grow;
 }
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  @apply border border-red-600;
+}
