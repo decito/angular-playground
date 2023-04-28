@@ -53,13 +53,13 @@
           >
             <span
               *ngIf="
-                signupForm.get('projectName').errors['projectNameIsForbidden']
+                signupForm.get('projectName').hasError('projectNameIsForbidden')
               "
             >
               This project name is invalid. Please enter another project name.
             </span>
 
-            <span *ngIf="signupForm.get('projectName').errors['required']">
+            <span *ngIf="signupForm.get('projectName').hasError('required')">
               Please, enter a project name.
             </span>
           </div>
@@ -90,7 +90,7 @@
             formControlName="projectStatus"
             class="w-full"
           >
-            <option *ngFor="let p of projectStatus" value="p">{{ p }}</option>
+            <option *ngFor="let p of projectStatus" [value]="p">{{ p }}</option>
           </select>
         </section>
 
