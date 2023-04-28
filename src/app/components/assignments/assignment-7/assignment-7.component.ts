@@ -23,12 +23,12 @@ export class AssignmentSevenComponent implements OnInit {
         this.forbiddenNames.bind(this)
       ),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      projectStatus: new FormControl(['Critical'], [Validators.required])
+      projectStatus: new FormControl(['Critical'])
     })
   }
 
   onSubmit() {
-    console.info(this.signupForm)
+    console.info(this.signupForm.value)
   }
 
   forbiddenNames(control: FormControl): Promise<unknown> | Observable<unknown> {
