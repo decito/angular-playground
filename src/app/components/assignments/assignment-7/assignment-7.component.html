@@ -3,31 +3,30 @@
 
   <div class="flex gap-20">
     <section class="w-2/5">
-      <!-- <p>Add a Form with the following Inputs (and Validators):</p>
+      <p>Create a Form with the following Controls and Validators:</p>
 
       <ol class="ml-6 mt-1 list-decimal">
+        <li>Project Name (should not be empty)</li>
+        <li>Mail (should not be a empty and a valid email)</li>
         <li>
-          Mail address (should not be empty and should be an email address)
+          Project Status Dropdown, with three values: 'Stable', 'Critical',
+          'Finished'
         </li>
-        <li>
-          A Dropdown which allows the user to select from three different
-          Subscriptions ("Basic", "Advanced", "Pro") Set "Advanced" as Default
-        </li>
-        <li>A Password field (should not be empty)</li>
-        <li>A Submit Button</li>
+        <li>Submit Button</li>
       </ol>
 
       <ol class="mt-4 list-disc">
         <li>
-          Display a warning message if the Form is invalid AND was touched.
-          Display a warning message below each input if it's invalid.
+          Add your own Validator which doesn't allow "Test" as a Project Name.
         </li>
         <li>
-          Upon submitting the form, you should simply print the Value of the
-          Form to the Console.
+          Also implement that Validator as an async Validator (replace the other
+          one).
         </li>
-        <li>Optionally, display it in your template.</li>
-      </ol> -->
+        <li>
+          Upon submitting the form, simply print the value to the console.
+        </li>
+      </ol>
     </section>
 
     <div class="flex w-3/5 gap-10">
@@ -39,25 +38,29 @@
         <section class="relative">
           <input
             type="text"
-            name="username"
-            placeholder="Username"
+            name="projectName"
+            placeholder="Project Name"
             class="w-full border border-gray-600"
-            formControlName="username"
+            formControlName="projectName"
           />
 
           <div
             *ngIf="
-              !signupForm.get('username').valid &&
-              signupForm.get('username').touched
+              !signupForm.get('projectName').valid &&
+              signupForm.get('projectName').touched
             "
             class="absolute -bottom-6 left-0"
           >
-            <span *ngIf="signupForm.get('username').errors['nameIsForbidden']">
-              This username is invalid. Please enter another username.
+            <span
+              *ngIf="
+                signupForm.get('projectName').errors['projectNameIsForbidden']
+              "
+            >
+              This project name is invalid. Please enter another project name.
             </span>
 
-            <span *ngIf="signupForm.get('username').errors['required']">
-              Please, enter a username.
+            <span *ngIf="signupForm.get('projectName').errors['required']">
+              Please, enter a project name.
             </span>
           </div>
         </section>
@@ -81,39 +84,14 @@
           </span>
         </section>
 
-        <section class="relative w-fit">
-          <label *ngFor="let g of genders" class="radio-container">
-            <span class="label-title">{{ g }}</span>
-
-            <input
-              type="radio"
-              name="gender"
-              checked="checked"
-              [title]="g"
-              [value]="g"
-              formControlName="gender"
-            />
-
-            <span class="checkmark"></span>
-          </label>
-        </section>
-
-        <section class="f-col relative gap-2" formArrayName="hobbies">
-          <h3>Your Hobbies</h3>
-
-          <app-button
-            text="Add Hobby"
-            [outline]="true"
-            type="secondary"
-            (click)="onAddHobby()"
-          ></app-button>
-
-          <input
-            *ngFor="let h of getControls('hobbies'); let i = index"
-            type="text"
-            placeholder="Hobby Name"
-            [formControlName]="i"
-          />
+        <section class="relative w-full">
+          <select
+            name="projectStatus"
+            formControlName="projectStatus"
+            class="w-full"
+          >
+            <option *ngFor="let p of projectStatus" value="p">{{ p }}</option>
+          </select>
         </section>
 
         <app-button

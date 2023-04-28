@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
+import { Observable } from 'rxjs/internal/Observable'
 
 @Component({
   selector: 'app-assignment-7',
@@ -8,21 +9,21 @@ import { ActivatedRoute } from '@angular/router'
 })
 export class AssignmentSevenComponent implements OnInit {
   signupForm: FormGroup
-  genders = ['Male', 'Female']
-  forbiddenUsernames = ['Michael', 'Jackson']
+  projectStatus = ['Stable', 'Critical', 'Finished']
+  forbiddenProjectNames = ['Test']
 
   constructor(private route: ActivatedRoute) {}
   assignmentNumber = this.route.snapshot.url
 
   ngOnInit() {
     this.signupForm = new FormGroup({
-      username: new FormControl(null, [
-        Validators.required,
+      projectName: new FormControl(
+        null,
+        [Validators.required],
         this.forbiddenNames.bind(this)
-      ]),
+      ),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      gender: new FormControl('Male'),
-      hobbies: new FormArray([])
+      projectStatus: new FormArray([])
     })
   }
 
@@ -30,21 +31,17 @@ export class AssignmentSevenComponent implements OnInit {
     console.info(this.signupForm)
   }
 
-  onAddHobby() {
-    const control = new FormControl(null, Validators.required)
+  forbiddenNames(control: FormControl): Promise<unknown> | Observable<unknown> {
+    const promise = new Promise(resolve =>
+      setTimeout(
+        () =>
+          this.forbiddenProjectNames.indexOf(control.value) !== -1
+            ? resolve({ projectNameIsForbidden: true })
+            : resolve(null),
+        1500
+      )
+    )
 
-    ;(<FormArray>this.signupForm.get('hobbies')).push(control)
-  }
-
-  getControls(control: string) {
-    return (<FormArray>this.signupForm.get(control)).controls
-  }
-
-  forbiddenNames(control: FormControl): { [s: string]: boolean } {
-    if (this.forbiddenUsernames.indexOf(control.value) !== -1) {
-      return { nameIsForbidden: true }
-    }
-
-    return null
+    return promise
   }
 }
