@@ -23,7 +23,7 @@ export class AssignmentSevenComponent implements OnInit {
         this.forbiddenNames.bind(this)
       ),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      projectStatus: new FormArray([])
+      projectStatus: new FormControl(['Critical'], [Validators.required])
     })
   }
 
