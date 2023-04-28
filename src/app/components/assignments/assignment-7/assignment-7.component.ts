@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs/internal/Observable'
 
