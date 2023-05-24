@@ -1,9 +1,9 @@
-<main class="f-col items-center gap-16">
+<main class="flex flex-col items-center gap-16">
   <h2 class="text-2xl font-semibold">My Servers</h2>
 
   <section class="flex w-full gap-44">
-    <div class="f-col items-center gap-4">
-      <div class="f-col w-96">
+    <div class="flex flex-col items-center gap-4">
+      <div class="flex w-96 flex-col">
         <input
           type="text"
           (input)="updateServerName($event)"
@@ -15,7 +15,7 @@
         </label>
       </div>
 
-      <div class="f-col w-96">
+      <div class="flex w-96 flex-col">
         <input
           type="text"
           [(ngModel)]="newServerName"

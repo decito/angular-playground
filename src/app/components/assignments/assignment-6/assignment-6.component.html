@@ -1,4 +1,4 @@
-<section class="f-col gap-8">
+<section class="flex flex-col gap-8">
   <h1 class="w-fit">Assignment {{ assignmentNumber }}</h1>
 
   <div class="flex gap-20">
@@ -31,7 +31,11 @@
     </section>
 
     <div class="flex w-3/5 gap-10">
-      <form class="f-col w-full gap-10" (ngSubmit)="onSubmit()" #f="ngForm">
+      <form
+        class="flex w-full flex-col gap-10"
+        (ngSubmit)="onSubmit()"
+        #f="ngForm"
+      >
         <section class="relative">
           <input
             type="email"
