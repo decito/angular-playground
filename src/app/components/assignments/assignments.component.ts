@@ -5,5 +5,5 @@ import { Component } from '@angular/core'
   templateUrl: './assignments.component.html'
 })
 export class AssignmentsComponent {
-  assignmentNumbers = [2, 3, 4, 5, 6, 7]
+  assignmentNumbers = [2, 3, 4, 5, 6, 7, 8]
 }

@@ -20,6 +20,7 @@ import { UserComponent } from '~/components/users/user/user.component'
 import { UsersComponent } from '~/components/users/users.component'
 import { AssignmentSixComponent } from '~/components/assignments/assignment-6/assignment-6.component'
 import { AssignmentSevenComponent } from '~/components/assignments/assignment-7/assignment-7.component'
+import { AssignmentEightComponent } from '~/components/assignments/assignment-8/assignment-8.component'
 
 export const appRoutes: Routes = [
   { path: '', redirectTo: '/servers', pathMatch: 'full' },
@@ -33,7 +34,8 @@ export const appRoutes: Routes = [
       { path: '4', component: AssignmentFourComponent },
       { path: '5', component: AssignmentFiveComponent },
       { path: '6', component: AssignmentSixComponent },
-      { path: '7', component: AssignmentSevenComponent }
+      { path: '7', component: AssignmentSevenComponent },
+      { path: '8', component: AssignmentEightComponent }
     ]
   },
   {

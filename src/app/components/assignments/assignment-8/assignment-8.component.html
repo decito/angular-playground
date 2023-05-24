@@ -1,0 +1,59 @@
+<section class="f-col gap-8">
+  <h1 class="w-fit">Assignment {{ assignmentNumber }}</h1>
+
+  <div class="flex gap-20">
+    <section class="w-2/5">
+      <p>Create a Form with the following Controls and Validators:</p>
+
+      <ol class="ml-6 mt-1 list-decimal">
+        <li>Project Name (should not be empty)</li>
+        <li>Mail (should not be a empty and a valid email)</li>
+        <li>
+          Project Status Dropdown, with three values: 'Stable', 'Critical',
+          'Finished'
+        </li>
+        <li>Submit Button</li>
+      </ol>
+
+      <ol class="mt-4 list-disc">
+        <li>
+          Add your own Validator which doesn't allow "Test" as a Project Name.
+        </li>
+        <li>
+          Also implement that Validator as an async Validator (replace the other
+          one).
+        </li>
+        <li>
+          Upon submitting the form, simply print the value to the console.
+        </li>
+      </ol>
+    </section>
+
+    <div class="flex w-3/5 gap-10">
+      <div class="flex w-full flex-col gap-4">
+        <input type="text" [(ngModel)]="filteredStatus" />
+
+        <app-button (click)="addServer('New Server')"> Add Server</app-button>
+
+        <h2>App Status: {{ appStatus | async }}</h2>
+
+        <ul class="relative flex flex-col gap-2">
+          <li
+            *ngFor="let server of servers"
+            [ngClass]="getStatusClasses(server)"
+            class="card-server w-full"
+          >
+            <p>
+              <strong>{{ server.name }}</strong> | {{ server.instanceType }} |
+              {{ server.started | date : 'fullDate' }}
+            </p>
+
+            <span class="absolute right-1">
+              {{ server.status | uppercase }}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -32,6 +32,9 @@ import { UserComponent } from '~/components/users/user/user.component'
 import { UsersComponent } from '~/components/users/users.component'
 import { AssignmentSixComponent } from '~/components/assignments/assignment-6/assignment-6.component'
 import { AssignmentSevenComponent } from '~/components/assignments/assignment-7/assignment-7.component'
+import { AssignmentEightComponent } from '~/components/assignments/assignment-8/assignment-8.component'
+import { ReversePipe } from '~/pipes/reverse.pipe'
+import { SortPipe } from '~/pipes/sort.pipe'
 
 @NgModule({
   declarations: [
@@ -60,7 +63,10 @@ import { AssignmentSevenComponent } from '~/components/assignments/assignment-7/
     UserComponent,
     UsersComponent,
     ErrorPageComponent,
-    AssignmentSevenComponent
+    AssignmentSevenComponent,
+    AssignmentEightComponent,
+    ReversePipe,
+    SortPipe
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
   bootstrap: [AppComponent]
