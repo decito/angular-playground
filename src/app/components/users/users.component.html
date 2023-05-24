@@ -3,12 +3,13 @@
     <div class="f-col gap-2">
       <app-button
         *ngFor="let u of users"
-        text="Load user: {{ u.name }}"
-        type="secondary"
+        variant="secondary"
         size="full"
-        [outline]="true"
+        [outlined]="true"
         [routerLink]="['/users', u.id, u.name]"
-      ></app-button>
+      >
+        Load user: {{ u.name }}
+      </app-button>
     </div>
 
     <hr />
@@ -17,28 +18,31 @@
       <h2 class="mb-4 underline">Page options</h2>
 
       <app-button
-        text="Go to servers page"
-        type="secondary"
+        variant="secondary"
         size="full"
-        [outline]="true"
+        [outlined]="true"
         (click)="onClick()"
-      ></app-button>
+      >
+        Go to servers page
+      </app-button>
 
       <app-button
-        text="Reload page"
-        type="secondary"
+        variant="secondary"
         size="full"
-        [outline]="true"
+        [outlined]="true"
         (click)="reloadPage()"
-      ></app-button>
+      >
+        Reload page
+      </app-button>
 
       <app-button
-        text="Go to Unknown page"
-        type="secondary"
+        variant="secondary"
         size="full"
-        [outline]="true"
+        [outlined]="true"
         routerLink="/unknown"
-      ></app-button>
+      >
+        Go to Unknown page
+      </app-button>
     </div>
   </aside>
 

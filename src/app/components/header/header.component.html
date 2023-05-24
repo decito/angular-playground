@@ -49,19 +49,13 @@
     </div>
 
     <div class="flex gap-4">
-      <app-button
-        text="Login"
-        type="secondary"
-        [outline]="true"
-        (click)="login()"
-      ></app-button>
+      <app-button variant="secondary" [outlined]="true" (click)="login()">
+        Login
+      </app-button>
 
-      <app-button
-        text="Logout"
-        type="warning"
-        [outline]="true"
-        (click)="logout()"
-      ></app-button>
+      <app-button variant="warning" [outlined]="true" (click)="logout()">
+        Logout
+      </app-button>
     </div>
   </nav>
 </section>

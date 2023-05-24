@@ -26,14 +26,14 @@
         <input type="text" [(ngModel)]="username" />
 
         <app-button
-          text="Reset name"
-          type="primary"
           size="sm"
           class="ml-4"
-          [outline]="true"
+          [outlined]="true"
           (click)="username = ''"
           [disabled]="!username"
-        ></app-button>
+        >
+          Reset name
+        </app-button>
 
         <p>
           Name is <span class="underline">{{ username }}</span>

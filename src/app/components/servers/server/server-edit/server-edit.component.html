@@ -7,13 +7,13 @@
     <input [(ngModel)]="newServerName" />
 
     <app-button
-      text="Apply"
-      type="primary"
       size="lg"
       class="w-fit"
-      [outline]="true"
+      [outlined]="true"
       (click)="updateServerName()"
-    ></app-button>
+    >
+      Apply
+    </app-button>
   </div>
 
   <p class="text-white">
@@ -29,20 +29,21 @@
 
   <div class="flex justify-between gap-4">
     <app-button
-      text="Toggle State"
-      type="warning"
+      variant="warning"
       size="lg"
-      [outline]="true"
+      [outlined]="true"
       (click)="toggleStatus(server.id)"
     >
+      Toggle State
     </app-button>
 
     <app-button
-      text="Delete Server"
-      type="danger"
+      variant="danger"
       size="lg"
-      [outline]="true"
+      [outlined]="true"
       (click)="deleteServer(server.id)"
-    ></app-button>
+    >
+      Delete Server
+    </app-button>
   </div>
 </div>

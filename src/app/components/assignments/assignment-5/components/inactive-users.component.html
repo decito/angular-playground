@@ -9,12 +9,13 @@
       <span>{{ user }}</span>
 
       <app-button
-        text="Set to Active"
-        type="success"
+        variant="success"
         class="m-2"
-        [outline]="true"
+        [outlined]="true"
         (click)="setActive(i)"
-      ></app-button>
+      >
+        Set to Active
+      </app-button>
     </li>
   </ul>
 </section>

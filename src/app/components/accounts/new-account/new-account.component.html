@@ -12,11 +12,11 @@
       </select>
 
       <app-button
-        text="Add Account"
-        type="primary"
-        [outline]="true"
+        [outlined]="true"
         (click)="createAccount(accountName.value, status.value)"
-      ></app-button>
+      >
+        Add Account
+      </app-button>
     </div>
   </form>
 </section>

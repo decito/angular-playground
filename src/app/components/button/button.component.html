@@ -1,11 +1,5 @@
-<button
-  [type]="buttonType"
-  [class]="
-    classes +
-    ' ' +
-    'border-2 transition-all rounded font-semibold disabled:cursor-not-allowed disabled:opacity-60'
-  "
-  [disabled]="disabled"
->
-  {{ text }}
+<button [type]="type" [class]="classes" [disabled]="disabled">
+  <ng-content></ng-content>
+
+  <i *ngIf="icon" [class]="'fas fa-' + icon"></i>
 </button>

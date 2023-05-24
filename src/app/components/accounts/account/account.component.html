@@ -9,27 +9,30 @@
 
   <div class="flex gap-4">
     <app-button
-      text="Set to 'active'"
-      type="success"
-      [outline]="true"
+      variant="success"
+      [outlined]="true"
       size="sm"
       (click)="changeStatus('active')"
-    ></app-button>
+    >
+      Set to 'active'
+    </app-button>
 
     <app-button
-      text="Set to 'inactive'"
-      type="warning"
-      [outline]="true"
+      variant="warning"
+      [outlined]="true"
       size="sm"
       (click)="changeStatus('inactive')"
-    ></app-button>
+    >
+      Set to 'inactive'
+    </app-button>
 
     <app-button
-      text="Set to 'unknown'"
-      type="secondary"
-      [outline]="true"
+      variant="secondary"
+      [outlined]="true"
       size="sm"
       (click)="changeStatus('unknown')"
-    ></app-button>
+    >
+      Set to 'unknown'
+    </app-button>
   </div>
 </article>
