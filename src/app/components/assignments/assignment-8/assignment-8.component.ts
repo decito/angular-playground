@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 
-import type { AppServer } from '~/types'
+import type { AppServer, ServerStatus } from '~/types'
 
 @Component({
   selector: 'app-assignment-8',
@@ -11,7 +11,8 @@ export class AssignmentEightComponent {
   constructor(private route: ActivatedRoute) {}
   assignmentNumber = this.route.snapshot.url
 
-  filteredStatus: string
+  statusFilter = ''
+  statusList: ServerStatus[] = ['stable', 'online', 'offline', 'critical']
 
   appStatus = new Promise(res => setTimeout(() => res('stable'), 2000))
 
@@ -42,11 +43,12 @@ export class AssignmentEightComponent {
     }
   ]
 
-  getStatusClasses(server: AppServer) {
+  statusClass(status: ServerStatus) {
     return {
-      'card-success': server.status === 'stable',
-      'card-warning': server.status === 'offline',
-      'card-danger': server.status === 'critical'
+      'card-secondary': status === 'stable',
+      'card-success': status === 'online',
+      'card-warning': status === 'offline',
+      'card-danger': status === 'critical'
     }
   }
 
@@ -54,7 +56,7 @@ export class AssignmentEightComponent {
     this.servers.push({
       instanceType: 'small',
       name: name,
-      status: 'stable',
+      status: 'online',
       started: new Date()
     })
   }

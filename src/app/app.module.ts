@@ -35,6 +35,8 @@ import { AssignmentSevenComponent } from '~/components/assignments/assignment-7/
 import { AssignmentEightComponent } from '~/components/assignments/assignment-8/assignment-8.component'
 import { ReversePipe } from '~/pipes/reverse.pipe'
 import { SortPipe } from '~/pipes/sort.pipe'
+import { FilterPipe } from '~/pipes/filter.pipe'
+import { ShortenPipe } from '~/pipes/shorten.pipe'
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import { SortPipe } from '~/pipes/sort.pipe'
     AssignmentSevenComponent,
     AssignmentEightComponent,
     ReversePipe,
-    SortPipe
+    SortPipe,
+    FilterPipe,
+    ShortenPipe
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
   bootstrap: [AppComponent]

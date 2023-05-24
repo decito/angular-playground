@@ -13,7 +13,7 @@
         </li>
 
         <li>
-          A filter pipe that filters the server list by name using the input
+          A filter pipe that filters the server list by name using the selector
         </li>
 
         <li>
@@ -23,11 +23,22 @@
       </ol>
     </section>
 
-    <div class="flex w-3/5 gap-10">
+    <div class="flex w-3/5 grow gap-10">
       <div class="flex w-full flex-col gap-4">
         <h2>Filter Servers</h2>
 
-        <input type="text" [(ngModel)]="filteredStatus" />
+        <select type="text" [(ngModel)]="statusFilter">
+          <option value="" hidden>Select a status</option>
+
+          <option value="">Show All</option>
+
+          <option
+            *ngFor="let status of statusList; let i = index"
+            [ngValue]="statusList[i]"
+          >
+            {{ statusList[i].charAt(0).toUpperCase() + statusList[i].slice(1) }}
+          </option>
+        </select>
 
         <hr class="my-4" />
 
@@ -41,8 +52,12 @@
 
         <ul class="relative flex flex-col gap-2">
           <li
-            *ngFor="let server of servers | sort : 'name'"
-            [ngClass]="getStatusClasses(server)"
+            *ngFor="
+              let server of servers
+                | filter : statusFilter : 'status'
+                | sort : 'name'
+            "
+            [ngClass]="statusClass(server.status)"
             class="card-server w-full"
           >
             <p>

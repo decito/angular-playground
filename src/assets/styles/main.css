@@ -166,6 +166,10 @@ input.ng-invalid.ng-touched {
   @apply cursor-default bg-success/30;
 }
 
+.card-secondary {
+  @apply cursor-default bg-secondary/30;
+}
+
 .card-warning {
   @apply cursor-default bg-warning/30;
 }
@@ -180,6 +184,10 @@ input.ng-invalid.ng-touched {
 
 .card-success .badge {
   @apply text-success;
+}
+
+.card-secondary .badge {
+  @apply text-secondary;
 }
 
 .card-warning .badge {
