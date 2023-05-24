@@ -1,59 +1,32 @@
-import { Component, Input, OnChanges } from '@angular/core'
+import { Component, Input, OnChanges, OnInit } from '@angular/core'
+
+import type { Colors } from '~/types/colors'
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html'
 })
-export class ButtonComponent implements OnChanges {
-  @Input() text: string
-
-  @Input() submit?: boolean
-
-  @Input() type:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'danger'
-    | 'disabled' = 'primary'
-
+export class ButtonComponent implements OnInit, OnChanges {
+  @Input() variant?: Colors = 'primary'
   @Input() size?: 'sm' | 'lg' | 'full' | 'default' = 'default'
-  @Input() outline? = false
+  @Input() type?: 'button' | 'submit' | 'reset' = 'button'
+
+  @Input() outlined? = false
   @Input() disabled? = false
 
+  @Input() icon? = ''
+
   classes: string
-  buttonType: 'button' | 'submit'
 
-  outlineToString = () => {
-    return this.outline ? 'outlined' : 'solid'
+  ngOnInit(): void {
+    this.classes = `${this.size} ${this.variant}`
+
+    if (this.outlined) this.classes += ` outlined`
+
+    if (this.disabled) this.classes += ` disabled`
   }
 
-  disabledToString = () => {
-    return this.disabled ? 'disabled' : 'enabled'
-  }
-
-  ngOnChanges() {
-    const classStyles = {
-      outlined: {
-        disabled: `border-disabled text-disabled`,
-        enabled: `border-${this.type} text-${this.type} hover:bg-${this.type} hover:text-white`
-      },
-      solid: {
-        disabled: `border-disabled bg-disabled`,
-        enabled: `border-${this.type} bg-${this.type} hover:brightness-110`
-      }
-    }
-
-    const sizeStyle: Record<typeof this.size, string> = {
-      sm: 'p-1',
-      lg: 'p-3',
-      full: 'p-2 w-full',
-      default: 'p-2'
-    }
-
-    this.classes = classStyles[this.outlineToString()][this.disabledToString()]
-    this.classes += ` ${sizeStyle[this.size]}`
-
-    this.submit ? (this.buttonType = 'submit') : (this.buttonType = 'button')
+  ngOnChanges(): void {
+    this.ngOnInit()
   }
 }
