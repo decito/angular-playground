@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core'
 
 import { AccountsService } from '~/services/accounts.service'
 
-import type { Account } from '~/types/accounts'
+import type { Account } from '~/types'
 
 @Component({
   selector: 'app-account',

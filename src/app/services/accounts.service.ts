@@ -2,7 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core'
 
 import { LoggingService } from './logging.service'
 
-import type { Account } from '~/types/accounts'
+import type { Account } from '~/types'
 
 @Injectable({ providedIn: 'root' })
 export class AccountsService {

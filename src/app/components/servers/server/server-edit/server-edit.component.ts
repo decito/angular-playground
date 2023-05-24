@@ -6,7 +6,7 @@ import { ServersService } from '~/services/servers.service'
 
 import { CanDeactivateComponent } from '~/routes/guards/can-deactivate-guard.service'
 
-import type { Server } from '~/types/server'
+import type { Server } from '~/types'
 
 @Component({
   selector: 'app-server-edit',

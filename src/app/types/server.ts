@@ -5,3 +5,10 @@ export interface Server {
   ip?: string
   color?: 'green' | 'red'
 }
+
+export interface AppServer {
+  instanceType: string
+  name: string
+  status: string
+  started: Date
+}

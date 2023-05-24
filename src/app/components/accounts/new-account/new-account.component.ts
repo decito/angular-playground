@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs/internal/Subscription'
 
 import { AccountsService } from '~/services/accounts.service'
 
-import { Account } from '~/types/accounts'
+import { Account } from '~/types'
 
 @Component({
   selector: 'app-new-account',

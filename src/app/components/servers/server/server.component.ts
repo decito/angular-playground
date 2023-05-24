@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core'
 
 import { ServersService } from '~/services/servers.service'
 
-import type { Server } from '~/types/server'
+import type { Server } from '~/types'
 
 @Component({
   selector: 'app-server',
