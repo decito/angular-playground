@@ -1,12 +1,7 @@
 import { Component } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 
-interface Server {
-  instanceType: string
-  name: string
-  status: string
-  started: Date
-}
+import type { AppServer } from '~/types'
 
 @Component({
   selector: 'app-assignment-8',
@@ -20,38 +15,38 @@ export class AssignmentEightComponent {
 
   appStatus = new Promise(res => setTimeout(() => res('stable'), 2000))
 
-  servers: Server[] = [
+  servers: AppServer[] = [
     {
       instanceType: 'medium',
       name: 'Production',
       status: 'stable',
-      started: new Date(15, 1, 2017)
+      started: new Date()
     },
     {
       instanceType: 'large',
       name: 'User Database',
       status: 'stable',
-      started: new Date(15, 1, 2017)
+      started: new Date()
     },
     {
       instanceType: 'small',
       name: 'Development Server',
       status: 'offline',
-      started: new Date(15, 1, 2017)
+      started: new Date()
     },
     {
       instanceType: 'small',
       name: 'Testing Environment Server',
-      status: 'stable',
-      started: new Date(15, 1, 2017)
+      status: 'critical',
+      started: new Date()
     }
   ]
 
-  getStatusClasses(server: Server) {
+  getStatusClasses(server: AppServer) {
     return {
-      'bg-success/30': server.status === 'stable',
-      'bg-warning': server.status === 'offline',
-      'bg-danger': server.status === 'critical'
+      'card-success': server.status === 'stable',
+      'card-warning': server.status === 'offline',
+      'card-danger': server.status === 'critical'
     }
   }
 
@@ -60,7 +55,7 @@ export class AssignmentEightComponent {
       instanceType: 'small',
       name: name,
       status: 'stable',
-      started: new Date(15, 1, 2017)
+      started: new Date()
     })
   }
 }

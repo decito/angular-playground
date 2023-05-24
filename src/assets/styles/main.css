@@ -47,7 +47,7 @@
   }
 
   button.secondary.outlined {
-    @apply border-secondary text-secondary hover:bg-secondary hover:text-white;
+    @apply border-secondary text-secondary hover:bg-secondary hover:text-slate-900;
   }
 
   button.success.outlined {
@@ -55,7 +55,7 @@
   }
 
   button.warning.outlined {
-    @apply border-warning text-warning hover:bg-warning hover:text-white;
+    @apply border-warning text-warning hover:bg-warning hover:text-slate-900;
   }
 
   button.danger.outlined {
@@ -110,12 +110,6 @@
   a.router-link-active {
     @apply font-bold underline;
   }
-}
-
-@layer components {
-  .f-col {
-    @apply flex flex-col;
-  }
 
   .card-server {
     @apply flex w-96 items-center justify-between rounded border border-gray-300 p-4 transition-colors hover:bg-slate-700;
@@ -166,4 +160,32 @@ app-assignment-7 {
 
 input.ng-invalid.ng-touched {
   @apply border border-red-600;
+}
+
+.card-success {
+  @apply cursor-default bg-success/30;
+}
+
+.card-warning {
+  @apply cursor-default bg-warning/30;
+}
+
+.card-danger {
+  @apply cursor-default bg-danger/30;
+}
+
+.badge {
+  @apply absolute right-4 flex w-16 justify-center rounded-full bg-slate-900 px-2 text-xs font-bold;
+}
+
+.card-success .badge {
+  @apply text-success;
+}
+
+.card-warning .badge {
+  @apply text-warning;
+}
+
+.card-danger .badge {
+  @apply text-danger;
 }
