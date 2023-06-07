@@ -1,0 +1,15 @@
+<section class="flex flex-col gap-8">
+  <div class="flex gap-20">
+    <app-sortable-list-inactive
+      class="w-[30%]"
+      [users]="inactiveUsers"
+      (userDropped)="setInactive($event)"
+    ></app-sortable-list-inactive>
+
+    <app-sortable-list-active
+      class="w-[30%]"
+      [users]="activeUsers"
+      (userDropped)="setActive($event)"
+    ></app-sortable-list-active>
+  </div>
+</section>
