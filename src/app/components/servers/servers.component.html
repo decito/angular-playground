@@ -26,7 +26,9 @@
       </div>
 
       <p *ngIf="newServerName; else emptyServerName">
-        New server name: <span class="underline">{{ newServerName }}</span>
+        New server name:
+
+        <span class="underline">{{ newServerName }}</span>
       </p>
 
       <ng-template #emptyServerName>
