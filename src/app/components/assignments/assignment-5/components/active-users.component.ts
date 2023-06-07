@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core'
 import { UsersService } from '~/services/users.service'
 
 @Component({
-  selector: 'app-assignment-5-inactive-users',
+  selector: 'app-assignment-5-active-users',
   templateUrl: './active-users.component.html'
 })
-export class AssignmentFiveInactiveUsersComponent implements OnInit {
+export class AssignmentFiveActiveUsersComponent implements OnInit {
   users: string[]
 
   constructor(private usersService: UsersService) {}
