@@ -43,7 +43,7 @@
   }
 
   button.primary.outlined {
-    @apply border-primary text-primary hover:bg-primary hover:text-white;
+    @apply border-primary text-primary hover:bg-primary hover:text-slate-900;
   }
 
   button.secondary.outlined {
@@ -51,7 +51,7 @@
   }
 
   button.success.outlined {
-    @apply border-success text-success hover:bg-success hover:text-white;
+    @apply border-success text-success hover:bg-success hover:text-slate-900;
   }
 
   button.warning.outlined {
@@ -59,7 +59,7 @@
   }
 
   button.danger.outlined {
-    @apply border-danger text-danger hover:bg-danger hover:text-white;
+    @apply border-danger text-danger hover:bg-danger hover:text-slate-900;
   }
 
   button.disabled.outlined {
@@ -144,7 +144,7 @@
   }
 
   .radio-container .checkmark:after {
-    @apply absolute top-2/4 left-2/4 hidden h-2 w-2 translate-x-[-50%] translate-y-[-50%] transform rounded-full bg-white transition-all content-[''];
+    @apply absolute left-2/4 top-2/4 hidden h-2 w-2 translate-x-[-50%] translate-y-[-50%] transform rounded-full bg-white transition-all content-[''];
   }
 }
 
