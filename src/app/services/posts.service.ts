@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import { Subject } from 'rxjs/internal/Subject'
+import { throwError } from 'rxjs/internal/observable/throwError'
 import { map } from 'rxjs/internal/operators/map'
+import { catchError } from 'rxjs/internal/operators/catchError'
 
 import { environment } from 'environment/environment'
 
@@ -8,6 +11,8 @@ import type { Post } from '~/types'
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
+  errorMessage = new Subject<any>()
+
   constructor(private http: HttpClient) {}
 
   createAndStorePost(title: string, content: string) {
@@ -15,7 +20,10 @@ export class PostsService {
 
     this.http
       .post<{ name: string }>(`${environment.domain}/posts.json`, post)
-      .subscribe(res => console.info(res))
+      .subscribe(
+        () => {},
+        err => this.errorMessage.next(err)
+      )
   }
 
   fetchPosts() {
@@ -30,7 +38,8 @@ export class PostsService {
           }
 
           return posts
-        })
+        }),
+        catchError(err => throwError(() => err))
       )
   }
 
