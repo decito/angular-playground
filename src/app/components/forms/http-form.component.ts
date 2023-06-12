@@ -11,6 +11,7 @@ import type { Post } from '~/types'
 export class HttpFormComponent implements OnInit {
   loadedPosts = []
   isFetching = false
+  errorMessage = null
 
   constructor(private postsService: PostsService) {}
 
@@ -26,14 +27,26 @@ export class HttpFormComponent implements OnInit {
     this.fetchPosts()
   }
 
-  onClearPosts() {}
+  onClearPosts() {
+    this.postsService.deleteAllPosts().subscribe(() => (this.loadedPosts = []))
+  }
 
   private fetchPosts() {
     this.isFetching = true
 
-    this.postsService.fetchPosts().subscribe(posts => {
-      this.isFetching = false
-      this.loadedPosts = posts
-    })
+    this.postsService.fetchPosts().subscribe(
+      posts => {
+        this.isFetching = false
+
+        this.errorMessage = null
+
+        this.loadedPosts = posts
+      },
+      err => {
+        this.isFetching = false
+
+        this.errorMessage = `${err.status} ${err.statusText}`
+      }
+    )
   }
 }

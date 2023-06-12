@@ -47,11 +47,24 @@
       Clear Posts
     </app-button>
 
-    <h3 *ngIf="isFetching">
+    <h3 *ngIf="isFetching && !errorMessage">
       <i class="fas fa-circle-notch fa-spin"></i>
 
       Loading...
     </h3>
+
+    <div
+      *ngIf="errorMessage && !isFetching"
+      class="flex flex-col justify-center gap-0.5"
+    >
+      <h3>
+        <i class="fa-solid fa-xmark text-danger"></i>
+
+        An error has ocurred. Please, try again.
+      </h3>
+
+      <p>{{ errorMessage }}</p>
+    </div>
   </div>
 
   <p *ngIf="!loadedPosts.length && !isFetching">No posts available!</p>

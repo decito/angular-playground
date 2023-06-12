@@ -33,4 +33,8 @@ export class PostsService {
         })
       )
   }
+
+  deleteAllPosts() {
+    return this.http.delete(`${environment.domain}/posts.json`)
+  }
 }
