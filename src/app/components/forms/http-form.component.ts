@@ -12,6 +12,7 @@ import type { Post } from '~/types'
 })
 export class HttpFormComponent implements OnInit {
   loadedPosts = []
+  isFetching = false
 
   constructor(private http: HttpClient) {}
 
@@ -32,6 +33,8 @@ export class HttpFormComponent implements OnInit {
   onClearPosts() {}
 
   private fetchPosts() {
+    this.isFetching = true
+
     this.http
       .get<{ [key: string]: Post }>(`${environment.domain}/posts.json`)
       .pipe(
@@ -45,6 +48,9 @@ export class HttpFormComponent implements OnInit {
           return posts
         })
       )
-      .subscribe(posts => (this.loadedPosts = posts))
+      .subscribe(posts => {
+        this.isFetching = false
+        this.loadedPosts = posts
+      })
   }
 }
