@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
-import { map } from 'rxjs/internal/operators/map'
 
-import { environment } from 'environment/environment'
+import { PostsService } from '~/services/posts.service'
 
 import type { Post } from '~/types'
 
@@ -14,16 +12,14 @@ export class HttpFormComponent implements OnInit {
   loadedPosts = []
   isFetching = false
 
-  constructor(private http: HttpClient) {}
+  constructor(private postsService: PostsService) {}
 
   ngOnInit(): void {
     this.fetchPosts()
   }
 
   onCreatePost(postData: Post) {
-    this.http
-      .post<{ name: string }>(`${environment.domain}/posts.json`, postData)
-      .subscribe(res => console.log(res))
+    this.postsService.createAndStorePost(postData.title, postData.content)
   }
 
   onFetchPosts() {
@@ -35,22 +31,9 @@ export class HttpFormComponent implements OnInit {
   private fetchPosts() {
     this.isFetching = true
 
-    this.http
-      .get<{ [key: string]: Post }>(`${environment.domain}/posts.json`)
-      .pipe(
-        map(res => {
-          const posts: Post[] = []
-
-          for (const key in res) {
-            if (res.hasOwnProperty(key)) posts.push({ ...res[key], id: key })
-          }
-
-          return posts
-        })
-      )
-      .subscribe(posts => {
-        this.isFetching = false
-        this.loadedPosts = posts
-      })
+    this.postsService.fetchPosts().subscribe(posts => {
+      this.isFetching = false
+      this.loadedPosts = posts
+    })
   }
 }
