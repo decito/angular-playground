@@ -7,6 +7,7 @@ import { CanDeativateGuard } from '~/routes/guards/can-deactivate-guard.service'
 import { AccountsComponent } from '~/components/accounts/accounts.component'
 import { AssignmentsComponent } from '~/components/assignments/assignments.component'
 import { ErrorPageComponent } from '~/components/error-page/error-page.component'
+import { HttpFormComponent } from '~/components/forms/http-form.component'
 import { ServerEditComponent } from '~/components/servers/server/server-edit/server-edit.component'
 import { ServerResolver } from '~/routes/resolvers/server-resolver.service'
 import { ServersComponent } from '~/components/servers/servers.component'
@@ -23,7 +24,7 @@ import { AssignmentSevenComponent } from '~/components/assignments/assignment-7/
 import { AssignmentEightComponent } from '~/components/assignments/assignment-8/assignment-8.component'
 
 export const appRoutes: Routes = [
-  { path: '', redirectTo: '/servers', pathMatch: 'full' },
+  { path: '', redirectTo: '/forms', pathMatch: 'full' },
   { path: 'accounts', component: AccountsComponent },
   {
     path: 'assignments',
@@ -39,9 +40,8 @@ export const appRoutes: Routes = [
     ]
   },
   {
-    path: 'users',
-    component: UsersComponent,
-    children: [{ path: ':id/:name', component: UserComponent }]
+    path: 'forms',
+    component: HttpFormComponent
   },
   {
     path: 'servers',
@@ -61,6 +61,11 @@ export const appRoutes: Routes = [
     path: 'not-found',
     component: ErrorPageComponent,
     data: { message: 'Oops... Page not found' }
+  },
+  {
+    path: 'users',
+    component: UsersComponent,
+    children: [{ path: ':id/:name', component: UserComponent }]
   },
   { path: '**', redirectTo: '/not-found' }
 ]

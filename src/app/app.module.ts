@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component'
 
@@ -19,6 +20,7 @@ import { AssignmentsComponent } from '~/components/assignments/assignments.compo
 import { ButtonComponent } from '~/components/button/button.component'
 import { ErrorPageComponent } from './components/error-page/error-page.component'
 import { HeaderComponent } from '~/components/header/header.component'
+import { HttpFormComponent } from './components/forms/http-form.component'
 import { NewAccountComponent } from '~/components/accounts/new-account/new-account.component'
 import { PageNotFoundComponent } from '~/components/page-not-found/page-not-found.component'
 import { ServerComponent } from '~/components/servers/server/server.component'
@@ -56,6 +58,7 @@ import { AssignmentEightComponent } from '~/components/assignments/assignment-8/
     ButtonComponent,
     ErrorPageComponent,
     HeaderComponent,
+    HttpFormComponent,
     NewAccountComponent,
     PageNotFoundComponent,
     ServerComponent,
@@ -80,7 +83,13 @@ import { AssignmentEightComponent } from '~/components/assignments/assignment-8/
     AssignmentSevenComponent,
     AssignmentEightComponent
   ],
-  imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,0 +1,60 @@
+<section class="flex flex-col gap-8">
+  <form
+    #postForm="ngForm"
+    (ngSubmit)="onCreatePost(postForm.value)"
+    class="flex flex-col gap-4 items-center"
+  >
+    <section class="flex flex-col gap-4 w-1/2">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        required
+        ngModel
+        name="title"
+      />
+    </section>
+
+    <section class="flex flex-col gap-4 w-1/2">
+      <label for="content">Content</label>
+      <textarea
+        class="form-control"
+        id="content"
+        required
+        ngModel
+        name="content"
+      ></textarea>
+    </section>
+
+    <app-button variant="primary" type="submit" [disabled]="!postForm.valid">
+      Send Post
+    </app-button>
+  </form>
+
+  <hr />
+
+  <div class="flex gap-4">
+    <app-button variant="secondary" (click)="onFetchPosts()">
+      Fetch Posts
+    </app-button>
+
+    <app-button
+      variant="danger"
+      [disabled]="loadedPosts.length < 1"
+      (click)="onClearPosts()"
+    >
+      Clear Posts
+    </app-button>
+  </div>
+
+  <p *ngIf="!loadedPosts.length">No posts available!</p>
+
+  <ul *ngIf="loadedPosts.length" class="grid grid-cols-3 gap-4">
+    <li *ngFor="let post of loadedPosts" class="border rounded p-4">
+      <h2>{{ post.title }}</h2>
+
+      <p>{{ post.content }}</p>
+    </li>
+  </ul>
+</section>
