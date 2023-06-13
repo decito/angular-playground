@@ -27,8 +27,6 @@ import { ServerComponent } from '~/components/servers/server/server.component'
 import { ServerEditComponent } from '~/components/servers/server/server-edit/server-edit.component'
 import { ServersComponent } from '~/components/servers/servers.component'
 import { SortableListComponent } from './components/sortable-list/sortable-list.component'
-import { SortableListActiveComponent } from '~/components/sortable-list/components/sortable-list-active.component'
-import { SortableListInactiveComponent } from '~/components/sortable-list/components/sortable-list-inactive.component'
 import { UserComponent } from '~/components/users/user/user.component'
 import { UsersComponent } from '~/components/users/users.component'
 
@@ -64,9 +62,7 @@ import { AssignmentEightComponent } from '~/components/assignments/assignment-8/
     ServerComponent,
     ServerEditComponent,
     ServersComponent,
-    SortableListActiveComponent,
     SortableListComponent,
-    SortableListInactiveComponent,
     UserComponent,
     UsersComponent,
     AssignmentsComponent,
