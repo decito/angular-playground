@@ -1,15 +1,44 @@
-<section class="flex flex-col gap-8">
-  <div class="flex gap-20">
-    <app-sortable-list-inactive
-      class="w-[30%]"
-      [users]="inactiveUsers"
-      (userDropped)="setInactive($event)"
-    ></app-sortable-list-inactive>
+<section class="mx-auto flex w-3/4 justify-between gap-8">
+  <section
+    id="inactive-zone"
+    class="flex flex-1 grow flex-col gap-4 rounded bg-slate-700 p-6"
+    (dragover)="onDragOver($event)"
+    (dragenter)="onDragEnter($event)"
+    (drop)="onDrop($event)"
+  >
+    <h2>Inactive Users</h2>
 
-    <app-sortable-list-active
-      class="w-[30%]"
-      [users]="activeUsers"
-      (userDropped)="setActive($event)"
-    ></app-sortable-list-active>
-  </div>
+    <ul class="sortable-list flex flex-col gap-4">
+      <li
+        class="item flex cursor-grab items-center gap-6 rounded border p-3 hover:bg-slate-600"
+        *ngFor="let user of inactiveUsers; let i = index"
+        draggable="true"
+        (dragstart)="onDragStart($event, i)"
+        (dragend)="onDragEnd($event)"
+      >
+        <i class="fas fa-bars"></i>
+
+        <span>{{ user }}</span>
+      </li>
+    </ul>
+  </section>
+
+  <section
+    id="active-zone"
+    class="flex flex-1 grow flex-col gap-4 rounded bg-slate-700 p-6"
+  >
+    <h2>Active Users</h2>
+
+    <ul class="sortable-list flex flex-col gap-4">
+      <li
+        class="flex cursor-grab items-center gap-6 rounded border p-3 hover:bg-slate-600"
+        *ngFor="let user of activeUsers; let i = index"
+        draggable="true"
+      >
+        <i class="fas fa-bars"></i>
+
+        <span>{{ user }}</span>
+      </li>
+    </ul>
+  </section>
 </section>
