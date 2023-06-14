@@ -5,63 +5,95 @@ import { Component } from '@angular/core'
   templateUrl: './sortable-list.component.html'
 })
 export class SortableListComponent {
-  activeUsers: string[] = ['Fulano', 'Sicrano', 'Beltrano']
+  activeUsers: string[] = ['Fulano', 'Sicrano', 'Beltrano', 'Jaimerson']
   inactiveUsers: string[] = ['João', 'Maria', 'Zé da Manga']
 
-  draggingIndex: number
-
-  setActive(index: number): void {
-    const user = this.inactiveUsers.splice(index, 1)[0]
-    this.activeUsers.push(user)
-  }
-
-  setInactive(index: number): void {
-    const user = this.activeUsers.splice(index, 1)[0]
-    this.inactiveUsers.push(user)
-  }
+  draggingItem: { index: number; name: string }
 
   onDragStart(event: DragEvent, index: number): void {
-    // disparado quando o <li> é agarrado
-    // disparado uma vez
-    this.draggingIndex = index
+    this.draggingItem = {
+      index: index,
+      name: (<Element>event.target).textContent
+    }
 
-    console.log('dragstart')
+    // eslint-disable-next-line @typescript-eslint/no-extra-semi
+    ;(<Element>event.target).classList.add('dragging')
   }
 
-  onDragOver(event: DragEvent): void {
-    // disparado toda vez que o <li> passa por cima da <section>
-    // disparado varias vezes
+  onDragOver(event: DragEvent, flag: string): void {
+    /*
+     * disparado toda vez que o <li> passa por cima da <section>
+     * disparado varias vezes
+     */
     event.preventDefault()
+    // let result
 
-    console.log('dragover')
+    // const columns = document.querySelectorAll('.sortable-list')
+
+    // /*console.log(columns)
+    //  * 0: ul.sortable-list.flex.flex-col.gap-4
+    //  * 1: ul.sortable-list.flex.flex-col.gap-4
+    //  * length: 2
+    //  * [[Prototype]]: NodeList
+    // */
+
+    // const items = columns.querySelectorAll(
+    //   '.item:not(.dragging)'
+    // ) as unknown as Element[]
+
+    // for (const refer_item of items) {
+    //   const box = refer_item.getBoundingClientRect()
+
+    //   const boxCenterY = box.y + box.height / 2
+
+    //   if (event.clientY >= boxCenterY) result = refer_item
+    // }
+
+    // if (result) {
+    //   result.insertAdjacentElement('afterend', event)
+    // } else {
+    //   columns.prepend(event)
+    // }
   }
 
   onDragEnter(event: DragEvent): void {
-    // disparado quando o <li> entra na <section>
-    // disparado uma vez
+    /*
+     * disparado quando o <li> entra na <section>
+     * disparado uma vez
+     */
     event.preventDefault()
-
-    console.log('dragenter')
   }
 
-  onDrop(event: DragEvent): void {
-    // disparado quando o <li> é solto dentro da <section>
-    // disparado uma vez
-    event.preventDefault()
+  onDrop(event: DragEvent, flag: string): void {
+    // event.preventDefault()
 
-    const el = event.target as Element
+    if (flag === 'active') {
+      if (this.activeUsers.includes(this.draggingItem.name)) return
 
-    const item = el.textContent
+      this.activeUsers.push(this.draggingItem.name)
+      this.inactiveUsers.splice(this.draggingItem.index, 1)
+    }
 
-    // verifica se o item existe na lista. isso evita criar um <li> fantasma
-    if (this.inactiveUsers.some(i => i === item)) console.log('achei')
+    if (flag === 'inactive') {
+      if (this.inactiveUsers.includes(this.draggingItem.name)) return
+
+      this.inactiveUsers.push(this.draggingItem.name)
+      this.activeUsers.splice(this.draggingItem.index, 1)
+    }
+  }
+
+  onDragLeave(event: DragEvent) {
+    // event.preventDefault()
   }
 
   onDragEnd(event: DragEvent) {
-    // disparado quando solta o <li>
-    // disparado uma vez
-    event.preventDefault()
+    /*
+     * disparado quando solta o <li>
+     * disparado uma vez
+     */
+    // event.preventDefault()
 
-    console.log('dragend')
+    // eslint-disable-next-line @typescript-eslint/no-extra-semi
+    ;(<Element>event.target).classList.remove('dragging')
   }
 }

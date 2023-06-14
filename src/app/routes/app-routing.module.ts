@@ -24,7 +24,7 @@ import { AssignmentSevenComponent } from '~/components/assignments/assignment-7/
 import { AssignmentEightComponent } from '~/components/assignments/assignment-8/assignment-8.component'
 
 export const appRoutes: Routes = [
-  { path: '', redirectTo: '/forms', pathMatch: 'full' },
+  { path: '', redirectTo: '/sortable-list', pathMatch: 'full' },
   { path: 'accounts', component: AccountsComponent },
   {
     path: 'assignments',
