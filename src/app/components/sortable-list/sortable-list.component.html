@@ -1,9 +1,10 @@
+<!-- eslint-disable tailwindcss/no-custom-classname -->
 <section class="mx-auto flex w-3/4 justify-between gap-8">
   <section
     id="inactive-zone"
-    class="flex flex-1 grow flex-col gap-4 rounded bg-slate-700 p-6"
+    class="drag-zone flex flex-1 grow flex-col gap-4 rounded bg-slate-700 p-6"
     (dragenter)="onDragEnter($event)"
-    (dragover)="onDragOver($event, 'inactive')"
+    (dragover)="onDragOver($event)"
     (dragleave)="onDragLeave($event)"
     (drop)="onDrop($event, 'inactive')"
   >
@@ -26,9 +27,9 @@
 
   <section
     id="active-zone"
-    class="flex flex-1 grow flex-col gap-4 rounded bg-slate-700 p-6"
+    class="drag-zone flex flex-1 grow flex-col gap-4 rounded bg-slate-700 p-6"
     (dragenter)="onDragEnter($event)"
-    (dragover)="onDragOver($event, 'active')"
+    (dragover)="onDragOver($event)"
     (dragleave)="onDragLeave($event)"
     (drop)="onDrop($event, 'active')"
   >
@@ -36,7 +37,7 @@
 
     <ul class="sortable-list flex flex-col gap-4">
       <li
-        class="flex cursor-grab items-center gap-6 rounded border p-3 hover:bg-slate-600"
+        class="item flex cursor-grab items-center gap-6 rounded border p-3 hover:bg-slate-600"
         *ngFor="let user of activeUsers; let i = index"
         draggable="true"
         (dragstart)="onDragStart($event, i)"

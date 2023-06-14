@@ -147,6 +147,10 @@
   .radio-container .checkmark:after {
     @apply absolute left-2/4 top-2/4 hidden h-2 w-2 translate-x-[-50%] translate-y-[-50%] transform rounded-full bg-white transition-all content-[''];
   }
+
+  .item.dragging {
+    @apply opacity-50;
+  }
 }
 
 app-assignment-1,

@@ -1,59 +1,57 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'app-sortable-list',
   templateUrl: './sortable-list.component.html'
 })
-export class SortableListComponent {
+export class SortableListComponent implements OnInit {
   activeUsers: string[] = ['Fulano', 'Sicrano', 'Beltrano', 'Jaimerson']
   inactiveUsers: string[] = ['João', 'Maria', 'Zé da Manga']
 
-  draggingItem: { index: number; name: string }
+  draggingItemProps: { index: number; name: string }
 
   onDragStart(event: DragEvent, index: number): void {
-    this.draggingItem = {
+    this.draggingItemProps = {
       index: index,
       name: (<Element>event.target).textContent
     }
-
-    // eslint-disable-next-line @typescript-eslint/no-extra-semi
     ;(<Element>event.target).classList.add('dragging')
   }
 
-  onDragOver(event: DragEvent, flag: string): void {
-    /*
-     * disparado toda vez que o <li> passa por cima da <section>
-     * disparado varias vezes
-     */
+  onDragOver(event: DragEvent): void {
+    // if ((<Element>event.target).id) return
     event.preventDefault()
-    // let result
+  }
 
-    // const columns = document.querySelectorAll('.sortable-list')
+  ngOnInit(): void {
+    const lists = document.querySelectorAll('.sortable-list')
 
-    // /*console.log(columns)
-    //  * 0: ul.sortable-list.flex.flex-col.gap-4
-    //  * 1: ul.sortable-list.flex.flex-col.gap-4
-    //  * length: 2
-    //  * [[Prototype]]: NodeList
-    // */
+    lists.forEach(list => {
+      list.addEventListener('dragover', (e: DragEvent) => {
+        const dragging = document.querySelector('.dragging')
 
-    // const items = columns.querySelectorAll(
-    //   '.item:not(.dragging)'
-    // ) as unknown as Element[]
+        const applyAfter = this.getNewPosition(list, e.clientY)
 
-    // for (const refer_item of items) {
-    //   const box = refer_item.getBoundingClientRect()
+        if (applyAfter) applyAfter.insertAdjacentElement('afterend', dragging)
+        else list.prepend(dragging)
+      })
+    })
+  }
 
-    //   const boxCenterY = box.y + box.height / 2
+  getNewPosition(ul: Element, posY: number) {
+    let result: Element
 
-    //   if (event.clientY >= boxCenterY) result = refer_item
-    // }
+    const lis = ul.querySelectorAll('.item:not(.dragging)')
 
-    // if (result) {
-    //   result.insertAdjacentElement('afterend', event)
-    // } else {
-    //   columns.prepend(event)
-    // }
+    for (const refer_li of lis) {
+      const li = refer_li.getBoundingClientRect()
+
+      const liCenterY = li.y + li.height / 2
+
+      if (posY >= liCenterY) result = refer_li
+    }
+
+    return result
   }
 
   onDragEnter(event: DragEvent): void {
@@ -65,20 +63,20 @@ export class SortableListComponent {
   }
 
   onDrop(event: DragEvent, flag: string): void {
-    // event.preventDefault()
+    event.preventDefault()
 
     if (flag === 'active') {
-      if (this.activeUsers.includes(this.draggingItem.name)) return
+      if (this.activeUsers.includes(this.draggingItemProps.name)) return
 
-      this.activeUsers.push(this.draggingItem.name)
-      this.inactiveUsers.splice(this.draggingItem.index, 1)
+      this.activeUsers.unshift(this.draggingItemProps.name)
+      this.inactiveUsers.splice(this.draggingItemProps.index, 1)
     }
 
     if (flag === 'inactive') {
-      if (this.inactiveUsers.includes(this.draggingItem.name)) return
+      if (this.inactiveUsers.includes(this.draggingItemProps.name)) return
 
-      this.inactiveUsers.push(this.draggingItem.name)
-      this.activeUsers.splice(this.draggingItem.index, 1)
+      this.inactiveUsers.unshift(this.draggingItemProps.name)
+      this.activeUsers.splice(this.draggingItemProps.index, 1)
     }
   }
 
