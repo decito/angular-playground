@@ -19,7 +19,6 @@ export class SortableListComponent implements OnInit {
   }
 
   onDragOver(event: DragEvent): void {
-    // if ((<Element>event.target).id) return
     event.preventDefault()
   }
 
@@ -55,25 +54,25 @@ export class SortableListComponent implements OnInit {
   }
 
   onDragEnter(event: DragEvent): void {
-    /*
-     * disparado quando o <li> entra na <section>
-     * disparado uma vez
-     */
-    event.preventDefault()
+    //
   }
 
   onDrop(event: DragEvent, flag: string): void {
     event.preventDefault()
 
     if (flag === 'active') {
-      if (this.activeUsers.includes(this.draggingItemProps.name)) return
+      if (this.activeUsers.includes(this.draggingItemProps.name)) {
+        return
+      }
 
       this.activeUsers.unshift(this.draggingItemProps.name)
       this.inactiveUsers.splice(this.draggingItemProps.index, 1)
     }
 
     if (flag === 'inactive') {
-      if (this.inactiveUsers.includes(this.draggingItemProps.name)) return
+      if (this.inactiveUsers.includes(this.draggingItemProps.name)) {
+        return
+      }
 
       this.inactiveUsers.unshift(this.draggingItemProps.name)
       this.activeUsers.splice(this.draggingItemProps.index, 1)
@@ -81,16 +80,10 @@ export class SortableListComponent implements OnInit {
   }
 
   onDragLeave(event: DragEvent) {
-    // event.preventDefault()
+    event.preventDefault()
   }
 
   onDragEnd(event: DragEvent) {
-    /*
-     * disparado quando solta o <li>
-     * disparado uma vez
-     */
-    // event.preventDefault()
-
     // eslint-disable-next-line @typescript-eslint/no-extra-semi
     ;(<Element>event.target).classList.remove('dragging')
   }

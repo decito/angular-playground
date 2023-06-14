@@ -1,7 +1,6 @@
 <!-- eslint-disable tailwindcss/no-custom-classname -->
 <section class="mx-auto flex w-3/4 justify-between gap-8">
   <section
-    id="inactive-zone"
     class="drag-zone flex flex-1 grow flex-col gap-4 rounded bg-slate-700 p-6"
     (dragenter)="onDragEnter($event)"
     (dragover)="onDragOver($event)"
@@ -26,7 +25,6 @@
   </section>
 
   <section
-    id="active-zone"
     class="drag-zone flex flex-1 grow flex-col gap-4 rounded bg-slate-700 p-6"
     (dragenter)="onDragEnter($event)"
     (dragover)="onDragOver($event)"
