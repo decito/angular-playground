@@ -148,15 +148,15 @@
     @apply absolute left-2/4 top-2/4 hidden h-2 w-2 translate-x-[-50%] translate-y-[-50%] transform rounded-full bg-white transition-all content-[''];
   }
 
-  .drag-zone {
+  .dropzone {
     @apply transition-all;
   }
 
-  .drag-zone.highlight {
+  .dropzone.highlight {
     @apply bg-slate-600;
   }
 
-  .drag-zone.over {
+  .dropzone.over {
     @apply bg-success/50;
   }
 

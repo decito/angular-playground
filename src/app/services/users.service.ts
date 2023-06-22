@@ -7,8 +7,8 @@ import { LoggingService } from './logging.service'
 export class UsersService {
   userLoaded = new BehaviorSubject(false)
 
-  activeUsers = ['Max', 'Anna']
-  inactiveUsers = ['Chris', 'Manu']
+  activeUsers = ['Max', 'Anna', 'Fulano', 'Sicrano', 'Beltrano', 'Jaimerson']
+  inactiveUsers = ['Chris', 'Manu', 'João', 'Maria', 'Zé da Manga']
 
   users = [
     { id: 1, name: 'Foo' },
@@ -30,6 +30,22 @@ export class UsersService {
     this.activeUsers.splice(id, 1)
 
     this.loggingService.countInactiveToActive()
+  }
+
+  setDragActive(list: string[]) {
+    this.activeUsers = list
+
+    console.log(this.activeUsers)
+  }
+
+  setDragInactive(list: string[]) {
+    this.inactiveUsers = list
+
+    console.log(this.inactiveUsers)
+  }
+
+  getDragUsers(key: string) {
+    return key === 'active-users' ? this.activeUsers : this.inactiveUsers
   }
 
   getUserLoaded() {

@@ -1,0 +1,15 @@
+<section class="mx-auto flex w-3/4 justify-between gap-8">
+  <app-sortable-list
+    class="flex-1"
+    listName="Inactive Users"
+    listId="inactive-users"
+    (dropEmitter)="onEmit()"
+  ></app-sortable-list>
+
+  <app-sortable-list
+    class="flex-1"
+    listName="Active Users"
+    listId="active-users"
+    (dropEmitter)="onEmit()"
+  ></app-sortable-list>
+</section>

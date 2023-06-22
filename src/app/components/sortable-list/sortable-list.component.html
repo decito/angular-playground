@@ -1,47 +1,22 @@
 <!-- eslint-disable tailwindcss/no-custom-classname -->
-<section class="mx-auto flex w-3/4 justify-between gap-8">
+<section class="flex justify-between gap-8">
   <section
-    class="drag-zone flex flex-1 grow flex-col gap-4 rounded bg-slate-700"
-    (drop)="onDrop($event)"
+    class="dropzone flex flex-1 grow flex-col gap-4 rounded bg-slate-700"
   >
-    <h2 class="px-6 pt-6">Inactive Users</h2>
+    <h2 class="px-6 pt-6">{{ listName }}</h2>
 
     <ul
-      id="inactive-list"
+      [id]="listId"
       class="sortable-list flex grow flex-col gap-4 px-6 pb-8 pt-4"
     >
       <li
         class="item"
-        *ngFor="let user of inactiveUsers; let i = index"
+        *ngFor="let item of listItems; let i = index"
         draggable="true"
         (dragstart)="onDragStart($event, i)"
         (dragend)="onDragEnd($event)"
       >
-        <span>{{ user }}</span>
-
-        <i class="fas fa-grip-vertical"></i>
-      </li>
-    </ul>
-  </section>
-
-  <section
-    class="drag-zone flex flex-1 grow flex-col gap-4 rounded bg-slate-700"
-    (drop)="onDrop($event)"
-  >
-    <h2 class="px-6 pt-6">Active Users</h2>
-
-    <ul
-      id="active-list"
-      class="sortable-list flex grow flex-col gap-4 px-6 pb-8 pt-4"
-    >
-      <li
-        class="item"
-        *ngFor="let user of activeUsers; let i = index"
-        draggable="true"
-        (dragstart)="onDragStart($event, i)"
-        (dragend)="onDragEnd($event)"
-      >
-        <span>{{ user }}</span>
+        <span>{{ item }}</span>
 
         <i class="fas fa-grip-vertical"></i>
       </li>

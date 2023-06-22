@@ -26,6 +26,7 @@ import { PageNotFoundComponent } from '~/components/page-not-found/page-not-foun
 import { ServerComponent } from '~/components/servers/server/server.component'
 import { ServerEditComponent } from '~/components/servers/server/server-edit/server-edit.component'
 import { ServersComponent } from '~/components/servers/servers.component'
+import { SortableContainerComponent } from './components/sortable-list/sortable-container.component'
 import { SortableListComponent } from './components/sortable-list/sortable-list.component'
 import { UserComponent } from '~/components/users/user/user.component'
 import { UsersComponent } from '~/components/users/users.component'
@@ -62,6 +63,7 @@ import { AssignmentEightComponent } from '~/components/assignments/assignment-8/
     ServerComponent,
     ServerEditComponent,
     ServersComponent,
+    SortableContainerComponent,
     SortableListComponent,
     UserComponent,
     UsersComponent,
