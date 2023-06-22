@@ -10,22 +10,23 @@ export class SortableListComponent implements OnInit {
 
   draggingItemProps: { index: number; name: string }
 
-  onDragStart(event: DragEvent, index: number): void {
-    this.draggingItemProps = {
-      index: index,
-      name: (<Element>event.target).textContent
-    }
-    ;(<Element>event.target).classList.add('dragging')
-  }
-
-  onDragOver(event: DragEvent): void {
-    event.preventDefault()
-  }
+  dropzones: NodeListOf<Element>
+  lists: NodeListOf<Element>
+  activeList: HTMLElement
+  inactiveList: HTMLElement
 
   ngOnInit(): void {
-    const lists = document.querySelectorAll('.sortable-list')
+    this.dropzones = document.querySelectorAll('.drag-zone')
+    this.lists = document.querySelectorAll('.sortable-list')
+    this.activeList = document.getElementById('active-list')
+    this.inactiveList = document.getElementById('inactive-list')
 
-    lists.forEach(list => {
+    this.dropzones.forEach(dropzone => {
+      dropzone.addEventListener('dragover', this.onDragOver)
+      dropzone.addEventListener('dragleave', this.onDragLeave)
+    })
+
+    this.lists.forEach(list => {
       list.addEventListener('dragover', (e: DragEvent) => {
         const dragging = document.querySelector('.dragging')
 
@@ -37,12 +38,22 @@ export class SortableListComponent implements OnInit {
     })
   }
 
+  onDragStart(event: DragEvent, index: number): void {
+    this.draggingItemProps = {
+      index: index,
+      name: (<Element>event.target).textContent
+    }
+    ;(<Element>event.target).classList.add('dragging')
+
+    this.dropzones.forEach(zone => zone.classList.add('highlight'))
+  }
+
   getNewPosition(ul: Element, posY: number) {
     let result: Element
 
-    const lis = ul.querySelectorAll('.item:not(.dragging)')
+    const liArray = ul.querySelectorAll('.item:not(.dragging)')
 
-    for (const refer_li of lis) {
+    for (const refer_li of liArray) {
       const li = refer_li.getBoundingClientRect()
 
       const liCenterY = li.y + li.height / 2
@@ -53,38 +64,43 @@ export class SortableListComponent implements OnInit {
     return result
   }
 
-  onDragEnter(event: DragEvent): void {
-    //
+  onDragOver(): void {
+    const self = this as unknown as Element
+
+    self.classList.add('over')
   }
 
-  onDrop(event: DragEvent, flag: string): void {
-    event.preventDefault()
+  onDragLeave() {
+    const self = this as unknown as Element
 
-    if (flag === 'active') {
-      if (this.activeUsers.includes(this.draggingItemProps.name)) {
-        return
-      }
-
-      this.activeUsers.unshift(this.draggingItemProps.name)
-      this.inactiveUsers.splice(this.draggingItemProps.index, 1)
-    }
-
-    if (flag === 'inactive') {
-      if (this.inactiveUsers.includes(this.draggingItemProps.name)) {
-        return
-      }
-
-      this.inactiveUsers.unshift(this.draggingItemProps.name)
-      this.activeUsers.splice(this.draggingItemProps.index, 1)
-    }
-  }
-
-  onDragLeave(event: DragEvent) {
-    event.preventDefault()
+    self.classList.remove('over')
   }
 
   onDragEnd(event: DragEvent) {
+    this.dropzones.forEach(zone => zone.classList.remove('highlight'))
+
     // eslint-disable-next-line @typescript-eslint/no-extra-semi
     ;(<Element>event.target).classList.remove('dragging')
+  }
+
+  onDrop(event: DragEvent): void {
+    event.preventDefault()
+
+    const newActiveOrder = []
+    const newInactiveOrder = []
+
+    const activeItems = this.activeList.getElementsByTagName('li')
+    const inactiveItems = this.inactiveList.getElementsByTagName('li')
+
+    for (let i = 0; i < activeItems.length; i++)
+      newActiveOrder.push(activeItems[i].textContent)
+
+    for (let i = 0; i < inactiveItems.length; i++)
+      newInactiveOrder.push(inactiveItems[i].textContent)
+
+    this.activeUsers = newActiveOrder
+    this.inactiveUsers = newInactiveOrder
+
+    this.dropzones.forEach(zone => zone.classList.remove('highlight'))
   }
 }
