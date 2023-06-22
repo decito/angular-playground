@@ -1,67 +1,89 @@
-import { Component } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+
+import { UsersService } from '~/services/users.service'
 
 @Component({
   selector: 'app-sortable-list',
   templateUrl: './sortable-list.component.html'
 })
-export class SortableListComponent {
-  activeUsers: string[] = ['Fulano', 'Sicrano', 'Beltrano']
-  inactiveUsers: string[] = ['João', 'Maria', 'Zé da Manga']
+export class SortableListComponent implements OnInit {
+  @Input() listName: string
+  @Input() listId: string
+  @Input() listItems: string[]
 
-  draggingIndex: number
+  dropzone: NodeListOf<Element>
+  list: NodeListOf<Element>
+  draggingItemProps: { index: number; name: string }
 
-  setActive(index: number): void {
-    const user = this.inactiveUsers.splice(index, 1)[0]
-    this.activeUsers.push(user)
+  @Output() dropEmitter = new EventEmitter<boolean>()
+
+  constructor(private usersService: UsersService) {}
+
+  ngOnInit(): void {
+    this.dropzone = document.querySelectorAll('.dropzone')
+    this.list = document.querySelectorAll('.sortable-list')
+
+    this.listItems = this.usersService.getDragUsers(this.listId)
+
+    this.dropzone.forEach(zone => {
+      zone.addEventListener('dragover', this.onDragOver)
+      zone.addEventListener('dragleave', this.onDragLeave)
+    })
+
+    this.list.forEach(l => {
+      l.addEventListener('dragover', (e: DragEvent) => {
+        const dragging = document.querySelector('.dragging')
+
+        const applyAfter = this.getNewPosition(l, e.clientY)
+
+        if (applyAfter) applyAfter.insertAdjacentElement('afterend', dragging)
+        else l.prepend(dragging)
+      })
+    })
   }
 
-  setInactive(index: number): void {
-    const user = this.activeUsers.splice(index, 1)[0]
-    this.inactiveUsers.push(user)
+  getNewPosition(ul: Element, posY: number) {
+    let result: Element
+
+    const liArray = ul.querySelectorAll('.item:not(.dragging)')
+
+    for (const refer_li of liArray) {
+      const li = refer_li.getBoundingClientRect()
+
+      const liCenterY = li.y + li.height / 2
+
+      if (posY >= liCenterY) result = refer_li
+    }
+
+    return result
   }
 
   onDragStart(event: DragEvent, index: number): void {
-    // disparado quando o <li> é agarrado
-    // disparado uma vez
-    this.draggingIndex = index
+    this.draggingItemProps = {
+      index: index,
+      name: (<Element>event.target).textContent
+    }
+    ;(<Element>event.target).classList.add('dragging')
 
-    console.log('dragstart')
+    this.dropzone.forEach(zone => zone.classList.add('highlight'))
   }
 
-  onDragOver(event: DragEvent): void {
-    // disparado toda vez que o <li> passa por cima da <section>
-    // disparado varias vezes
-    event.preventDefault()
+  onDragOver(): void {
+    const self = this as unknown as Element
 
-    console.log('dragover')
+    self.classList.add('over')
   }
 
-  onDragEnter(event: DragEvent): void {
-    // disparado quando o <li> entra na <section>
-    // disparado uma vez
-    event.preventDefault()
+  onDragLeave() {
+    const self = this as unknown as Element
 
-    console.log('dragenter')
-  }
-
-  onDrop(event: DragEvent): void {
-    // disparado quando o <li> é solto dentro da <section>
-    // disparado uma vez
-    event.preventDefault()
-
-    const el = event.target as Element
-
-    const item = el.textContent
-
-    // verifica se o item existe na lista. isso evita criar um <li> fantasma
-    if (this.inactiveUsers.some(i => i === item)) console.log('achei')
+    self.classList.remove('over')
   }
 
   onDragEnd(event: DragEvent) {
-    // disparado quando solta o <li>
-    // disparado uma vez
-    event.preventDefault()
+    this.dropzone.forEach(zone => zone.classList.remove('highlight'))
+    ;(<Element>event.target).classList.remove('dragging')
 
-    console.log('dragend')
+    this.dropEmitter.emit(true)
   }
 }

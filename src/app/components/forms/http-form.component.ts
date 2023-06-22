@@ -12,7 +12,7 @@ import type { Post } from '~/types'
 export class HttpFormComponent implements OnInit, OnDestroy {
   loadedPosts = []
   isFetching = false
-  errorMessage = null
+  errorMessage: string
   subscription: Subscription
 
   constructor(private postsService: PostsService) {}

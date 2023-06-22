@@ -11,7 +11,7 @@ import { HttpFormComponent } from '~/components/forms/http-form.component'
 import { ServerEditComponent } from '~/components/servers/server/server-edit/server-edit.component'
 import { ServerResolver } from '~/routes/resolvers/server-resolver.service'
 import { ServersComponent } from '~/components/servers/servers.component'
-import { SortableListComponent } from '~/components/sortable-list/sortable-list.component'
+import { SortableContainerComponent } from '~/components/sortable-list/sortable-container.component'
 import { UserComponent } from '~/components/users/user/user.component'
 import { UsersComponent } from '~/components/users/users.component'
 
@@ -24,7 +24,7 @@ import { AssignmentSevenComponent } from '~/components/assignments/assignment-7/
 import { AssignmentEightComponent } from '~/components/assignments/assignment-8/assignment-8.component'
 
 export const appRoutes: Routes = [
-  { path: '', redirectTo: '/forms', pathMatch: 'full' },
+  { path: '', redirectTo: '/sortable-list', pathMatch: 'full' },
   { path: 'accounts', component: AccountsComponent },
   {
     path: 'assignments',
@@ -56,7 +56,7 @@ export const appRoutes: Routes = [
       }
     ]
   },
-  { path: 'sortable-list', component: SortableListComponent },
+  { path: 'sortable-list', component: SortableContainerComponent },
   {
     path: 'not-found',
     component: ErrorPageComponent,

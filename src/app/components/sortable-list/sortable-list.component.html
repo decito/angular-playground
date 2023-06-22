@@ -1,43 +1,24 @@
-<section class="mx-auto flex w-3/4 justify-between gap-8">
+<!-- eslint-disable tailwindcss/no-custom-classname -->
+<section class="flex justify-between gap-8">
   <section
-    id="inactive-zone"
-    class="flex flex-1 grow flex-col gap-4 rounded bg-slate-700 p-6"
-    (dragover)="onDragOver($event)"
-    (dragenter)="onDragEnter($event)"
-    (drop)="onDrop($event)"
+    class="dropzone flex flex-1 grow flex-col gap-4 rounded bg-slate-700"
   >
-    <h2>Inactive Users</h2>
+    <h2 class="px-6 pt-6">{{ listName }}</h2>
 
-    <ul class="sortable-list flex flex-col gap-4">
+    <ul
+      [id]="listId"
+      class="sortable-list flex grow flex-col gap-4 px-6 pb-8 pt-4"
+    >
       <li
-        class="item flex cursor-grab items-center gap-6 rounded border p-3 hover:bg-slate-600"
-        *ngFor="let user of inactiveUsers; let i = index"
+        class="item"
+        *ngFor="let item of listItems; let i = index"
         draggable="true"
         (dragstart)="onDragStart($event, i)"
         (dragend)="onDragEnd($event)"
       >
-        <i class="fas fa-bars"></i>
+        <span>{{ item }}</span>
 
-        <span>{{ user }}</span>
-      </li>
-    </ul>
-  </section>
-
-  <section
-    id="active-zone"
-    class="flex flex-1 grow flex-col gap-4 rounded bg-slate-700 p-6"
-  >
-    <h2>Active Users</h2>
-
-    <ul class="sortable-list flex flex-col gap-4">
-      <li
-        class="flex cursor-grab items-center gap-6 rounded border p-3 hover:bg-slate-600"
-        *ngFor="let user of activeUsers; let i = index"
-        draggable="true"
-      >
-        <i class="fas fa-bars"></i>
-
-        <span>{{ user }}</span>
+        <i class="fas fa-grip-vertical"></i>
       </li>
     </ul>
   </section>

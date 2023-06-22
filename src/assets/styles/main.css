@@ -147,6 +147,26 @@
   .radio-container .checkmark:after {
     @apply absolute left-2/4 top-2/4 hidden h-2 w-2 translate-x-[-50%] translate-y-[-50%] transform rounded-full bg-white transition-all content-[''];
   }
+
+  .dropzone {
+    @apply transition-all;
+  }
+
+  .dropzone.highlight {
+    @apply bg-slate-600;
+  }
+
+  .dropzone.over {
+    @apply bg-success/50;
+  }
+
+  .item {
+    @apply flex cursor-grab items-center justify-between gap-6 rounded border p-3 hover:bg-slate-600;
+  }
+
+  .item.dragging {
+    @apply opacity-50;
+  }
 }
 
 app-assignment-1,
