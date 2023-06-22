@@ -34,14 +34,10 @@ export class UsersService {
 
   setDragActive(list: string[]) {
     this.activeUsers = list
-
-    console.log(this.activeUsers)
   }
 
   setDragInactive(list: string[]) {
     this.inactiveUsers = list
-
-    console.log(this.inactiveUsers)
   }
 
   getDragUsers(key: string) {
