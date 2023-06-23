@@ -9,17 +9,21 @@
     <span [ngStyle]="{ color: getColor() }">{{ server.status }}</span>
   </p>
 
-  <div class="flex gap-5">
-    <i
-      (click)="toggleStatus()"
-      class="fas fa-plug cursor-pointer transition-colors hover:text-warning"
-    ></i>
+  <div class="flex gap-3 text-lg">
+    <div class="icon-container">
+      <i
+        (click)="toggleStatus()"
+        class="fas fa-plug cursor-pointer transition-colors hover:text-warning"
+      ></i>
+    </div>
 
-    <i
-      [routerLink]="['/servers/' + server.id + '/edit']"
-      [queryParams]="{ allowEdit: true }"
-      fragment="editing"
-      class="fas fa-gear cursor-pointer transition-colors hover:text-primary"
-    ></i>
+    <div class="icon-container">
+      <i
+        [routerLink]="['/servers/' + server.id + '/edit']"
+        [queryParams]="{ allowEdit: true }"
+        fragment="editing"
+        class="fas fa-gear cursor-pointer transition-colors hover:text-primary"
+      ></i>
+    </div>
   </div>
 </div>

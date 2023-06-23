@@ -167,6 +167,10 @@
   .item.dragging {
     @apply opacity-50;
   }
+
+  .icon-container {
+    @apply flex h-8 w-8 items-center justify-center rounded-full p-2 transition-all hover:bg-slate-500;
+  }
 }
 
 app-assignment-1,
