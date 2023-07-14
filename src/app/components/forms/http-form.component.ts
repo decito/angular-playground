@@ -13,6 +13,7 @@ import type { Post } from '~/types'
 export class HttpFormComponent implements OnInit, OnDestroy {
   loadedPosts = []
   isFetching = false
+  isCreating = false
   errorMessage: string
   subscription: Subscription
 
@@ -27,7 +28,16 @@ export class HttpFormComponent implements OnInit, OnDestroy {
   }
 
   onCreatePost(postData: Post) {
-    this.postsService.createAndStorePost(postData.title, postData.content)
+    this.isCreating = true
+
+    this.postsService
+      .createAndStorePost(postData.title, postData.content)
+      .subscribe({
+        complete: () => {
+          this.fetchPosts()
+          this.isCreating = false
+        }
+      })
   }
 
   onFetchPosts() {
@@ -41,17 +51,17 @@ export class HttpFormComponent implements OnInit, OnDestroy {
   private fetchPosts() {
     this.isFetching = true
 
-    this.postsService.fetchPosts().subscribe(
-      posts => {
+    this.postsService.fetchPosts().subscribe({
+      next: posts => {
         this.isFetching = false
         this.errorMessage = null
         this.loadedPosts = posts
       },
-      (err: HttpErrorResponse) => {
+      error: (err: HttpErrorResponse) => {
         this.isFetching = false
         this.errorMessage = `${err.status} ${err.statusText}`
       }
-    )
+    })
   }
 
   onHandleError() {

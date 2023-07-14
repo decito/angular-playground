@@ -24,6 +24,8 @@ export class PostsService {
         next: () => console.info(`Post '${post.title}' created.`),
         error: (err: HttpErrorResponse) => this.errorContent.next(err)
       })
+
+    return this.fetchPosts()
   }
 
   fetchPosts() {
