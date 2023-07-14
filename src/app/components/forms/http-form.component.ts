@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Subscription } from 'rxjs/internal/Subscription'
+import { HttpErrorResponse } from '@angular/common/http'
 
 import { PostsService } from '~/services/posts.service'
 
@@ -18,7 +19,7 @@ export class HttpFormComponent implements OnInit, OnDestroy {
   constructor(private postsService: PostsService) {}
 
   ngOnInit(): void {
-    this.subscription = this.postsService.errorMessage.subscribe(
+    this.subscription = this.postsService.errorContent.subscribe(
       err => (this.errorMessage = `${err.status} ${err.statusText}`)
     )
 
@@ -43,14 +44,11 @@ export class HttpFormComponent implements OnInit, OnDestroy {
     this.postsService.fetchPosts().subscribe(
       posts => {
         this.isFetching = false
-
         this.errorMessage = null
-
         this.loadedPosts = posts
       },
-      err => {
+      (err: HttpErrorResponse) => {
         this.isFetching = false
-
         this.errorMessage = `${err.status} ${err.statusText}`
       }
     )

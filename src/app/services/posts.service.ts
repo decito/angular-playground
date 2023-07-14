@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Subject } from 'rxjs/internal/Subject'
 import { throwError } from 'rxjs/internal/observable/throwError'
@@ -11,7 +11,7 @@ import type { Post } from '~/types'
 
 @Injectable({ providedIn: 'root' })
 export class PostsService {
-  errorMessage = new Subject<any>()
+  errorContent = new Subject<HttpErrorResponse>()
 
   constructor(private http: HttpClient) {}
 
@@ -20,10 +20,10 @@ export class PostsService {
 
     this.http
       .post<{ name: string }>(`${environment.domain}/posts.json`, post)
-      .subscribe(
-        () => {},
-        err => this.errorMessage.next(err)
-      )
+      .subscribe({
+        next: () => console.info(`Post '${post.title}' created.`),
+        error: (err: HttpErrorResponse) => this.errorContent.next(err)
+      })
   }
 
   fetchPosts() {
@@ -34,12 +34,13 @@ export class PostsService {
           const posts: Post[] = []
 
           for (const key in res) {
-            if (res.hasOwnProperty(key)) posts.push({ ...res[key], id: key })
+            if (Object.prototype.hasOwnProperty.call(res, key))
+              posts.push({ ...res[key], id: key })
           }
 
           return posts
         }),
-        catchError(err => throwError(() => err))
+        catchError((err: HttpErrorResponse) => throwError(() => err))
       )
   }
 
