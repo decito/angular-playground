@@ -14,8 +14,12 @@
       <textarea id="content" required ngModel name="content"></textarea>
     </section>
 
-    <app-button variant="primary" type="submit" [disabled]="!postForm.valid">
-      Send Post
+    <app-button
+      variant="primary"
+      type="submit"
+      [disabled]="!postForm.valid || isCreating"
+    >
+      {{ isCreating ? 'Sending Post...' : 'Send Post' }}
     </app-button>
   </form>
 
@@ -67,8 +71,14 @@
     </app-button>
   </div>
 
-  <ul *ngIf="loadedPosts.length && !isFetching" class="grid grid-cols-3 gap-4">
-    <li *ngFor="let post of loadedPosts" class="rounded border p-4">
+  <ul
+    *ngIf="loadedPosts.length && !isFetching"
+    class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3"
+  >
+    <li
+      *ngFor="let post of loadedPosts"
+      class="rounded border bg-slate-700 p-4"
+    >
       <h2>{{ post.title }}</h2>
 
       <p>{{ post.content }}</p>
