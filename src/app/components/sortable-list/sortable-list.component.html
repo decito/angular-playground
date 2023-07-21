@@ -1,14 +1,8 @@
-<!-- eslint-disable tailwindcss/no-custom-classname -->
 <section class="flex justify-between gap-8">
-  <section
-    class="dropzone flex flex-1 grow flex-col gap-4 rounded bg-slate-700"
-  >
+  <section class="dropzone">
     <h2 class="px-6 pt-6">{{ listName }}</h2>
 
-    <ul
-      [id]="listId"
-      class="sortable-list flex grow flex-col gap-4 px-6 pb-8 pt-4"
-    >
+    <ul [id]="listId" class="sortable-list">
       <li
         class="item"
         *ngFor="let item of listItems; let i = index"

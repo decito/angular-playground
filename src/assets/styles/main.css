@@ -149,7 +149,7 @@
   }
 
   .dropzone {
-    @apply transition-all;
+    @apply flex flex-1 grow flex-col gap-4 rounded bg-slate-700 transition-all;
   }
 
   .dropzone.highlight {
@@ -170,6 +170,10 @@
 
   .icon-container {
     @apply flex h-8 w-8 items-center justify-center rounded-full p-2 transition-all hover:bg-slate-500;
+  }
+
+  .sortable-list {
+    @apply flex grow flex-col gap-4 px-6 pb-8 pt-4;
   }
 }
 
