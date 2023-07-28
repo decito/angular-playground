@@ -22,7 +22,6 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { HeaderComponent } from '~/components/header/header.component'
 import { HttpFormComponent } from './components/forms/http-form.component'
 import { NewAccountComponent } from '~/components/accounts/new-account/new-account.component'
-import { PageNotFoundComponent } from '~/components/page-not-found/page-not-found.component'
 import { ServerComponent } from '~/components/servers/server/server.component'
 import { ServerEditComponent } from '~/components/servers/server/server-edit/server-edit.component'
 import { ServersComponent } from '~/components/servers/servers.component'
@@ -59,7 +58,6 @@ import { AssignmentEightComponent } from '~/components/assignments/assignment-8/
     HeaderComponent,
     HttpFormComponent,
     NewAccountComponent,
-    PageNotFoundComponent,
     ServerComponent,
     ServerEditComponent,
     ServersComponent,
