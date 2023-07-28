@@ -78,10 +78,6 @@
     @apply p-3;
   }
 
-  button i {
-    @apply ml-2;
-  }
-
   h1 {
     @apply text-3xl font-bold;
   }

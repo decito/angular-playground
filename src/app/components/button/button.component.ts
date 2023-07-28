@@ -13,8 +13,8 @@ export class ButtonComponent implements OnInit, OnChanges {
 
   @Input() outlined? = false
   @Input() disabled? = false
-
   @Input() icon? = ''
+  @Input() iconFlt? = false
 
   classes: string
 

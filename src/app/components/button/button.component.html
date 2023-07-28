@@ -1,5 +1,7 @@
 <button [type]="type" [class]="classes" [disabled]="disabled">
+  <i *ngIf="icon && iconFlt" [class]="'mr-2 fas fa-' + icon"></i>
+
   <ng-content></ng-content>
 
-  <i *ngIf="icon" [class]="'fas fa-' + icon"></i>
+  <i *ngIf="icon && !iconFlt" [class]="'ml-2 fas fa-' + icon"></i>
 </button>
