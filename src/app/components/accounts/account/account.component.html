@@ -1,17 +1,20 @@
-<article class="flex flex-col gap-4 rounded border border-gray-300 p-4">
-  <header>
+<article
+  class="flex h-full flex-col justify-between gap-4 rounded border border-gray-300 p-4"
+>
+  <header class="flex grow flex-col justify-between">
     <h2>{{ account.name }}</h2>
 
-    <hr />
-
-    <p class="py-2">This account is {{ account.status }}</p>
+    <div class="pt-2">
+      <hr class="border-slate-600" />
+      <p class="py-2">This account is {{ account.status }}</p>
+    </div>
   </header>
 
-  <div class="flex gap-4">
+  <div class="flex flex-col gap-4 lg:flex-row">
     <app-button
       variant="success"
       [outlined]="true"
-      size="sm"
+      size="full"
       (click)="changeStatus('active')"
     >
       Set to 'active'
@@ -20,7 +23,7 @@
     <app-button
       variant="warning"
       [outlined]="true"
-      size="sm"
+      size="full"
       (click)="changeStatus('inactive')"
     >
       Set to 'inactive'
@@ -29,7 +32,7 @@
     <app-button
       variant="secondary"
       [outlined]="true"
-      size="sm"
+      size="full"
       (click)="changeStatus('unknown')"
     >
       Set to 'unknown'
